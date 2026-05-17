@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
