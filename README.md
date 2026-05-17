@@ -1,5 +1,7 @@
 # claude-skills
 
+[![View on GitHub](https://img.shields.io/badge/GitHub-JaydotMurf%2Fclaude--skills-blue?logo=github)](https://github.com/JaydotMurf/claude-skills)
+
 A curated library of Claude Code skills for veterans and GovTech professionals.
 
 ## What is a Claude Code skill?
