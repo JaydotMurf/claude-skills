@@ -5,7 +5,7 @@ tags: [prompting, productivity, workflow]
 audience: DoD contractors, veterans, solo operators building repeatable AI workflows
 ---
 
-# Meta-Prompt Composer
+# Prompt Builder
 
 Takes whatever the user gives you — rough notes, examples, a task description, edge cases — and outputs a clean, structured prompt they can reuse across sessions. No prompt engineering background required.
 
