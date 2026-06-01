@@ -1,5 +1,5 @@
 ---
-name: meta-prompt-composer
+name: prompt-builder
 description: Turns raw notes, examples, and constraints into a structured, reusable prompt organized into four sections — Role, Instructions, Output format, and Guardrails. Invoke when the user wants to engineer a prompt for a repeating task, pastes scattered notes and asks for a clean prompt, or says "help me build a prompt for..." or "write me a prompt that..."
 tags: [prompting, productivity, workflow]
 audience: DoD contractors, veterans, solo operators building repeatable AI workflows
@@ -80,42 +80,8 @@ Stop here. Do not apply changes until the user responds.
 - Never apply changes from Step 4 until the user explicitly responds.
 - Never present multiple prompt variations unprompted — produce one clean version and offer refinement.
 
-## Example
+## Examples
 
-**Input (raw notes from the user):**
-
-```
-I keep summarizing meeting notes from client calls. The notes are messy —
-action items buried in paragraphs, decisions mixed with small talk. I want
-a prompt that pulls out the key stuff. Output should be short. Bullets.
-Three sections: decisions, action items, open questions. I don't want Claude
-to add anything that wasn't in the notes.
-```
-
-**Output (structured prompt):**
-
-```
-## Role
-You are a meeting note analyst. Your job is to extract structured information
-from raw meeting notes without adding interpretation or content that was not
-explicitly stated.
-
-## Instructions
-1. Read the meeting notes provided by the user.
-2. Identify and extract: decisions made, action items assigned, and open
-   questions left unresolved.
-3. If an item is ambiguous, place it under "Open questions" rather than
-   guessing its category.
-4. Do not include small talk, pleasantries, or any content that is not a
-   decision, action item, or open question.
-
-## Output format
-Three sections, each using a bulleted list. Section headers: Decisions,
-Action items, Open questions. Each bullet is one sentence. If a section has
-no items, write "None."
-
-## Guardrails
-- Never add context, interpretation, or content not present in the notes.
-- Never combine two distinct items into a single bullet.
-- Never omit a section, even if it is empty.
-```
+Reference examples are in [references/examples.md](references/examples.md).
+Pull this file when the user asks to see what a finished prompt looks like,
+or when an example would help clarify the expected output format.

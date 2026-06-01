@@ -13,7 +13,7 @@ Claude Code supports custom skills: named, structured workflows you invoke with 
 | Skill | What it does | Audience |
 |---|---|---|
 | [starting-project-session](skills/starting-project-session/) | Loads project context at the start of a session, confirms the current phase and next step, and waits for explicit go-ahead before touching anything | Any Claude Code user working on multi-session projects |
-| [meta-prompt-composer](skills/meta-prompt-composer/) | Turns raw notes and constraints into a structured, reusable prompt with Role, Instructions, Output format, and Guardrails sections | Contractors and solo operators building repeatable AI workflows |
+| [prompt-builder](skills/prompt-builder/) | Turns raw notes and constraints into a structured, reusable prompt with Role, Instructions, Output format, and Guardrails sections | Contractors and solo operators building repeatable AI workflows |
 | session-handoff | Captures key decisions and open loops at the end of a session so nothing is lost across context resets | Coming soon |
 
 ## Install

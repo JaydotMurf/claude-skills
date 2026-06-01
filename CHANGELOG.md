@@ -4,6 +4,18 @@ All notable changes to this project are documented here. Format follows [Keep a 
 
 ---
 
+## [1.1.0] — 2026-06-01
+
+### Changed
+
+- Renamed meta-prompt-composer to prompt-builder for clarity with a
+  non-technical audience.
+- Implemented progressive disclosure in prompt-builder: extracted inline
+  example from SKILL.md into references/examples.md. SKILL.md now
+  references the file rather than embedding the content.
+
+---
+
 ## [1.0.0] — 2026-05-17
 
 ### Added
