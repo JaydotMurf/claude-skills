@@ -1,33 +1,34 @@
 ---
 name: starting-project-session
-description: Loads project context at the start of a fresh Claude Code session by running /init, reading implementation plans and design docs, confirming the current phase, next step, and files to touch — then waiting for explicit go-ahead before taking any action. Use at the top of any session where prior context may have been lost, when the user says "pick up where we left off", "fresh session", "load context", "what's next", "resume the build", "let's get started on the project", or explicitly runs /init. Always trigger before any coding or editing begins.
+description: Loads project context at the start of a fresh coding agent session by reading implementation plans and design docs, confirming the current phase, next step, and files to touch — then waiting for explicit go-ahead before taking any action. Use at the top of any session where prior context may have been lost, when the user says "pick up where we left off", "fresh session", "load context", "what's next", "resume the build", "let's get started on the project", or explicitly runs /init. Always trigger before any coding or editing begins.
 allowed-tools: Read
-model: claude-sonnet-4-6
 ---
 
 # Starting a Project Session
 
-Structured warm-up for any Claude Code session. Orients to the current project state before any action is taken. Follow steps in order — do not skip ahead.
+Structured warm-up for any coding agent session. Orients to the current project state before any action is taken. Follow steps in order — do not skip ahead.
 
 ## Startup sequence
 
-### Step 1 — Run /init
+### Step 1 — Initialize (Claude Code only)
 
-/init
-Loads `CLAUDE.md` (if present) and establishes project-level instructions. If `/init` fails or `CLAUDE.md` is missing, note it and continue to Step 2.
+If running in Claude Code, run `/init` to load `CLAUDE.md` and establish project-level instructions. If `/init` fails or `CLAUDE.md` is missing, note it and continue to Step 2. On other platforms, skip to Step 2.
 
 ### Step 2 — Locate and read the project docs
 
 Check for these files in priority order:
 
-| File                          | Purpose                                   |
-| ----------------------------- | ----------------------------------------- |
-| `docs/implementation-plan.md` | Phase roadmap and current step            |
-| `docs/design-guidelines.md`   | Design decisions and constraints          |
-| `CLAUDE.md`                   | Project-level Claude instructions         |
-| `README.md`                   | Fallback if no implementation plan exists |
+| File                          | Purpose                                                                     |
+| ----------------------------- | --------------------------------------------------------------------------- |
+| `docs/implementation-plan.md` | Phase roadmap and current step                                              |
+| `docs/design-guidelines.md`   | Design decisions and constraints                                            |
+| `.antigravity.md`             | Project-level instructions (Antigravity — takes precedence over AGENTS.md) |
+| `AGENTS.md`                   | Project-level instructions (Antigravity primary / cross-platform standard)  |
+| `CLAUDE.md`                   | Project-level instructions (Claude Code)                                    |
+| `GEMINI.md`                   | Project-level instructions (legacy Gemini CLI)                              |
+| `README.md`                   | Fallback if no implementation plan exists                                   |
 
-Read only the files that have been listed above. If none of the above are present, ask the user to describe a roadmap, phase, or task. Do not proceed to Step 3 until all relevant files are read and/or the user has provided relevant context.
+Read any of the above that are present. Do not skip a file because it is platform-specific — in a cross-platform project multiple config files may coexist and each may contain relevant constraints.
 
 ### Step 3 — Confirm project state
 
