@@ -23,8 +23,8 @@ Takes whatever the user gives you — rough notes, examples, a task description,
 If the user has already provided notes, a task description, or examples in their message, skip the ask and go to Step 2. Otherwise, ask for the following — accept whatever they have, do not require all of it:
 
 - What task does this prompt handle?
-- Who or what should Claude act as when running this prompt?
-- What are the rules or constraints Claude must follow?
+- Who or what should the assistant act as when running this prompt?
+- What are the rules or constraints the assistant must follow?
 - What should the output look like — format, length, structure?
 - Any examples of good output, or things to avoid?
 
@@ -34,10 +34,10 @@ Before writing, extract these elements from the user's raw material:
 
 | Section | What it captures |
 |---|---|
-| Role | Who Claude is when running this prompt |
-| Instructions | What Claude must do, in what order |
+| Role | Who the assistant is when running this prompt |
+| Instructions | What the assistant must do, in what order |
 | Output format | What the final output looks like — structure, length, formatting |
-| Guardrails | What Claude must never do |
+| Guardrails | What the assistant must never do |
 
 If the user's notes do not cover a section, either infer a reasonable default or flag the gap explicitly. Do not silently skip sections.
 
@@ -47,16 +47,16 @@ Output the finished prompt in this exact format:
 
 ```
 ## Role
-[One or two sentences. Who is Claude? What is Claude's job in this prompt?]
+[One or two sentences. Who is the assistant? What is the assistant's job in this prompt?]
 
 ## Instructions
-[Numbered steps. What must Claude do, in what order?]
+[Numbered steps. What must the assistant do, in what order?]
 
 ## Output format
 [Exact description of the output. Include structure, length constraints, and formatting rules.]
 
 ## Guardrails
-[Bulleted list. What must Claude never do? What are the hard limits?]
+[Bulleted list. What must the assistant never do? What are the hard limits?]
 ```
 
 ### Step 4 — Confirm and offer refinement
