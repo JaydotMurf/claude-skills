@@ -1,6 +1,6 @@
 ---
 name: session-handoff
-description: Captures key decisions, open loops, and next steps at the end of a Claude Code session so they survive context resets and can be loaded cleanly at the start of the next session.
+description: Captures key decisions, open loops, and next steps at the end of a coding agent session so they survive context resets and can be loaded cleanly at the start of the next session.
 tags: [session-management, handoff, continuity]
 audience: DoD contractors, veterans, solo operators running multi-session projects
 status: coming-soon

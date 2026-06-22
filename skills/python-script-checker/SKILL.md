@@ -11,6 +11,5 @@ allowed-tools:
   - Read
   - Write
 context: fork
-model: claude-sonnet-4-6
 status: coming-soon
 ---

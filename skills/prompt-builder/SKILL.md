@@ -14,7 +14,7 @@ Takes whatever the user gives you — rough notes, examples, a task description,
 - When the user says "help me build a prompt for..." or "write me a prompt that..."
 - When the user pastes scattered notes and asks for a clean prompt
 - When the user wants to systematize a task they keep doing manually
-- When the user wants a reusable prompt they can drop into future Claude Code sessions or share with their team
+- When the user wants a reusable prompt they can drop into future sessions or share with their team
 
 ## Steps
 

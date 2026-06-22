@@ -8,7 +8,7 @@
 I keep summarizing meeting notes from client calls. The notes are messy —
 action items buried in paragraphs, decisions mixed with small talk. I want
 a prompt that pulls out the key stuff. Output should be short. Bullets.
-Three sections: decisions, action items, open questions. I don't want Claude
+Three sections: decisions, action items, open questions. I don't want the assistant
 to add anything that wasn't in the notes.
 ```
 
