@@ -1,0 +1,90 @@
+<!doctype html>
+<!-- Example artifact produced by the html-artifacts skill: its own setup summary. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>html-artifacts — setup summary</title>
+<style>
+  :root {
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --bg: #ffffff; --surface: #f6f7f9; --text: #1a1d21; --muted: #5b636c;
+    --border: #e3e6ea; --accent: #2f5bd0; --accent-weak: #eaf0fd;
+    --space-2: 8px; --space-3: 16px; --space-4: 24px; --space-5: 40px; --space-6: 64px;
+    --radius: 10px; --measure: 820px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0f1216; --surface:#171b21; --text:#e7eaee; --muted:#9aa3ad;
+      --border:#272c34; --accent:#6f9bff; --accent-weak:#1a2435; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:var(--font);
+    line-height:1.55; font-size:16px; -webkit-font-smoothing:antialiased; }
+  main { max-width:var(--measure); margin:0 auto; padding:var(--space-6) var(--space-4); }
+  h1,h2 { line-height:1.2; margin:var(--space-5) 0 var(--space-3); }
+  h1 { font-size:2rem; letter-spacing:-0.02em; }
+  h2 { font-size:1.4rem; }
+  p { margin:0 0 var(--space-3); }
+  .lead { font-size:1.15rem; color:var(--muted); }
+  .badge { display:inline-block; padding:2px 10px; border-radius:999px;
+    background:var(--accent-weak); color:var(--accent); font-size:0.8rem; font-weight:600; }
+  header.report { border-bottom:1px solid var(--border); padding-bottom:var(--space-4); }
+  .cards { display:grid; gap:var(--space-3);
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); margin:var(--space-3) 0; }
+  .card { background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:var(--space-3); }
+  .card .stat { font-size:1.8rem; font-weight:700; }
+  .card .label { color:var(--muted); font-size:0.85rem; }
+  table { width:100%; border-collapse:collapse; margin:var(--space-3) 0; }
+  th,td { text-align:left; padding:var(--space-2) var(--space-3); border-bottom:1px solid var(--border); }
+  thead th { font-size:0.85rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--muted); }
+  .timeline { list-style:none; margin:0; padding:0; border-left:2px solid var(--border); }
+  .timeline li { position:relative; margin:0 0 var(--space-4); padding-left:var(--space-4); }
+  .timeline li::before { content:""; position:absolute; left:-7px; top:6px;
+    width:12px; height:12px; border-radius:50%; background:var(--accent); }
+  .timeline b { font-family:var(--mono); font-weight:600; }
+</style>
+</head>
+<body>
+<main>
+  <header class="report">
+    <span class="badge">Core Infrastructure</span>
+    <h1>html-artifacts</h1>
+    <p class="lead">Render dense or visual output as a single self-contained HTML file in a consistent house style, instead of a long chat response.</p>
+  </header>
+
+  <section>
+    <h2>At a glance</h2>
+    <div class="cards">
+      <div class="card"><div class="stat">1</div><div class="label">file per artifact</div></div>
+      <div class="card"><div class="stat">0</div><div class="label">external deps</div></div>
+      <div class="card"><div class="stat">5</div><div class="label">layout patterns</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Hard rules</h2>
+    <table>
+      <thead><tr><th>Rule</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>One HTML file</td><td>Easy to keep, send, and open</td></tr>
+        <tr><td>Inline CSS and JS</td><td>No build step, nothing to resolve</td></tr>
+        <tr><td>No external dependencies</td><td>Works offline, forever</td></tr>
+        <tr><td>Verify it renders</td><td>Never ship an artifact you did not open</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>How it runs</h2>
+    <ul class="timeline">
+      <li><b>1</b> &nbsp;Pick the layout pattern that fits the content.</li>
+      <li><b>2</b> &nbsp;Copy the house-style template and fill it in.</li>
+      <li><b>3</b> &nbsp;Run check.sh to confirm it is self-contained.</li>
+      <li><b>4</b> &nbsp;Open it, confirm it renders, then call it done.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
