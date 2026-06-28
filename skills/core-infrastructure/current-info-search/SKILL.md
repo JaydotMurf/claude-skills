@@ -64,11 +64,11 @@ curl https://api.perplexity.ai/v1/sonar \
   }'
 ```
 
-The endpoint is `https://api.perplexity.ai/v1/sonar` (the legacy `https://api.perplexity.ai/chat/completions` path is a fallback). The answer is at `choices[0].message.content`. Sources arrive in `search_results[]` (each with `title`, `url`, `date`, `snippet`) and as plain URLs in `citations[]`. The first live run confirms which fields populate; update this section if needed.
+Confirmed by live test (2026-06-29): both `https://api.perplexity.ai/v1/sonar` and the legacy `https://api.perplexity.ai/chat/completions` return HTTP 200 with the same structure. The answer is at `choices[0].message.content`. Sources populate `search_results[]` (each with `title`, `url`, `date`, plus `snippet`, `source`, `last_updated`) and `citations[]` as plain URLs. `usage.cost` is an object: `{input_tokens_cost, output_tokens_cost, request_cost, total_cost}`.
 
 ## Cost
 
-Token-based, search and citations included. `sonar` is $1.00 per 1M input and $1.00 per 1M output tokens; `sonar-pro` is $3.00 / $15.00; `sonar-reasoning-pro` is $2.00 / $8.00. A small per-request search fee can apply depending on search context size. A typical `sonar` lookup costs a fraction of a cent.
+Token-based plus a per-request search fee. `sonar` is $1.00 per 1M input and $1.00 per 1M output tokens; `sonar-pro` is $3.00 / $15.00; `sonar-reasoning-pro` is $2.00 / $8.00. Confirmed by live test (2026-06-29): a `sonar` query with low search context cost about $0.0057 total (`usage.cost.total_cost`), of which $0.005 was the per-request search fee and the rest token cost. Budget roughly half a cent to a cent per lookup, dominated by the search fee.
 
 ## For other skills
 
@@ -87,4 +87,4 @@ An answer grounded in live search, followed by a Sources list where each entry i
 
 ## Verification standard
 
-Do not call the task done until: the command exits zero, every key claim in the answer carries a dated primary source, and the answer reflects the search results where they conflict with prior knowledge. The build-time test is one question about something released in the last month, answered with sources; it is deferred until a Perplexity key is present.
+Do not call the task done until: the command exits zero, every key claim in the answer carries a dated primary source, and the answer reflects the search results where they conflict with prior knowledge. Build-time test passed on 2026-06-29: a current-info query returned a dated, sourced answer (note that an over-tight `--recency` filter can cause the model to decline, so reserve it for genuinely time-bound questions).

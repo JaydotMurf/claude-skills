@@ -69,7 +69,7 @@ curl -X POST https://api.assemblyai.com/v2/transcript \
 curl https://api.assemblyai.com/v2/transcript/ID -H "Authorization: $ASSEMBLYAI_API_KEY"
 ```
 
-The completed response carries `text`, `words[]` (each with `start`, `end`, `speaker`), `utterances[]` (speaker turns), and `chapters[]` (`headline`, `gist`, `summary`, `start`, `end`).
+The completed response carries `text`, `words[]` (each with `text`, `start`, `end`, `confidence`, `speaker`), `utterances[]` (speaker turns), `chapters[]` (`headline`, `gist`, `summary`, `start`, `end`), and `audio_duration` in seconds. Confirmed by live test (2026-06-29): the `speech_models` array is accepted (the response echoes `speech_model: null`, which is expected), and AIFF input from macOS `say` uploaded and transcribed without conversion.
 
 ## Output contract
 
@@ -86,7 +86,7 @@ If your skill needs a transcript, call media-transcription and read the artifact
 
 ## Cost and caveats
 
-AssemblyAI bills per hour of audio. A short clip costs a few cents; confirm current rates at assemblyai.com/pricing. AssemblyAI flags `auto_chapters` as deprecated in favor of its newer summarization gateway, so the chapters step may need migration later; it still returns chapters today. The `speech_models` array field is current; older code used a singular `speech_model` string.
+AssemblyAI bills by audio duration, not per request, and the transcript response carries no cost field (use `audio_duration` seconds to estimate). Confirmed by live test (2026-06-29): a 16-second clip transcribed for a tiny fraction of a cent. Confirm current per-hour rates at assemblyai.com/pricing. AssemblyAI flags `auto_chapters` as deprecated in favor of its newer summarization gateway, so the chapters step may need migration later; it still returns chapters today. The `speech_models` array field is current; older code used a singular `speech_model` string.
 
 Dependencies: `curl` and `jq` always; `ffmpeg` only for video sources, to extract audio before upload. Audio inputs need no ffmpeg. On macOS install it with `brew install ffmpeg`.
 
@@ -98,4 +98,4 @@ Dependencies: `curl` and `jq` always; `ffmpeg` only for video sources, to extrac
 
 ## Verification standard
 
-Do not call the task done until: the script exits zero, the job reached status `completed`, and the output folder contains `transcript.json`, `transcript.md`, `words.json`, and `chapters.md` with non-empty transcript text. The build-time test is a short audio file producing the full package; it is deferred until an AssemblyAI key is present.
+Do not call the task done until: the script exits zero, the job reached status `completed`, and the output folder contains `transcript.json`, `transcript.md`, `words.json`, and `chapters.md` with non-empty transcript text. Build-time test passed on 2026-06-29: a 16-second clip produced the full four-artifact package with accurate speaker-labeled text, word timestamps, and a chapter.

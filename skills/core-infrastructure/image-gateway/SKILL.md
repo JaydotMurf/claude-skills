@@ -71,11 +71,11 @@ curl https://openrouter.ai/api/v1/chat/completions \
 
 For an edit, add an `image_url` item to the same `content` array with a base64 data URL of the source image. For aspect ratio, add `"image_config": {"aspect_ratio": "16:9"}` at the top level.
 
-The returned image arrives base64-encoded inside the response. The exact path has appeared in docs as both `choices[0].message.images[].image_url.url` (a data URL) and `data[].b64_json`, so `generate.sh` checks each known shape. The first live run confirms which one this model returns; update this section with the confirmed path once verified.
+The returned image arrives base64-encoded inside the response. Confirmed by live test (2026-06-29): the image is at `choices[0].message.images[0].image_url.url` as a `data:image/png;base64,...` data URL; the `data[].b64_json` form is not used by this model. `generate.sh` still checks both known shapes for resilience.
 
 ## Cost
 
-Roughly $0.04 per generated image. The response's `usage.cost` field is authoritative and the script prints it after each run. Underlying token pricing is $0.30 per 1M input tokens and $2.50 per 1M output tokens.
+Confirmed by live test (2026-06-29): $0.0387 for one 1024x1024 image (1290 image tokens billed as output). The response's `usage.cost` field is authoritative and the script prints it after each run. Underlying token pricing is $0.30 per 1M input tokens and $2.50 per 1M output tokens.
 
 ## For other skills
 
@@ -93,4 +93,4 @@ A single PNG written under the output directory (default `~/Pictures/agent-image
 
 ## Verification standard
 
-Do not call the task done until: the command exits zero, the output file exists and is a non-empty PNG (`file` reports PNG image data), and the per-image cost was reported. The first live run is the build-time test; once it runs, record the confirmed response path and the actual observed cost in this file.
+Do not call the task done until: the command exits zero, the output file exists and is a non-empty PNG (`file` reports PNG image data), and the per-image cost was reported. Build-time test passed on 2026-06-29: produced a 1024x1024 PNG at $0.0387.
