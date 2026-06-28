@@ -20,3 +20,9 @@ npm-debug.log*
 .idea/
 *.swp
 *.swo
+
+# Secrets — real keys live outside the repo; never commit an env file.
+# The committed contract is .env.example only.
+.env
+.env.local
+secrets.env

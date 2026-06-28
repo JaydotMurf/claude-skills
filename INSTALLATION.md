@@ -57,3 +57,17 @@ After installing, open a Claude Code session and type the skill name with a lead
 ```
 
 If Claude Code does not recognize it, confirm the skill folder is in the correct location and contains a `SKILL.md` file at its root.
+
+---
+
+## Secrets and API keys
+
+Skills that call external APIs read their key from an environment variable and never store it. All keys live in one file outside this repo:
+
+```
+~/.config/agent-skills/.env   (chmod 600)
+```
+
+Each skill documents the exact variable name it expects. The current contract is listed in [`.env.example`](.env.example); copy a key's line into your real env file and fill in the value. Never commit a real key, and never paste one into a `SKILL.md`.
+
+The repo is public, so the real env file is deliberately kept outside the repo tree where an accidental commit cannot reach it. As the project grows or moves to more than one machine, this same environment-variable contract can be fed by a secrets manager such as 1Password CLI or Doppler that injects the variables at runtime, without changing any skill.
