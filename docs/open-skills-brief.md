@@ -8,7 +8,7 @@ control, runs across any agent harness that reads a SKILL.md style convention, a
 regardless of model provider. This brief defines the framework, the separation between primitives
 and compositions, and the methodology for creating, scoping, and verifying these procedures. It is
 written for integration into a systems engineering documentation repository and is grounded in the
-practice of the claude-skills repository that contains it.
+practice of the agent-skills repository that contains it.
 
 ## Provenance
 

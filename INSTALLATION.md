@@ -1,6 +1,8 @@
 # Installation
 
-Three ways to use claude-skills. Choose the method that matches how you work.
+Three ways to use agent-skills. Choose the method that matches how you work. The examples below use Claude Code paths; other harnesses use their own skill directory, but the copy step is the same.
+
+Newer skills are nested under a category folder, for example `skills/agent-operations/<skill-name>`. Copy the skill's leaf folder, the one that contains `SKILL.md`, regardless of how deep it sits.
 
 ---
 
@@ -28,7 +30,7 @@ Scoped to a single project. Useful when a skill is specific to one repo or when 
 
 ```bash
 mkdir -p .claude/skills
-cp -r /path/to/claude-skills/skills/starting-project-session .claude/skills/
+cp -r /path/to/agent-skills/skills/starting-project-session .claude/skills/
 ```
 
 ---
