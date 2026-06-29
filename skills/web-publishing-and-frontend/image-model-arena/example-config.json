@@ -1,0 +1,22 @@
+{
+  "arena": "2026-frontier-image-models",
+  "output_dir": "~/arena/2026-frontier-image-models",
+  "page": {
+    "title": "Frontier Image Models — Side by Side",
+    "description": "One standard prompt set across photorealism, text rendering, diagrams, people, and style range."
+  },
+  "models": [
+    { "id": "gemini-2.5-flash-image", "gateway_model": "google/gemini-2.5-flash-image", "label": "Gemini 2.5 Flash Image" },
+    { "id": "flux-1.1-pro", "gateway_model": "black-forest-labs/flux-1.1-pro", "label": "FLUX 1.1 Pro" }
+  ],
+  "prompts": [
+    { "id": "photoreal-street", "category": "photorealism", "text": "A photorealistic empty city street at blue-hour dusk, wet asphalt reflecting neon signage, 35mm." },
+    { "id": "text-storefront", "category": "text-rendering", "text": "A bakery storefront whose sign clearly reads 'MORNING LOAF — open at six', crisp legible lettering." },
+    { "id": "diagram-water-cycle", "category": "diagrams", "text": "A clean labeled diagram of the water cycle with arrows and readable labels, flat vector style." },
+    { "id": "people-portrait", "category": "people", "text": "A natural candid portrait of an older mechanic in a garage, soft window light, realistic skin and hands." },
+    { "id": "people-group", "category": "people", "text": "Three coworkers laughing around a laptop in an open office, varied ages and ethnicities, natural poses." },
+    { "id": "style-watercolor", "category": "style-range", "text": "A quiet coastal village rendered as a loose watercolor, visible paper texture and soft bleeds." },
+    { "id": "style-isometric", "category": "style-range", "text": "An isometric cutaway of a tiny coffee shop, clean 3D, warm palette, soft ambient occlusion." },
+    { "id": "text-poster", "category": "text-rendering", "text": "A minimalist concert poster reading 'NIGHT SHIFT / FRIDAY / 9PM', strong type hierarchy." }
+  ]
+}

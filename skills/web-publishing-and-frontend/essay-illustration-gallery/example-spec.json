@@ -1,0 +1,14 @@
+{
+  "essay": "The Long Way Back to the Map Room",
+  "essay_path": "~/essays/map-room.md",
+  "description": "A veteran retrains as a cartographer and learns the terrain he survived is not the terrain on the page.",
+  "style_descriptor": "Hand-drawn editorial cartoon in warm ink-and-wash: confident brush linework, a muted ochre-and-slate palette with one warm red accent, soft paper texture, generous negative space, no text in the image, single clear subject per frame",
+  "output": "~/Documents/galleries/the-long-way-back-to-the-map-room.html",
+  "frames": [
+    { "id": "01-opening", "passage": "He still measured rooms in fields of fire.", "rationale": "Opens on the habit the whole piece works against.", "caption": "The instinct that came home with him, drawn as a quiet room he reads like terrain.", "prompt": "A man standing in an ordinary kitchen, unconsciously scanning corners and exits, faint sightline arcs sketched over the calm domestic scene" },
+    { "id": "02-classroom", "passage": "The first lecture was about lying honestly: every map is a chosen distortion.", "rationale": "The turn — his new craft names the thing he distrusts.", "caption": "The lecture that reframes the whole essay: a map is an argued choice, not a fact.", "prompt": "A cartography classroom, an instructor at a chalkboard showing two contradictory map projections of the same coast" },
+    { "id": "03-fieldwork", "passage": "Ground truth, they called it, as if the ground had ever told him the truth.", "rationale": "Midpoint friction between lived terrain and surveyed terrain.", "caption": "Out surveying, the word 'ground truth' lands differently for him than for his classmates.", "prompt": "A lone surveyor with a tripod on a windswept ridge at dawn, measuring a valley that opens below" },
+    { "id": "04-archive", "passage": "He found his own war already drawn, tidy and wrong.", "rationale": "The gut-punch: his memory meets the official map.", "caption": "In the archive he finds the place he survived, rendered clean and incomplete.", "prompt": "A man alone in a dim map archive, holding an old military map up to a desk lamp, his face caught between recognition and grief" },
+    { "id": "05-resolution", "passage": "So he drew it again, and this time he left the hard parts in.", "rationale": "Closes the arc: he stops distrusting the map and starts making an honest one.", "caption": "The ending: he redraws the terrain himself, including what the official version omitted.", "prompt": "Overhead view of hands inking a new hand-drawn map at a wooden desk, warm lamplight, the map detailed and alive" }
+  ]
+}
