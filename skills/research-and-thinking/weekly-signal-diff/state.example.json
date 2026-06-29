@@ -1,0 +1,39 @@
+{
+  "skill": "weekly-signal-diff",
+  "version": 1,
+  "watch": [
+    {
+      "id": "notes-ideas",
+      "kind": "folder",
+      "path": "~/Documents/notes/ideas/",
+      "check": "files created or modified since the last run's timestamp"
+    },
+    {
+      "id": "notes-meetings",
+      "kind": "folder",
+      "path": "~/Documents/notes/meetings/",
+      "check": "files created or modified since the last run's timestamp"
+    },
+    {
+      "id": "tasks",
+      "kind": "file",
+      "path": "~/Documents/notes/tasks.md",
+      "check": "lines added, completed, or removed since the last run"
+    }
+  ],
+  "runs": [
+    {
+      "date": "2026-06-29",
+      "timestamp": "2026-06-29T00:00:00Z",
+      "observations": [
+        {
+          "source": "notes-ideas",
+          "summary": "Baseline: no prior state. Recorded current contents as the starting point.",
+          "signals": [],
+          "assumptions": [],
+          "open_threads": []
+        }
+      ]
+    }
+  ]
+}
