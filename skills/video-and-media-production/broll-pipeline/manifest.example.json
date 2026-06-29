@@ -1,0 +1,35 @@
+{
+  "video": "talk.mp4",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "graphics": [
+    {
+      "id": "g001",
+      "in": 12.5,
+      "out": 17.0,
+      "type": "lowerThird",
+      "concept": "Introduce the speaker the first time the chapter names them.",
+      "data": { "title": "Jordan Ellis", "subtitle": "Program Manager, DIU" }
+    },
+    {
+      "id": "g002",
+      "in": 48.0,
+      "out": 53.0,
+      "type": "stat",
+      "concept": "Reinforce the headline metric the speaker cites.",
+      "data": { "value": "82%", "label": "of pilots shipped on time" }
+    },
+    {
+      "id": "g003",
+      "in": 96.0,
+      "out": 102.0,
+      "type": "bulletList",
+      "concept": "List the three blockers as the speaker enumerates them.",
+      "data": {
+        "heading": "Top blockers",
+        "items": ["ATO timelines", "Data access", "Hiring cleared staff"]
+      }
+    }
+  ]
+}
