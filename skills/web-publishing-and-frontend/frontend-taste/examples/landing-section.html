@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+  frontend-taste worked example: one premium-marketing landing hero section.
+  Built to the frontend-taste core rules and the premium-marketing sub-skill:
+    - one confident hero, single primary CTA
+    - real type scale (1.25 ratio), one display family role + system text
+    - restrained palette: near-black on warm off-white, one accent doing the work
+    - generous, intentional whitespace; no hero-plus-three-cards, no purple gradient
+  Self-contained: no external resources. Open in a browser to inspect.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>frontend-taste — landing section example</title>
+  <style>
+    :root {
+      /* type scale, 1.25 ratio off a 1.125rem base */
+      --text-sm: 0.875rem;
+      --text-base: 1.125rem;
+      --text-lg: 1.406rem;
+      --text-xl: 1.758rem;
+      --display: clamp(2rem, 7.5vw, 4.3rem);
+      /* restrained palette: neutral foundation + one accent */
+      --bg: #faf8f4;
+      --text: #15130f;
+      --muted: #6b665d;
+      --border: #e6e1d8;
+      --accent: #c2410c;
+      --accent-ink: #fff;
+      /* spacing on a 4px base unit */
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --space-20: 80px;
+      --measure: 36rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: var(--text-base)/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .hero {
+      max-width: 64rem;
+      margin: 0 auto;
+      padding: var(--space-20) var(--space-6) var(--space-12);
+    }
+    .eyebrow {
+      font-size: var(--text-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 0 var(--space-6);
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif; /* one display family, role split from body */
+      font-size: var(--display);
+      line-height: 1.04;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+      margin: 0 0 var(--space-6);
+      max-width: 18ch;
+      overflow-wrap: break-word;
+    }
+    .lede {
+      font-size: var(--text-lg);
+      color: var(--muted);
+      max-width: var(--measure);
+      margin: 0 0 var(--space-8);
+    }
+    .actions { display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      font-size: var(--text-base);
+      font-weight: 600;
+      padding: var(--space-3) var(--space-6);
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); }
+    .btn-quiet { color: var(--text); border: 1px solid var(--border); background: transparent; }
+    .meta {
+      margin-top: var(--space-20);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
+      color: var(--muted);
+      font-size: var(--text-sm);
+    }
+    .meta strong { display: block; color: var(--text); font-size: var(--text-xl); font-weight: 600; margin-bottom: var(--space-2); }
+    @media (max-width: 640px) {
+      .hero { padding-top: var(--space-12); }
+      .meta { grid-template-columns: 1fr; gap: var(--space-6); }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <p class="eyebrow">Agent Skills</p>
+    <h1>Ship agent output that looks like a person made it.</h1>
+    <p class="lede">A taste system that replaces default frontend instincts with real grids, a real type scale, and one accent doing the work — verified by screenshot, not by hope.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#">Read the skill</a>
+      <a class="btn btn-quiet" href="#">See the rules</a>
+    </div>
+    <div class="meta">
+      <div><strong>4</strong>sub-skills routed by task type</div>
+      <div><strong>1</strong>accent, used on purpose</div>
+      <div><strong>0</strong>purple gradients on white</div>
+    </div>
+  </section>
+</body>
+</html>
