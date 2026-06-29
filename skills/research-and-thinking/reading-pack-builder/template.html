@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Reading pack shell. Self-contained: inline CSS + JS only, no external resources.
+     House style mirrors the html-artifacts skill tokens. To build a pack:
+     1. Set PACK below: id (stable slug), title, and one entry per document in
+        intended reading ORDER, each with title, summary, and reason.
+     2. For each document, add an <article class="doc" data-doc-id="..."> holding the
+        source converted to clean structural HTML (headings, paragraphs, lists, tables).
+     3. The data-doc-id on each <article> must match the id in PACK, in the same order. -->
+<title>Reading Pack</title>
+<style>
+  :root {
+    --bg: #ffffff; --surface: #f6f7f9; --text: #15181d; --muted: #5b6470;
+    --border: #e2e5ea; --accent: #2563eb; --done: #16a34a;
+    --radius: 10px; --measure: 70ch;
+    --space-1: 4px; --space-2: 8px; --space-3: 16px; --space-4: 24px;
+    --space-5: 40px; --space-6: 64px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1216; --surface: #171b21; --text: #e6e8ec; --muted: #9aa3af;
+      --border: #272d36; --accent: #5b8cff; --done: #4ade80;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: var(--space-5) var(--space-3); }
+  h1 { font-size: 1.6rem; margin: 0 0 var(--space-2); }
+  .lead { color: var(--muted); margin: 0 0 var(--space-5); }
+  .order-list { list-style: none; padding: 0; margin: 0; }
+  .order-item {
+    display: flex; gap: var(--space-3); align-items: flex-start;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    background: var(--surface); padding: var(--space-3); margin-bottom: var(--space-3);
+  }
+  .order-num {
+    flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent); color: #fff; display: grid; place-items: center;
+    font-size: 0.85rem; font-weight: 600;
+  }
+  .order-body { flex: 1 1 auto; }
+  .order-title { font-weight: 600; cursor: pointer; background: none; border: 0;
+    color: var(--text); font-size: 1rem; padding: 0; text-align: left; }
+  .order-title:hover { color: var(--accent); }
+  .order-summary { color: var(--text); margin: var(--space-1) 0; }
+  .order-reason { color: var(--muted); font-size: 0.9rem; }
+  .badge { font-size: 0.75rem; padding: 2px 8px; border-radius: 999px;
+    border: 1px solid var(--border); color: var(--muted); white-space: nowrap; }
+  .badge.read { color: var(--done); border-color: var(--done); }
+  .doc { display: none; }
+  .doc.active { display: block; }
+  .doc h1, .doc h2, .doc h3 { line-height: 1.3; }
+  .doc img { max-width: 100%; height: auto; }
+  .doc table { border-collapse: collapse; }
+  .doc th, .doc td { border: 1px solid var(--border); padding: var(--space-1) var(--space-2); }
+  .navbar {
+    display: flex; gap: var(--space-2); align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--border); margin-top: var(--space-5); padding-top: var(--space-3);
+  }
+  button.nav {
+    font: inherit; cursor: pointer; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text); border-radius: var(--radius);
+    padding: var(--space-2) var(--space-3);
+  }
+  button.nav:disabled { opacity: 0.4; cursor: default; }
+  button.mark { border-color: var(--accent); color: var(--accent); }
+  button.mark.is-read { border-color: var(--done); color: var(--done); }
+  .progress { color: var(--muted); font-size: 0.9rem; margin-top: var(--space-2); }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- INDEX VIEW -->
+  <section id="index-view">
+    <h1 id="pack-title">Reading Pack</h1>
+    <p class="lead" id="pack-lead">Read these in the suggested order. Progress is saved in this browser.</p>
+    <ol class="order-list" id="order-list"></ol>
+    <p class="progress" id="index-progress"></p>
+  </section>
+
+  <!-- READER VIEW -->
+  <section id="reader-view" class="hidden">
+    <p><button class="nav" id="to-index">&larr; Index</button></p>
+
+    <!-- One <article> per document, in reading order. data-doc-id must match PACK ids. -->
+    <article class="doc" data-doc-id="doc-1">
+      <h1>First document title</h1>
+      <p>Replace this article with the first source document converted to clean,
+         structural HTML. Preserve headings, paragraphs, lists, and tables.</p>
+    </article>
+
+    <article class="doc" data-doc-id="doc-2">
+      <h1>Second document title</h1>
+      <p>Replace this article with the second source document, same treatment.</p>
+    </article>
+
+    <div class="navbar">
+      <button class="nav" id="prev-btn">&larr; Previous</button>
+      <button class="nav mark" id="mark-btn">Mark read</button>
+      <button class="nav" id="next-btn">Next &rarr;</button>
+    </div>
+    <p class="progress" id="reader-progress"></p>
+  </section>
+
+</div>
+
+<script>
+  // ---- Pack config: edit these two values, in reading order. ----
+  const PACK = {
+    id: "reading-pack-demo",
+    title: "Reading Pack",
+    lead: "Read these in the suggested order. Progress is saved in this browser.",
+    docs: [
+      { id: "doc-1", title: "First document title",
+        summary: "One-line summary of the first document.",
+        reason: "Why it is read first." },
+      { id: "doc-2", title: "Second document title",
+        summary: "One-line summary of the second document.",
+        reason: "Why it follows the first." }
+    ]
+  };
+  // ---------------------------------------------------------------
+
+  const KEY = "reading-pack:" + PACK.id;
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; }
+                       catch (e) { return {}; } };
+  const save = (s) => { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} };
+  let state = load();
+  let current = 0;
+
+  const articles = Array.from(document.querySelectorAll(".doc"));
+  const indexView = document.getElementById("index-view");
+  const readerView = document.getElementById("reader-view");
+
+  function isRead(id) { return !!state[id]; }
+  function setRead(id, v) { state[id] = v; save(state); }
+  function readCount() { return PACK.docs.filter(d => isRead(d.id)).length; }
+
+  function renderIndex() {
+    document.getElementById("pack-title").textContent = PACK.title;
+    document.title = PACK.title;
+    document.getElementById("pack-lead").textContent = PACK.lead;
+    const ol = document.getElementById("order-list");
+    ol.innerHTML = "";
+    PACK.docs.forEach((d, i) => {
+      const li = document.createElement("li");
+      li.className = "order-item";
+      const num = document.createElement("div");
+      num.className = "order-num"; num.textContent = String(i + 1);
+      const body = document.createElement("div");
+      body.className = "order-body";
+      const t = document.createElement("button");
+      t.className = "order-title"; t.textContent = d.title;
+      t.onclick = () => openDoc(i);
+      const s = document.createElement("p"); s.className = "order-summary"; s.textContent = d.summary;
+      const r = document.createElement("p"); r.className = "order-reason"; r.textContent = d.reason;
+      body.append(t, s, r);
+      const badge = document.createElement("span");
+      badge.className = "badge" + (isRead(d.id) ? " read" : "");
+      badge.textContent = isRead(d.id) ? "Read" : "Unread";
+      li.append(num, body, badge);
+      ol.append(li);
+    });
+    document.getElementById("index-progress").textContent =
+      readCount() + " of " + PACK.docs.length + " read";
+  }
+
+  function openDoc(i) {
+    current = i;
+    indexView.classList.add("hidden");
+    readerView.classList.remove("hidden");
+    articles.forEach((a, j) => a.classList.toggle("active", j === i));
+    document.getElementById("prev-btn").disabled = (i === 0);
+    document.getElementById("next-btn").disabled = (i === PACK.docs.length - 1);
+    const mark = document.getElementById("mark-btn");
+    const read = isRead(PACK.docs[i].id);
+    mark.textContent = read ? "Read ✓" : "Mark read";
+    mark.classList.toggle("is-read", read);
+    document.getElementById("reader-progress").textContent =
+      "Document " + (i + 1) + " of " + PACK.docs.length;
+    window.scrollTo(0, 0);
+  }
+
+  function toIndex() {
+    readerView.classList.add("hidden");
+    indexView.classList.remove("hidden");
+    renderIndex();
+    window.scrollTo(0, 0);
+  }
+
+  document.getElementById("to-index").onclick = toIndex;
+  document.getElementById("prev-btn").onclick = () => { if (current > 0) openDoc(current - 1); };
+  document.getElementById("next-btn").onclick = () => {
+    if (current < PACK.docs.length - 1) openDoc(current + 1);
+  };
+  document.getElementById("mark-btn").onclick = () => {
+    const id = PACK.docs[current].id;
+    setRead(id, !isRead(id));
+    openDoc(current);
+  };
+
+  renderIndex();
+</script>
+</body>
+</html>
