@@ -1,6 +1,8 @@
 # Installation
 
-Three ways to use claude-skills. Choose the method that matches how you work.
+Three ways to use agent-skills. Choose the method that matches how you work. The examples below use Claude Code paths; other harnesses use their own skill directory, but the copy step is the same.
+
+Newer skills are nested under a category folder, for example `skills/agent-operations/<skill-name>`. Copy the skill's leaf folder, the one that contains `SKILL.md`, regardless of how deep it sits.
 
 ---
 
@@ -28,7 +30,7 @@ Scoped to a single project. Useful when a skill is specific to one repo or when 
 
 ```bash
 mkdir -p .claude/skills
-cp -r /path/to/claude-skills/skills/starting-project-session .claude/skills/
+cp -r /path/to/agent-skills/skills/starting-project-session .claude/skills/
 ```
 
 ---
@@ -55,3 +57,17 @@ After installing, open a Claude Code session and type the skill name with a lead
 ```
 
 If Claude Code does not recognize it, confirm the skill folder is in the correct location and contains a `SKILL.md` file at its root.
+
+---
+
+## Secrets and API keys
+
+Skills that call external APIs read their key from an environment variable and never store it. All keys live in one file outside this repo:
+
+```
+~/.config/agent-skills/.env   (chmod 600)
+```
+
+Each skill documents the exact variable name it expects. The current contract is listed in [`.env.example`](.env.example); copy a key's line into your real env file and fill in the value. Never commit a real key, and never paste one into a `SKILL.md`.
+
+The repo is public, so the real env file is deliberately kept outside the repo tree where an accidental commit cannot reach it. As the project grows or moves to more than one machine, this same environment-variable contract can be fed by a secrets manager such as 1Password CLI or Doppler that injects the variables at runtime, without changing any skill.

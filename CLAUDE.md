@@ -1,6 +1,6 @@
-# claude-skills
+# agent-skills
 
-Public library of reusable Claude Code skills for veterans and GovTech professionals. Every file in this repo is either a skill, a template, or documentation for how to use and contribute skills.
+Public library of reusable agent skills and runbooks for veterans and GovTech professionals. The skills are model-agnostic: each is a canonical markdown procedure that runs on any agent harness reading a `SKILL.md` convention (Claude Code, Codex, Gemini Antigravity, and others). Every file in this repo is a skill, a runbook, a template, a build prompt, or documentation for how to use and contribute them.
 
 ---
 
@@ -16,14 +16,47 @@ Public library of reusable Claude Code skills for veterans and GovTech professio
 
 ## Skill authoring standard
 
-Every skill in this repo must have:
+A skill is a primitive: one atomic, repeatable action an agent can perform and verify on its own. Every skill in this repo must have:
 
-1. Frontmatter at the top: `name`, `description`, `tags`, `audience`
-2. A trigger description: the exact conditions under which Claude should invoke this skill
-3. Numbered steps Claude follows in order
-4. At least one guardrail: a hard constraint Claude must never violate while the skill is active
+1. Frontmatter at the top: `name`, `description`, `tags`, `audience`. Add `source` when the skill is imported (for example `open-skills` or `mattpocock`).
+2. A trigger description: the exact conditions under which the agent should invoke this skill, and the conditions under which it should not.
+3. Numbered steps the agent follows in order.
+4. At least one guardrail: a hard constraint the agent must never violate while the skill is active, written as a "Never..." imperative.
+5. An output contract: what the skill produces and in what shape.
+6. A verification standard: the evidence that must exist before the skill calls itself done.
 
-Skills without all four are not merge-ready.
+Skills without all six are not merge-ready.
+
+---
+
+## Runbook authoring standard
+
+A runbook is a composition: an ordered chain of skills directed at one outcome. Every runbook in this repo must have:
+
+1. Frontmatter at the top: `name`, `description`, `tags`, `audience`.
+2. The outcome the runbook produces.
+3. The ordered list of skills it calls, each named, with the data passed between steps.
+4. A verification standard for the final output.
+
+The runbook owns sequence and data flow. Each step it names must be an independently verifiable skill that already exists in the library.
+
+---
+
+## Repository structure
+
+Skills are grouped by function into seven categories under `skills/`:
+
+- `core-infrastructure/` — the primitives other skills call; build these first.
+- `research-and-thinking/` — turn raw inputs into structured, reviewable thinking.
+- `writing-voice-and-content/` — make agent writing sound like a specific person for a specific audience.
+- `web-publishing-and-frontend/` — take agent output public with taste and verification.
+- `video-and-media-production/` — the heaviest media skills in the library.
+- `testing-and-quality/` — make agent-built things trustworthy and the next session smarter.
+- `agent-operations/` — meta-skills about running agents well.
+
+Runbooks live under `runbooks/`. The build prompts that generate each skill live under `meta-prompts/`, mirroring the category layout. Templates live under `templates/`.
+
+Category nesting is a library concern. When a skill is installed into a specific harness, the nesting flattens to that harness's expected location; generating those per-harness adapters is a planned later phase, not a current requirement.
 
 ---
 
@@ -31,5 +64,5 @@ Skills without all four are not merge-ready.
 
 All lowercase, hyphens, no spaces. No camelCase, no underscores.
 
-Correct: `starting-project-session/SKILL.md`
+Correct: `core-infrastructure/starting-project-session/SKILL.md`
 Incorrect: `StartingProjectSession/skill.md`, `starting_project_session/SKILL.md`
