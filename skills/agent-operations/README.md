@@ -21,4 +21,4 @@ Relocated here from the flat library in the taxonomy reconciliation (Pass 1). So
 - [writing-great-skills](writing-great-skills/SKILL.md) — reference vocabulary and principles for authoring predictable skills. (mattpocock)
 - [starting-project-session](starting-project-session/SKILL.md) — load project context at session start, confirm phase, next step, and files, then wait for go-ahead. (original)
 - [prompt-builder](prompt-builder/SKILL.md) — turn scattered notes into a structured four-section reusable prompt (Role, Instructions, Output format, Guardrails). (original)
-- [open-brain-capture](open-brain-capture/SKILL.md) — push key conversation context to Open Brain as discrete, retrievable captures. (original)
+- [context-to-open-brain](context-to-open-brain/SKILL.md) — extract durable, reusable knowledge from a session (decisions, scripts, structure, conventions, integrations) and push each as a standalone Open Brain capture; triggers proactively at session end. (original)

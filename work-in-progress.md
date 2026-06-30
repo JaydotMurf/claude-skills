@@ -152,7 +152,7 @@ agent-skills/
 │   │   ├── ask-workflow/  handoff/  writing-great-skills/   (vendored)
 │   │   ├── starting-project-session/ # (owned, built to standard)
 │   │   ├── prompt-builder/         # SKILL.md + references/ (owned)
-│   │   └── open-brain-capture/     # (owned, built to standard)
+│   │   └── context-to-open-brain/  # (owned, built to standard)
 │   │
 │   └── software-engineering/       # README + 8 skills (all vendored: mattpocock)
 │       ├── codebase-design/  improve-codebase-architecture/  domain-modeling/
@@ -276,7 +276,7 @@ Skills reach external services only through their helper scripts, and only with 
    stakeholder-update-email/...sh──HTTPS──► api.resend.com/emails  ◄──id───  outbound email send
                                             (env keys, never stored in skill)
 
-   open-brain-capture            ──MCP────► Open Brain server      ◄───────  capture/search thoughts
+   context-to-open-brain         ──MCP────► Open Brain server      ◄───────  capture/search thoughts
    browser-qa                    ──MCP────► chrome-devtools-mcp    ◄───────  drive real Chrome, CWV
 
    self-pr-merge / setup-skills  ──CLI────► gh / git → GitHub/GitLab          PRs, issues, triage
@@ -363,6 +363,7 @@ Status legend: ✅ complete and verified. Verification method is noted because s
 - ✅ image-gateway reads `IMAGE_GATEWAY_MODEL` (falling back to the Nano Banana default), closing the recorded build-time dependency so image-model-arena can drive a model per call; both SKILL.md docs updated.
 - ✅ Stray local `__pycache__` artifacts removed (already gitignored, never tracked).
 - ✅ Continuous integration stood up: `scripts/check.sh` plus `.github/workflows/ci.yml` run on every push and PR — shell/Python/JSON syntax, the six-element check for native skills, vendored provenance integrity, runbook-reference resolution, and the writing-rule lint. Verified green on main (39 native skills, 19 vendored, 35 runbook references, 45 procedures). Documented in CONTRIBUTING.md.
+- ✅ Open Brain capture upgraded: the proactive, technically richer `context-to-open-brain` supersedes the user-invoked `open-brain-capture` as the single canonical capture skill (richer categories — repo structure, scripts, env vars, APIs, conventions — third-person voice, and proactive session-end triggering), built to the six-element standard and lint-clean. The superseded skill was removed to avoid drift.
 
 ---
 
