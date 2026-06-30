@@ -10,6 +10,12 @@ audience: Software engineers and developers using Claude Code
 
 Structured warm-up for any coding agent session. Orients to the current project state before any action is taken. Follow steps in order — do not skip ahead.
 
+## When to use this skill
+
+Use at the top of a session where prior context may have been lost — when the user says "pick up where we left off", "fresh session", "load context", "what's next", or "resume the build", or runs `/init`. Always run it before any coding or editing begins in a project that has roadmap or design docs.
+
+Do not use it mid-session once project context is already loaded and a task is underway, and do not use it for a one-off question that needs no project orientation.
+
 ## Startup sequence
 
 ### Step 1 — Initialize (Claude Code only)
@@ -59,3 +65,13 @@ Stop here. Do not write code, edit files, or run terminal commands until the use
 - Never summarize docs — confirm state precisely as the docs describe it.
 - Never infer a "next step" if the implementation plan doesn't explicitly state one. Flag ambiguity instead.
 - If `/init` errors, note it in the output and continue — do not abort the startup sequence.
+
+## Output contract
+
+A confirmation block in the exact `Phase / Next / Files` format, stated in the project's own terminology with real file paths, followed verbatim by the two-line go-ahead request. Where the docs are ambiguous about the next step, the ambiguity is flagged rather than guessed. No file is edited and no command is run.
+
+## Verification standard
+
+- The confirmation block reflects what the docs actually say: the phase and next step are drawn from the plan, and the file list is real paths, not vague descriptions.
+- The verbatim go-ahead lines are present after the block.
+- No code was written, no file edited, and no command run before the user approved.

@@ -61,7 +61,7 @@ Skills are grouped by function into eight categories under `skills/`:
 - `agent-operations/` — meta-skills about running agents well.
 - `software-engineering/` — design, build, and ship code: architecture, domain modeling, prototyping, and the planning-to-issues flow.
 
-Skills imported from an external library carry a `source:` field in their frontmatter (for example `mattpocock` or `agent-native`), and vendored skills kept close to upstream carry `standard: upstream-vendored`. These are not held to this repo's six-element authoring standard until they are adopted natively.
+Skills imported from an external library carry a `source:` field in their frontmatter (for example `mattpocock` or `agent-native`), and vendored skills kept close to upstream carry `standard: upstream-vendored`. These are not held to this repo's six-element authoring standard until they are adopted natively; the gap per vendored skill is tracked in `docs/vendored-conformance.md`. Do not edit vendored content to close those gaps — close them only when adopting a skill natively.
 
 Runbooks live under `runbooks/`. The build prompts that generate each skill live under `meta-prompts/`, mirroring the category layout. Templates live under `templates/`.
 

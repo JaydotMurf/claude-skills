@@ -80,6 +80,16 @@ Stop here. Do not apply changes until the user responds.
 - Never apply changes from Step 4 until the user explicitly responds.
 - Never present multiple prompt variations unprompted — produce one clean version and offer refinement.
 
+## Output contract
+
+A single reusable prompt in the fixed four-section format — Role, Instructions, Output format, Guardrails — where any section the user's notes did not cover is either filled with a flagged default or marked as an explicit gap, never silently skipped. The prompt is followed by the refinement offer, and no changes are applied until the user responds.
+
+## Verification standard
+
+- The output carries all four sections in order, with a concrete, non-empty Output format section.
+- Sections the raw material did not cover are visibly flagged, not omitted.
+- Exactly one prompt version is produced, and no refinement is applied before the user responds.
+
 ## Examples
 
 Reference examples are in [references/examples.md](references/examples.md).

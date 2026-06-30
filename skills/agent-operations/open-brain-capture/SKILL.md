@@ -63,3 +63,14 @@ After all pushes complete, report: "Captured [N] thoughts to Open Brain." List t
 - Never write captures that reference the conversation itself ("we discussed", "earlier you said") — every capture must be standalone.
 - Never capture what is already committed to a file in the repo — Open Brain is for context that lives outside the codebase.
 - Never push more than one capture per `capture_thought` call — one call per discrete thought.
+
+## Output contract
+
+Either a stated "nothing worth capturing" with the reason, or 3–8 discrete thoughts pushed to Open Brain — each a standalone statement in one of the five categories (Decision, Fact, Insight, Open question, Next action) — pushed only after the user approved the candidate list, with a closing report that names the count and lists the saved titles.
+
+## Verification standard
+
+- The numbered candidate list was shown and the user approved it before any `capture_thought` call.
+- `search_thoughts` was run for each candidate, and near-duplicates were dropped.
+- Every pushed capture is standalone — no "we decided", "earlier", or other conversation references.
+- The closing report states the number captured and the titles saved.
