@@ -358,21 +358,24 @@ Status legend: ✅ complete and verified. Verification method is noted because s
 - ✅ `docs/vendored-conformance.md` tracks the six-element gap for all 19 vendored skills without modifying vendored content.
 - ✅ Confirmed ask-workflow routes by command name, not path, so reconciliation broke no cross-skill references (repo-wide grep clean).
 
+### Cross-skill fix, hygiene, and CI
+
+- ✅ image-gateway reads `IMAGE_GATEWAY_MODEL` (falling back to the Nano Banana default), closing the recorded build-time dependency so image-model-arena can drive a model per call; both SKILL.md docs updated.
+- ✅ Stray local `__pycache__` artifacts removed (already gitignored, never tracked).
+- ✅ Continuous integration stood up: `scripts/check.sh` plus `.github/workflows/ci.yml` run on every push and PR — shell/Python/JSON syntax, the six-element check for native skills, vendored provenance integrity, runbook-reference resolution, and the writing-rule lint. Verified green on main (39 native skills, 19 vendored, 35 runbook references, 45 procedures). Documented in CONTRIBUTING.md.
+
 ---
 
 ## 5. Work In Progress
 
-Ordered for a safe, methodical workflow: close correctness and secrets gaps first, then validate paid and hardware paths, then automate quality, then take on the larger phase-2 build, and finish with the public README.
+Ordered for a safe, methodical workflow: validate paid and hardware paths, then extend automated quality, then take on the larger phase-2 build, and finish with the public README. The correctness, hygiene, and CI items are done (see Work Completed).
 
-1. Resolve the cross-skill model dependency: teach image-gateway to read `IMAGE_GATEWAY_MODEL` so image-model-arena can actually select the model it advertises. One-line change owned by core-infrastructure.
-2. Live-validate the deferred paid paths in priority order, recording real cost and output shape in each `SKILL.md`: image generation (image-gateway, then the two arena/gallery composers), then a Resend live send (stakeholder-update-email), then a current-info-search live query re-confirm.
-3. Live-validate the hardware and render paths: a radio-edit EDL imported into an NLE, a broll-pipeline end-to-end render, and an nle-assistant round-trip against DaVinci Resolve Studio.
-4. Add a Remotion typecheck for `broll-pipeline/index.ts` and the `.tsx` set, which are not type-checked in this repo today (no Remotion toolchain present).
-5. Begin native adoption of vendored skills where it pays off: pick the highest-traffic vendored skills, bring each to the six-element standard, drop its `standard: upstream-vendored` marker, and remove its row from `docs/vendored-conformance.md`.
-6. Stand up continuous integration: the repo writing rules (no inline bold, no AI-isms), the six-element check for owned skills, `bash -n` on every shell script, `py_compile` on every Python file, `jq` validation on every JSON example, and a link/path checker that confirms every runbook reference resolves.
-7. Clean working-tree hygiene: remove stray `__pycache__` artifacts locally (already gitignored, not tracked) and confirm no generated files leak into commits.
-8. Build the phase-2 per-harness adapter and generation layer: flatten canonical `SKILL.md` into each harness's expected location and generate per-tool rule files (Claude Code, Codex, Cursor, Gemini) from the single canonical source.
-9. Draft the final public README from this file once the above stabilize, framing the library for first-time veteran and GovTech users.
+1. Live-validate the deferred paid paths in priority order, recording real cost and output shape in each `SKILL.md`: image generation (image-gateway, then the two arena/gallery composers), then a Resend live send (stakeholder-update-email), then a current-info-search live query re-confirm. Blocked on real API keys and explicit spend approval.
+2. Live-validate the hardware and render paths: a radio-edit EDL imported into an NLE, a broll-pipeline end-to-end render, and an nle-assistant round-trip against DaVinci Resolve Studio. Blocked on local media hardware and toolchains.
+3. Add a Remotion typecheck for `broll-pipeline/index.ts` and the `.tsx` set, which are not type-checked in this repo today (no Remotion toolchain present); wire it into CI once the toolchain is available.
+4. Begin native adoption of vendored skills where it pays off: pick the highest-traffic vendored skills, bring each to the six-element standard, drop its `standard: upstream-vendored` marker, and remove its row from `docs/vendored-conformance.md`.
+5. Build the phase-2 per-harness adapter and generation layer: flatten canonical `SKILL.md` into each harness's expected location and generate per-tool rule files (Claude Code, Codex, Cursor, Gemini) from the single canonical source.
+6. Draft the final public README from this file once the above stabilize, framing the library for first-time veteran and GovTech users.
 
 ---
 

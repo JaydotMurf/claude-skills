@@ -22,7 +22,7 @@ Do not invoke it for finding existing images, screenshotting a page, or editing 
 
 ## Saved defaults
 
-- Model: `google/gemini-2.5-flash-image` (Nano Banana). Strong at edits, speed, and in-image text.
+- Model: `google/gemini-2.5-flash-image` (Nano Banana) by default. Strong at edits, speed, and in-image text. Override per call by exporting `IMAGE_GATEWAY_MODEL=<gateway_model>`, which is how image-model-arena drives multi-model runs through this one gateway.
 - Output directory: `~/Pictures/agent-images/`, filenames `YYYY-MM-DD-<slug>.png`. Override per call with `--out`, or globally with `IMAGE_GATEWAY_OUTPUT_DIR`.
 - API key: read from `~/.config/agent-skills/.env`. Resolution order is `IMAGE_GATEWAY_API_KEY`, then `OPENROUTER_API_KEY`. The key is never written into this skill or passed on the command line.
 

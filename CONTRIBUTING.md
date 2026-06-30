@@ -39,3 +39,15 @@ See [`templates/SKILL-TEMPLATE.md`](templates/SKILL-TEMPLATE.md) for the full te
 - It has at least one guardrail and a stated verification standard.
 
 Skills that are too vague, too narrow, or require internal access will be closed without merge.
+
+---
+
+## Continuous integration
+
+Every pull request runs `scripts/check.sh` through the CI workflow. Run it locally before opening a PR:
+
+```bash
+bash scripts/check.sh
+```
+
+It checks shell, Python, and JSON syntax across the repo; confirms native skills carry all six authoring elements; confirms vendored skills declare a `source:`; confirms every runbook reference resolves to a real skill; and lints native procedures for inline bold and AI-isms. Vendored skills (those marked `standard: upstream-vendored`) are exempt from the authoring and writing-rule gates but still syntax-checked.

@@ -12,7 +12,7 @@
 set -euo pipefail
 
 ENV_FILE="${AGENT_SKILLS_ENV:-$HOME/.config/agent-skills/.env}"
-MODEL="google/gemini-2.5-flash-image"   # Nano Banana. Alias: google/gemini-2.5-flash-image-preview
+MODEL="${IMAGE_GATEWAY_MODEL:-google/gemini-2.5-flash-image}"   # Nano Banana default; override with IMAGE_GATEWAY_MODEL
 OUTPUT_DIR="${IMAGE_GATEWAY_OUTPUT_DIR:-$HOME/Pictures/agent-images}"
 
 # --- dependencies ---

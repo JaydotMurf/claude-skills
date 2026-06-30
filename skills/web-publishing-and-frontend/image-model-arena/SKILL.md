@@ -50,7 +50,7 @@ Recorded assumption (build time): no prompt set or storage location was supplied
 
 `arena.sh` selects each model by exporting `IMAGE_GATEWAY_MODEL=<gateway_model>` before calling image-gateway, matching image-gateway's existing `IMAGE_GATEWAY_*` env convention (`IMAGE_GATEWAY_API_KEY`, `IMAGE_GATEWAY_OUTPUT_DIR`).
 
-Recorded dependency (build time): the current image-gateway pins a single model and does not yet read `IMAGE_GATEWAY_MODEL`. Honoring that env var is a one-line, convention-matching change to image-gateway (`MODEL="${IMAGE_GATEWAY_MODEL:-google/gemini-2.5-flash-image}"`), owned by the core-infrastructure worktree, not this one. Until image-gateway reads it, multi-model generation produces every column with image-gateway's default model; wire the override in image-gateway before a real multi-model run. Arena's code is already forward-compatible with it.
+Resolved dependency: image-gateway reads `IMAGE_GATEWAY_MODEL` (`MODEL="${IMAGE_GATEWAY_MODEL:-google/gemini-2.5-flash-image}"`), so exporting it before a call selects the model for that run and falls back to the Nano Banana default when unset. Multi-model generation now produces one column per configured `gateway_model`. A live multi-model pass still requires an API key and bills per image.
 
 ## Steps
 
@@ -86,4 +86,4 @@ Under `output_dir`: generated images at `images/<model>/<prompt>.png`, web-optim
 
 ## Verification standard
 
-Do not call the task done until: every selected cell has an image, the per-model pages and the shared viewer were built and open with images resolving, the registry recorded per-image cost for this run, and (if publishing) the live URL loads. Build-time test: the build pipeline was verified end to end with stub images on a two-model, three-prompt subset — `arena.sh build` produced both per-model pages and the side-by-side viewer with images resolving. The live generation pass requires an API key and the image-gateway model override, and is run on first real use; `arena.sh generate` was confirmed to fail cleanly when the key is absent.
+Do not call the task done until: every selected cell has an image, the per-model pages and the shared viewer were built and open with images resolving, the registry recorded per-image cost for this run, and (if publishing) the live URL loads. Build-time test: the build pipeline was verified end to end with stub images on a two-model, three-prompt subset — `arena.sh build` produced both per-model pages and the side-by-side viewer with images resolving. The live generation pass requires an API key (the image-gateway model override is now in place) and is run on first real use; `arena.sh generate` was confirmed to fail cleanly when the key is absent.
