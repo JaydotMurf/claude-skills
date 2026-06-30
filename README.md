@@ -12,7 +12,7 @@ A runbook is a composition: an ordered chain of skills directed at one outcome. 
 
 ## Structure
 
-Skills are grouped by function into seven categories under [`skills/`](skills/):
+Skills are grouped by function into eight categories under [`skills/`](skills/):
 
 | Category | What it holds |
 |---|---|
@@ -23,6 +23,7 @@ Skills are grouped by function into seven categories under [`skills/`](skills/):
 | [video-and-media-production](skills/video-and-media-production/) | The heaviest media skills in the library. |
 | [testing-and-quality](skills/testing-and-quality/) | Make agent-built things trustworthy and the next session smarter. |
 | [agent-operations](skills/agent-operations/) | Meta-skills about running agents well. |
+| [software-engineering](skills/software-engineering/) | Design, build, and ship code: architecture, domain modeling, prototyping, and the planning-to-issues flow. |
 
 Runbooks live under [`runbooks/`](runbooks/). The build prompts that generate each skill live under [`meta-prompts/`](meta-prompts/). Templates live under [`templates/`](templates/).
 

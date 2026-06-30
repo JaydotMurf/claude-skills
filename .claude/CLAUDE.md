@@ -50,7 +50,7 @@ The runbook owns sequence and data flow. Each step it names must be an independe
 
 ## Repository structure
 
-Skills are grouped by function into seven categories under `skills/`:
+Skills are grouped by function into eight categories under `skills/`:
 
 - `core-infrastructure/` — the primitives other skills call; build these first.
 - `research-and-thinking/` — turn raw inputs into structured, reviewable thinking.
@@ -59,6 +59,9 @@ Skills are grouped by function into seven categories under `skills/`:
 - `video-and-media-production/` — the heaviest media skills in the library.
 - `testing-and-quality/` — make agent-built things trustworthy and the next session smarter.
 - `agent-operations/` — meta-skills about running agents well.
+- `software-engineering/` — design, build, and ship code: architecture, domain modeling, prototyping, and the planning-to-issues flow.
+
+Skills imported from an external library carry a `source:` field in their frontmatter (for example `mattpocock` or `agent-native`), and vendored skills kept close to upstream carry `standard: upstream-vendored`. These are not held to this repo's six-element authoring standard until they are adopted natively.
 
 Runbooks live under `runbooks/`. The build prompts that generate each skill live under `meta-prompts/`, mirroring the category layout. Templates live under `templates/`.
 

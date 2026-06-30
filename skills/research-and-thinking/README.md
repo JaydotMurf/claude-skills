@@ -13,3 +13,12 @@ Expected: 5 skills. All 5 are built.
 - [reading-pack-builder](reading-pack-builder/SKILL.md) — build one self-contained offline HTML reading pack from a set of local documents, with a reasoned reading order, one-at-a-time navigation, and a locally saved read/unread marker.
 
 Skills are generated one at a time from the build prompts under `meta-prompts/research-and-thinking/`. Each lands in its own folder here as `research-and-thinking/<skill-name>/SKILL.md`.
+
+## Reconciled skills
+
+Relocated here from the flat library in the taxonomy reconciliation (Pass 1). All four are vendored from mattpocock/skills and carry `source:` in their frontmatter.
+
+- [grilling](grilling/SKILL.md) — interview the user relentlessly to stress-test a plan or design before building. (mattpocock)
+- [grill-me](grill-me/SKILL.md) — a relentless interview to sharpen a plan or idea with no codebase context. (mattpocock)
+- [grill-with-docs](grill-with-docs/SKILL.md) — a codebase-aware grilling that captures decisions as ADRs and glossary entries as it goes. (mattpocock)
+- [teach](teach/SKILL.md) — teach the user a new skill or concept within the workspace across multiple sessions. (mattpocock)

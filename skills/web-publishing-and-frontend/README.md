@@ -14,3 +14,10 @@ Skills that take agent output public, with taste, verification, and a repeatable
 site-publisher and frontend-taste are the foundation here. image-model-arena and essay-illustration-gallery both compose [image-gateway](../core-infrastructure/image-gateway/SKILL.md) for generation and site-publisher for publishing, and never reimplement either. essay-illustration-gallery also assembles its page to the [html-artifacts](../core-infrastructure/html-artifacts/SKILL.md) single-self-contained-file convention.
 
 The build prompts that generated each skill live under [meta-prompts/web-publishing-and-frontend/](../../meta-prompts/web-publishing-and-frontend/).
+
+## Reconciled skills
+
+Relocated here from the flat library in the taxonomy reconciliation (Pass 1). Both are vendored from agent-native, carry `source: agent-native` in their frontmatter, and keep their `agent-native-skill.json` sidecar so they can be updated from upstream.
+
+- [visual-plan](visual-plan/SKILL.md) — turn ordinary text plans into rich interactive visual plans with diagrams, file maps, annotated code, and open questions. (agent-native)
+- [visual-recap](visual-recap/SKILL.md) — turn a PR, branch, commit, or diff into an interactive visual recap with diagrams, file maps, API/schema summaries, and review notes. (agent-native)

@@ -13,3 +13,11 @@ Skills that make agent-built things trustworthy, and make the next agent session
 testing-runbook-creator is the foundation. It owns the repo-local memory file (`docs/testing-runbook.md`) and the entry format. Both page-testing-memory and browser-qa keep the general process in the skill and route every page-specific fact they learn into that runbook, so the process travels across projects while the specifics stay where they are true.
 
 The build prompts that generated each skill live under [meta-prompts/testing-and-quality/](../../meta-prompts/testing-and-quality/).
+
+## Reconciled skills
+
+Relocated here from the flat library in the taxonomy reconciliation (Pass 1). Source is noted per skill; vendored skills are kept close to upstream and carry `source:` in their frontmatter.
+
+- [tdd](tdd/SKILL.md) — test-driven development: red-green-refactor, integration tests written before implementation. (mattpocock)
+- [diagnosing-bugs](diagnosing-bugs/SKILL.md) — a diagnosis loop for hard bugs and performance regressions. (mattpocock)
+- [python-script-checker](python-script-checker/SKILL.md) — audit Python scripts against documented standards and emit a compliance report. (original; status: coming-soon)
