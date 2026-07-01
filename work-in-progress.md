@@ -2,7 +2,7 @@
 
 A living development map of the agent-skills project: what it is, what is built, what is underway, and where it is going. This file is the single source of truth for project state and is the basis from which the public README will be written before go-live.
 
-Last updated: 2026-07-01 (main at the merge of PR #17).
+Last updated: 2026-07-02 (main at the merge of PR #23 — first native adoptions of vendored skills).
 
 ---
 
