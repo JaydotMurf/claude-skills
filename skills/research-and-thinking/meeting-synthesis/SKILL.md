@@ -2,7 +2,7 @@
 name: meeting-synthesis
 description: Turn a meeting transcript or recording into a structured, actionable synthesis — takeaways, decisions with their decider, action items with owner and deadline, open questions, and durable context — synthesized per topic and keeping what was said strictly separate from what was inferred. Use for any meeting transcript, recording, or "what happened in this meeting" request.
 tags: [research-and-thinking, meetings, synthesis, notes]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

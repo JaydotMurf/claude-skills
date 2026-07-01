@@ -2,7 +2,7 @@
 name: stakeholder-update-email
 description: After work ships with stakeholder-visible impact, write and (on explicit confirmation) send a short, truthful update email in the recipient's vocabulary. Gates on whether anything stakeholder-visible actually changed, never claims unverified work as done, and follows a fixed what-changed / what-it-means / what's-next format. Sends via the Resend API or drafts for review per the user's preference. Trigger when work merges or ships with visible impact for a stakeholder, or when the user asks for an update email.
 tags: [agent-operations, communication, email, resend]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

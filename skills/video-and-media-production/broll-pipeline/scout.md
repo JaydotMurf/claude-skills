@@ -2,7 +2,7 @@
 name: broll-scout
 description: SCOUT subagent for broll-pipeline. Reads a chaptered transcript and selects which moments deserve a motion graphic, enforcing density and spacing rules, and writes the manifest the rest of the pipeline runs on.
 tags: [video, subagent, motion-graphics, manifest]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

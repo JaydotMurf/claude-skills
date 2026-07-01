@@ -2,7 +2,7 @@
 name: prompt-builder
 description: Turns raw notes, examples, and constraints into a structured, reusable prompt organized into four sections — Role, Instructions, Output format, and Guardrails. Invoke when the user wants to engineer a prompt for a repeating task, pastes scattered notes and asks for a clean prompt, or says "help me build a prompt for..." or "write me a prompt that..."
 tags: [prompting, productivity, workflow]
-audience: DoD contractors, veterans, solo operators building repeatable AI workflows
+audience: engineers, operators, and solo builders building repeatable AI workflows
 ---
 
 # Prompt Builder

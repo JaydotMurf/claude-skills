@@ -2,7 +2,7 @@
 name: redesign-existing
 description: Sub-skill of frontend-taste for redesigning an existing project's UI without breaking it. Applies the taste rules to live code behind a safety procedure of inventory, incremental change, and before/after verification. Use when improving the look of something that already works.
 tags: [frontend, design, redesign, refactor, web-publishing-and-frontend]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

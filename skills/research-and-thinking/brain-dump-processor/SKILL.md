@@ -2,7 +2,7 @@
 name: brain-dump-processor
 description: Process messy multi-topic input — voice memo transcripts, brain dumps, rambling notes — into cleanly separated, individually evaluated ideas, each with context, an honest worth-pursuing assessment, and a concrete next step. Use whenever the user shares a voice transcript or brain dump, or says "process this".
 tags: [research-and-thinking, ideation, notes, triage]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 
@@ -25,7 +25,7 @@ Do not invoke it for a single clear request, a question with one answer, or text
 These are the assumed interview answers, recorded here because the build ran without a live interview. Change them in place if they are wrong.
 
 - Filing destination: a folder of dated notes at `~/Documents/notes/ideas/`, one Markdown file per processing run named `YYYY-MM-DD-<slug>.md`. Chosen over a single inbox file because separated ideas stay readable as the pile grows, and over an external tool because no specific tool was named and files work in any harness offline.
-- Evaluation lens: the user is a DoD contractor / veteran / solo operator working in GovTech, so ideas tend to be about consulting work, GovTech product and process, veteran-services delivery, and building reusable agent skills and automation. Assess each idea against effort versus payoff for a solo operator, fit with that body of work, and whether it is already half-built somewhere.
+- Evaluation lens: the user is a senior engineer and solo builder, so ideas tend to be about engineering work, data and automation tooling, AI-assisted workflows, and building reusable agent skills. Assess each idea against effort versus payoff for a solo operator, fit with that body of work, and whether it is already half-built somewhere.
 
 ## Steps
 

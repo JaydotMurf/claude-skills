@@ -2,7 +2,7 @@
 name: delegate-and-verify
 description: Run parallel engineering lanes without becoming the bottleneck — record what each lane owns, package a task with its own acceptance test, delegate it in a watchable session, verify against the gates, merge, and close the loop.
 tags: [agent-operations, delegation, engineering, verification]
-audience: solo operators, engineering leads, GovTech teams
+audience: operators, engineering leads, and solo builders
 ---
 
 # Delegate and Verify

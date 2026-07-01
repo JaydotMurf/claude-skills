@@ -2,7 +2,7 @@
 name: ship-a-page-you-can-trust
 description: Build a page well, take it live, verify the live page with instruments rather than vibes, and bank what QA learned so the next deploy verifies in minutes.
 tags: [frontend, publishing, testing, qa]
-audience: solo operators, frontend engineers, GovTech teams
+audience: frontend engineers, operators, and solo builders
 ---
 
 # Ship a Page You Can Trust

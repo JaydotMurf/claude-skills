@@ -2,7 +2,7 @@
 name: testing-runbook-creator
 description: Whenever you test, verify, smoke-test, QA, or debug anything in a repo, capture what you learned as a repo-local runbook entry so the next session does not rediscover it. Maintains docs/testing-runbook.md as a living recipe book — read it before testing, follow the existing recipe, and fix it in the same session when reality differs. Use on any testing or verification activity in a repo, not only when the user says "runbook".
 tags: [testing-and-quality, testing, verification, runbook, memory, repo-local]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

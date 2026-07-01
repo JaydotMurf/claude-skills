@@ -2,7 +2,7 @@
 name: talk-to-published
 description: Turn a recorded voice memo into a published page written in your own voice, shipped to a clean URL with a working link preview.
 tags: [publishing, writing, transcription, content]
-audience: solo operators, veterans, GovTech writers
+audience: writers, operators, and solo builders
 ---
 
 # Talk to Published

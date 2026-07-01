@@ -2,7 +2,7 @@
 name: research-engine
 description: Answer a real research question from messy inputs with a chain of custody — heavy sources converted to clean artifacts first, gaps filled with current information, conclusions stress-tested adversarially, and the result packaged for human review.
 tags: [research, ingestion, synthesis, publishing]
-audience: analysts, GovTech professionals, solo operators
+audience: analysts, engineers, and solo operators
 ---
 
 # The Research Engine

@@ -2,7 +2,7 @@
 name: reading-pack-builder
 description: Given a set of local documents to review, build one self-contained local HTML reading pack that presents them one at a time in a deliberate order, with an index page carrying one-line summaries and reading-order reasoning, previous/next navigation, and a read/unread marker saved locally. Everything works offline. Use when the user has a pile of documents to review or asks for a "reading pack".
 tags: [research-and-thinking, reading, html, offline]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

@@ -2,7 +2,7 @@
 name: release-day
 description: Publish an accurate, on-brand briefing the same day something ships in your field, with primary-source facts and a matching branded thumbnail, then notify your list.
 tags: [publishing, research, briefing, images]
-audience: GovTech professionals, solo operators, analysts
+audience: engineers, solo operators, and analysts
 ---
 
 # Release Day

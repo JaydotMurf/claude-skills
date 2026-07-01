@@ -2,7 +2,7 @@
 name: agentic-harness-designer
 description: When designing, evaluating, or debugging an agent-powered system, walk the real architecture questions in order — tool contracts, permission model, state durability, context and memory, evaluation, observability — then review against the common failure modes and produce a design doc plus a phased plan where each phase is independently shippable and testable. Treats the work as an agent-system problem, not a model-choice problem. Trigger when designing, evaluating, or debugging any AI-agent-powered product, tool, or serious automation.
 tags: [agent-operations, architecture, agent-systems, design]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

@@ -2,7 +2,7 @@
 name: session-operating-map
 description: Set up and maintain a single repo-local operating map for projects where multiple agent sessions run in parallel — one lane per concern, each with its objective, owning session, current state, and blockers. Updated on meaningful state changes (start, block, handoff, done), not as a journal; finished lanes archived with a one-line outcome and their lessons promoted into docs or skills. Trigger when the user starts parallel workstreams, asks what's in flight, or asks to set up coordination for a repo.
 tags: [agent-operations, coordination, parallel-sessions, operating-map]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

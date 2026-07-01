@@ -2,7 +2,7 @@
 name: release-briefing
 description: Turn gathered release data about a new model, tool, or platform change into a publish-ready briefing package with a fixed structure, dated and sourced facts, a standardized title and subtitle, and thumbnail image prompts. Use when the user says "brief me up on <release>" or hands over release research to package. Packages only — if research is missing or stale, it stops and runs current-info-search first.
 tags: [writing, content, briefing, release-notes, publishing]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

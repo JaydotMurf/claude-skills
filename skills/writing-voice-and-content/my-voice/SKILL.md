@@ -2,7 +2,7 @@
 name: my-voice
 description: Write, rewrite, or review text in the user's authentic voice using a stored voice profile that models their distinct registers, sentence patterns, and anti-patterns. Use whenever the user asks to write, rewrite, or review something in their voice. Build the profile from real samples on first use; other writing skills call this to apply the voice.
 tags: [writing, voice, style, content, personal-profile]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

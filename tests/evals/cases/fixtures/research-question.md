@@ -1,3 +1,3 @@
-Question: what changed in US federal guidance on AI use in government contracting
-in the last quarter, and what does it mean for a small GovTech vendor? Two PDFs of
-agency memos are attached locally and must be ingested before analysis.
+Question: what changed in the Apache NiFi 2.x release line for large-file data flows
+over the last year, and what does it mean for a team standardizing on it? Two PDFs of
+release notes are attached locally and must be ingested before analysis.

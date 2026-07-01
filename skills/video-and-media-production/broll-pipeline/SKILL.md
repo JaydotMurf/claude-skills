@@ -2,7 +2,7 @@
 name: broll-pipeline
 description: End-to-end pipeline that turns a finished talking-head video plus its timestamped transcript into animated motion-graphic overlays composited onto the footage at the right moments. A SCOUT subagent picks the moments and writes a manifest, a BUILDER subagent generates Remotion graphics against one shared visual contract, and this orchestrator renders each clip and composites them with ffmpeg, keeping a state file so a long run resumes after interruption. Use when asked to add motion graphics, lower-thirds, stat cards, or animated b-roll overlays to a recorded talk.
 tags: [video, motion-graphics, remotion, ffmpeg, broll, pipeline, subagents]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

@@ -2,7 +2,7 @@
 name: premium-marketing
 description: Sub-skill of frontend-taste for premium marketing and landing pages — launch pages, product pages, and anything selling. Applies on top of the frontend-taste core rules. Use when the task is a conversion-driven page that has to feel high-end.
 tags: [frontend, design, marketing, landing-page, web-publishing-and-frontend]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

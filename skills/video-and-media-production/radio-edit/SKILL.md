@@ -2,7 +2,7 @@
 name: radio-edit
 description: Produce a transcript-driven rough cut of talking-head footage — fix the spoken flow before any visual work. Reads a media-transcription word-level transcript, proposes a paper edit (every cut with timecodes, what was removed, and why) for human review FIRST, then exports an NLE timeline (CMX3600 EDL or FCPXML 1.13) with the approved cuts and a frame handle on each. Use when asked for a rough cut, paper edit, or cleaned-up edit of a recording.
 tags: [video, editing, rough-cut, paper-edit, edl, fcpxml, transcript]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

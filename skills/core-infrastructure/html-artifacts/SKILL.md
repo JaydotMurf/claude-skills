@@ -2,7 +2,7 @@
 name: html-artifacts
 description: Render dense or visual output (plans, reports, research explainers, review summaries, comparisons, diagrams, dashboards) as a single self-contained HTML file in a consistent house style, instead of a long chat response. Use whenever output would be dense, visual, interactive, or worth keeping or sharing. Other skills that need a polished visual deliverable produce it through this.
 tags: [html, artifacts, reporting, core-infrastructure]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

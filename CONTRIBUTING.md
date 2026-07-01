@@ -1,6 +1,6 @@
 # Contributing
 
-Skills in this repo must be usable by a DoD contractor or veteran without modification. If it requires classified access, org-specific tooling, or internal URLs, it does not belong here.
+Skills in this repo must be usable by anyone without modification. If it requires classified access, org-specific tooling, or internal URLs, it does not belong here.
 
 ---
 
@@ -32,7 +32,7 @@ See [`templates/SKILL-TEMPLATE.md`](templates/SKILL-TEMPLATE.md) for the full te
 
 ## What makes a skill acceptable
 
-- It works without modification for a typical GovTech contractor or veteran.
+- It works without modification for anyone who installs it.
 - It contains no classified content, no org-specific tooling, and no internal URLs.
 - The trigger is specific enough that an agent knows exactly when to invoke it.
 - The steps are numbered and produce a predictable, consistent output.

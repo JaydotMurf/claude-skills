@@ -2,7 +2,7 @@
 name: weekly-signal-diff
 description: On demand, compare a defined set of inputs against the state recorded at the last run and report only meaningful changes — new signals, shifted assumptions, threads that died, patterns emerging — ordered by importance, never padded, with at most three suggested follow-ups. Use when the user asks for a weekly signal diff, "what changed", or "what's new since last time".
 tags: [research-and-thinking, monitoring, diff, weekly-review]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 
@@ -24,7 +24,7 @@ Do not invoke it for a first-time summary of something with no prior state to di
 These are the assumed interview answers, recorded here because the build ran without a live interview. Change them in place if they are wrong.
 
 - Inputs watched: the notes produced by the sibling skills — `~/Documents/notes/ideas/`, `~/Documents/notes/meetings/`, and `~/Documents/notes/tasks.md`. The authoritative list lives in the state file's `watch` array; edit it there to add a folder, a notes file, a topic to search, or a project state to check.
-- What counts as meaningful: for this user's GovTech / consulting / veteran-services and agent-building work — a new decision or commitment, an assumption that shifted, a thread that went silent after being active, a pattern recurring across sources, or a deadline that moved. Routine edits, typo fixes, and restatements of known facts are not meaningful.
+- What counts as meaningful: for this user's engineering, data-tooling, and agent-building work — a new decision or commitment, an assumption that shifted, a thread that went silent after being active, a pattern recurring across sources, or a deadline that moved. Routine edits, typo fixes, and restatements of known facts are not meaningful.
 - State file: `~/.config/agent-skills/state/weekly-signal-diff.json`. The shape is shown in `state.example.json` in this skill folder.
 - Report destination: `~/Documents/notes/signal/YYYY-MM-DD-signal-diff.md`.
 

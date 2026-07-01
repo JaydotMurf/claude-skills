@@ -2,7 +2,7 @@
 name: heavy-file-ingestion
 description: Convert heavy files (large PDFs, slide decks, spreadsheets, CSV dumps, long docs) into lightweight Markdown and CSV artifacts plus an index before any analysis, and analyze the artifacts rather than the original. Use whenever the user shares a heavy or binary document, or asks for analysis that touches one. Other skills that must read a heavy file ingest it through this first.
 tags: [ingestion, documents, conversion, core-infrastructure]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

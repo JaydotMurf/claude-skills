@@ -2,7 +2,7 @@
 name: flywheel
 description: The posture that runs under every other runbook — extract durable skills from sessions, bank testing discoveries where they belong, keep the global and local boundary clean, and preserve coordination state so a skill library compounds instead of leaking into chat history.
 tags: [agent-operations, testing, memory, meta]
-audience: solo operators, engineering leads, GovTech teams
+audience: operators, engineering leads, and solo builders
 ---
 
 # The Flywheel

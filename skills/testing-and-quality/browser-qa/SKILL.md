@@ -2,7 +2,7 @@
 name: browser-qa
 description: Drive a real Chrome browser through the Chrome DevTools MCP server to verify web changes — screenshots at desktop/tablet/mobile for layout, a performance trace with Core Web Vitals against thresholds for perf-relevant changes, console-error and failed-request checks for new features. Every finding ships with its screenshot, metric, or log excerpt; nothing passes on an unevidenced "looks fine". Use when asked to verify a web change, check performance, audit a page, or test responsive behavior.
 tags: [testing-and-quality, browser, qa, performance, web-vitals, mcp, chrome-devtools, evidence]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

@@ -2,7 +2,7 @@
 name: minimalist-editorial
 description: Sub-skill of frontend-taste for minimalist and editorial UI — content-forward pages, essays, reading experiences, and documentation. Applies on top of the frontend-taste core rules. Use when the task is a reading-first or content-first interface.
 tags: [frontend, design, editorial, minimalist, web-publishing-and-frontend]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

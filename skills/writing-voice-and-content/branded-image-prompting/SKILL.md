@@ -2,7 +2,7 @@
 name: branded-image-prompting
 description: Generate on-brand images by encoding the user's visual identity as prompt-ready guidance plus a reusable prompt-template library, then routing actual generation through the image-gateway skill. Use for any branded or recurring-format image request (thumbnails, diagrams, infographics, social images, mockups). Includes corrective recipes for color, text, and style drift, and grows the library from prompts that worked.
 tags: [images, branding, prompting, content, media]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

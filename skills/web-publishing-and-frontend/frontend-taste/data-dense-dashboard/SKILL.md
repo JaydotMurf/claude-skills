@@ -2,7 +2,7 @@
 name: data-dense-dashboard
 description: Sub-skill of frontend-taste for data-dense dashboard UI — tables, metrics, admin panels, and any information-heavy interface. Applies on top of the frontend-taste core rules. Use when the task packs a lot of data into a usable screen.
 tags: [frontend, design, dashboard, data, tables, web-publishing-and-frontend]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

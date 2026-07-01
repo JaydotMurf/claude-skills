@@ -2,7 +2,7 @@
 name: image-gateway
 description: Generate or edit images through OpenRouter (Gemini 2.5 Flash Image) with one command and saved defaults. Use when the user asks to create, generate, render, or edit an image, and when another skill needs an image produced. Other skills call this instead of writing their own image API code.
 tags: [images, openrouter, core-infrastructure, media]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

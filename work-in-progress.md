@@ -12,7 +12,7 @@ agent-skills is a portable operating layer for AI agents. Where most agent setup
 
 The library is built on the Open Skills framework. The atomic unit is a skill: one repeatable action defined in markdown, with a trigger that says when to fire, numbered steps, a hard guardrail, an output contract, and a verification standard the agent must meet before it calls the work done. Skills chain into runbooks: ordered compositions that turn a pile of primitives into an outcome a team can rely on — a voice memo becomes a published page, raw footage becomes a finished edit, a research question becomes a stress-tested briefing.
 
-The audience is deliberate. This is written for veterans, DoD contractors, and GovTech professionals who need documented, auditable, repeatable AI procedures they can hand off, inspect, and trust — not a black box. Every skill is plain markdown plus, where needed, a small helper script. Nothing here is locked to one model provider or one vendor's harness. The same library runs across Claude Code, Codex, Gemini Antigravity, and anything else that reads a `SKILL.md` convention.
+The audience is deliberate. This is a personal library, built first for the author's own professional and personal work and kept open for anyone who wants documented, auditable, repeatable AI procedures they can hand off, inspect, and trust — not a black box. Every skill is plain markdown plus, where needed, a small helper script. Nothing here is locked to one model provider or one vendor's harness. The same library runs across Claude Code, Codex, Gemini Antigravity, and anything else that reads a `SKILL.md` convention.
 
 Three properties define the project:
 
@@ -430,7 +430,7 @@ Ten concepts to push the project past a static library into a product, spanning 
 
 4. Embedding-powered skill router. Tie the library into Open Brain so a user describes a situation in natural language and the system retrieves the right skill or runbook by meaning, retiring the need to remember names — effectively a smarter, semantic ask-workflow.
 
-5. Sandboxed execution with a secrets broker. Run helper scripts in a locked-down sandbox with no ambient network or filesystem access, inject keys at runtime from 1Password CLI or Doppler scoped to the single skill that needs them, and revoke per-skill — turning the env-var contract into an enforced boundary, which matters for DoD and GovTech trust.
+5. Sandboxed execution with a secrets broker. Run helper scripts in a locked-down sandbox with no ambient network or filesystem access, inject keys at runtime from 1Password CLI or Doppler scoped to the single skill that needs them, and revoke per-skill — turning the env-var contract into an enforced boundary, which matters in any security-conscious environment.
 
 6. Conformance CI bot. A GitHub Action that scores every pull request against the six-element standard and the writing rules, auto-comments the gaps inline, and blocks merge until an owned skill conforms — making the quality bar self-enforcing instead of reviewer-dependent.
 
@@ -438,9 +438,9 @@ Ten concepts to push the project past a static library into a product, spanning 
 
 8. Cost-aware model routing. Let image-gateway and current-info-search choose the cheapest model that clears a stated quality bar, enforce a per-session and per-month budget guardrail, and report spend, so heavy media runbooks stay predictable and affordable.
 
-9. Compliance and audit pack for regulated buyers. A generated, exportable audit bundle — which skill ran, what it touched, what evidence it produced, which sources and dates it verified — mapped to controls a GovTech or DoD reviewer recognizes, turning the verification standard into a sellable compliance artifact.
+9. Compliance and audit pack for regulated environments. A generated, exportable audit bundle — which skill ran, what it touched, what evidence it produced, which sources and dates it verified — mapped to controls a security or compliance reviewer recognizes, turning the verification standard into a portable compliance artifact.
 
-10. Self-hosted gallery and veteran onboarding flywheel. Dogfood the library's own site-publisher and frontend-taste skills to publish a live gallery that demonstrates each skill and runbook with real examples, paired with a guided onboarding runbook that uses the teach skill to walk a new veteran from zero to a working operating layer — the product demonstrating itself as the go-to-market motion.
+10. Self-hosted gallery and onboarding flywheel. Dogfood the library's own site-publisher and frontend-taste skills to publish a live gallery that demonstrates each skill and runbook with real examples, paired with a guided onboarding runbook that uses the teach skill to walk a newcomer from zero to a working operating layer — the library demonstrating itself.
 
 ---
 

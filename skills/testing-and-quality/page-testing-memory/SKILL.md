@@ -2,7 +2,7 @@
 name: page-testing-memory
 description: The general process for QA-ing any web page or UI — states, forms, auth boundaries, responsive breakpoints, screenshot evidence — held globally, while every page-specific fact (selectors, routes, test accounts, seed data, cleanup quirks) lives in the repo's testing runbook and never in this skill. Partners with testing-runbook-creator. Use when QA-ing or verifying any web page or UI.
 tags: [testing-and-quality, qa, web, ui, responsive, forms, auth, memory]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

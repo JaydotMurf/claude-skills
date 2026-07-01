@@ -2,7 +2,7 @@
 name: current-info-search
 description: Answer questions about fast-moving topics (AI model releases, pricing, software versions, news, APIs) by calling the Perplexity API for live web search instead of trusting training data. Use whenever a question concerns recent or fast-moving information, or whenever the user's claim or the agent's own knowledge might be stale. Other skills that need fresh facts call this.
 tags: [search, perplexity, current-info, core-infrastructure]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

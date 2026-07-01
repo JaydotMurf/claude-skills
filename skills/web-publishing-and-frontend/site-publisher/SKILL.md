@@ -2,7 +2,7 @@
 name: site-publisher
 description: Publish a finished page or artifact to the user's own website as a real shareable URL, end to end — clean slug, a page matching site conventions, a 1200x630 Open Graph image via image-gateway, share metadata, indexing controls, local verification, deploy, and post-publish checks. Trigger ONLY when the user explicitly asks to publish, ship, or put something on the site. Other skills that need to take output live call this instead of writing their own deploy steps.
 tags: [publishing, deploy, open-graph, web-publishing-and-frontend]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

@@ -2,7 +2,7 @@
 name: self-pr-merge
 description: Review and merge a pull request the user authored themselves, with real review discipline despite GitHub disallowing self-approval. Runs a genuine fresh-eyes diff review first and surfaces findings before merging, checks CI and mergeability, merges with the user's chosen strategy, and cleans up the branch worktree-safely. Any failing check or unresolved finding halts the merge and returns to the user. Trigger when the user asks to merge their own PR or review-and-merge something they wrote.
 tags: [agent-operations, github, pull-request, code-review]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

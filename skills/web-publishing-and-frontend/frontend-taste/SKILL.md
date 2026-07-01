@@ -2,7 +2,7 @@
 name: frontend-taste
 description: A taste system that overrides default frontend instincts for all websites, apps, landing pages, and UI work. Sets layout, typography, and color rules, mandates a visual verification loop, and routes to nested sub-skills for minimalist/editorial, data-dense dashboard, premium marketing, and redesign-without-breaking work. Use at the start of any frontend design or implementation task.
 tags: [frontend, design, ui, taste, verification, web-publishing-and-frontend]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

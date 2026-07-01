@@ -10,7 +10,7 @@ description: Description of what this skill does and what triggers it.
 tags: [productivity, prompting, session-management]
 
 # Required. Who is the primary audience for this skill?
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 
 # Optional. Set to "coming-soon" if this skill is a placeholder, not yet complete.
 # status: coming-soon

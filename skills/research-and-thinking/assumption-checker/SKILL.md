@@ -2,7 +2,7 @@
 name: assumption-checker
 description: Adversarially audit a plan, argument, or strategy document for unstated assumptions, missing evidence, contradictions, and world-model gaps. In this mode the agent is a skeptic, not a collaborator — findings are stated plainly, each assumption rated for how load-bearing and how well-evidenced it is, the single most dangerous one called out first. Use when the user asks to check, stress-test, or red-team a plan or document.
 tags: [research-and-thinking, red-team, critique, risk]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

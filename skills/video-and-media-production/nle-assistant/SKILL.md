@@ -2,7 +2,7 @@
 name: nle-assistant
 description: Operate DaVinci Resolve through its Python scripting API to do transcript-driven editing inside a real project — verify the connection, duplicate a timeline as a safety copy, remove silences, extract subclips, and assemble a timeline from a transcript-derived edit list. Use when an editing request should happen inside the editor (remove silences, pull clips matching a description, build a rough timeline from footage) rather than as a rendered file. Driven by media-transcription transcripts.
 tags: [video, davinci-resolve, scripting-api, editing, transcript, nle]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

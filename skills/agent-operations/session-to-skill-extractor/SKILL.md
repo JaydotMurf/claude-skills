@@ -2,7 +2,7 @@
 name: session-to-skill-extractor
 description: At the end of a substantial work session, evaluate whether anything done is worth preserving as a new skill or an update to an existing one, against a high bar — the pattern must be recurring, non-obvious, and codifiable — and if so, draft it in the library's standard format for review. Checks the existing skill library first and proposes an update when one already covers most of the pattern. Trigger when the user says "wrap up" or "anything worth keeping?", or at the natural end of a session that solved something non-trivial.
 tags: [agent-operations, knowledge-capture, skill-authoring, retrospective]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

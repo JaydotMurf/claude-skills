@@ -2,7 +2,7 @@
 name: visible-delegation
 description: Delegate work to another agent session in a named, attachable tmux session the user can watch live — never a hidden background run. Launches the delegate with a self-contained goal prompt, monitors at sensible intervals against clear intervention triggers, runs the goal prompt's verification gates before reporting success, and closes the session rather than abandoning it. Trigger when the user asks to delegate, run something in parallel, or hand work to another agent.
 tags: [agent-operations, delegation, tmux, supervision]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

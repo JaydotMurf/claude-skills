@@ -2,7 +2,7 @@
 name: essay-illustration-gallery
 description: Turn a finished essay into a consistent illustration gallery — select the moments across the full arc, lock one style, generate the frames, caption each with why it was chosen, and assemble a single self-contained gallery page. Composes image-gateway for generation and site-publisher for publishing if asked. Use when the user shares an essay and asks for illustrations, images, or a gallery.
 tags: [illustration, gallery, essay, images, web-publishing-and-frontend]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

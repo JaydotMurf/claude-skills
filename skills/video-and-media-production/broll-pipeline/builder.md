@@ -2,7 +2,7 @@
 name: broll-builder
 description: BUILDER subagent for broll-pipeline. Takes 2-3 manifest entries at a time and generates Remotion components for them, built only from the shared visual contract, so every graphic across the video looks like one designer made it.
 tags: [video, subagent, remotion, motion-graphics]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

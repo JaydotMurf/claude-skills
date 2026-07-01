@@ -2,7 +2,7 @@
 name: image-model-arena
 description: Build and publish image-model comparison pages from a single config — one review page per model plus a shared side-by-side viewer. Composes image-gateway for generation and site-publisher for publishing; never reimplements either. Use to test a new image model, compare models, or add a model to an existing comparison.
 tags: [images, comparison, benchmark, web-publishing-and-frontend]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

@@ -2,7 +2,7 @@
 name: audience-content-system
 description: Generate content for a specific publication calibrated to its audience's exact level, in the user's established formats, with a batch-planning mode for whole cycles. Use when planning or drafting anything for that publication. Enforces an audience contract (knowledge floor and ceiling, banned jargon) and a calibration check before any draft ships.
 tags: [writing, content, audience, publishing, calibration]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

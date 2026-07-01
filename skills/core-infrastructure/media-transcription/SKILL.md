@@ -2,7 +2,7 @@
 name: media-transcription
 description: Turn a local audio or video file into a complete transcription package (readable transcript, word-level timestamps, chapters, speaker labels) using the AssemblyAI API. Use when given a media file and asked for a transcript, captions, chapters, or to make a recording searchable. Other skills that need a transcript call this.
 tags: [transcription, assemblyai, media, core-infrastructure]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 

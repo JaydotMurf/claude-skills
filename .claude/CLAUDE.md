@@ -6,7 +6,7 @@ This file is the project-level version of the root CLAUDE.md, loaded automatical
 
 # agent-skills
 
-Public library of reusable agent skills and runbooks for veterans and GovTech professionals. The skills are model-agnostic: each is a canonical markdown procedure that runs on any agent harness reading a `SKILL.md` convention (Claude Code, Codex, Gemini Antigravity, and others). Every file in this repo is a skill, a runbook, a template, a build prompt, or documentation for how to use and contribute them.
+A personal, open library of reusable agent skills and runbooks. The skills are model-agnostic: each is a canonical markdown procedure that runs on any agent harness reading a `SKILL.md` convention (Claude Code, Codex, Gemini Antigravity, and others). Every file in this repo is a skill, a runbook, a template, a build prompt, or documentation for how to use and contribute them.
 
 ---
 

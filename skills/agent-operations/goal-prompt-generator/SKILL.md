@@ -2,7 +2,7 @@
 name: goal-prompt-generator
 description: Turn an implementation plan or task description into a bounded, self-contained goal prompt that another agent session can execute autonomously and be checked against. Every prompt carries a one-paragraph objective, a verifiable definition of done, repo constraints (what may and may not be touched), exact verification gates, and explicit stop conditions. Trigger when the user asks to package work for another session, write a goal prompt, or prepare a task for autonomous execution.
 tags: [agent-operations, delegation, planning, goal-prompt]
-audience: DoD contractors, veterans, solo operators
+audience: engineers, operators, and solo builders
 source: open-skills
 ---
 
