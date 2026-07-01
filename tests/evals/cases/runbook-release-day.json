@@ -4,16 +4,16 @@
   "fixture": "tests/evals/cases/fixtures/release-facts.md",
   "rubric": [
     {
-      "id": "facts-sourced\\tEvery briefing fact traces to a Sources entry with a URL and a publication date.",
-      "criterion": null
+      "id": "facts-sourced",
+      "criterion": "Every briefing fact traces to a Sources entry with a URL and a publication date."
     },
     {
-      "id": "thumbnail-cost\\tThe thumbnail PNG exists at its reported path and its cost is recorded.",
-      "criterion": null
+      "id": "thumbnail-cost",
+      "criterion": "The thumbnail PNG exists at its reported path and its cost is recorded."
     },
     {
-      "id": "email-gated\\tThe update email is sent only after explicit confirmation and returns a message id, or is held as a draft.",
-      "criterion": null
+      "id": "email-gated",
+      "criterion": "The update email is sent only after explicit confirmation and returns a message id, or is held as a draft."
     }
   ],
   "notes": "Rubric derived from the target's Verification standard."

@@ -4,16 +4,16 @@
   "fixture": "tests/evals/cases/fixtures/research-question.md",
   "rubric": [
     {
-      "id": "sources-converted\\tINDEX.md lists every source converted before any analysis runs.",
-      "criterion": null
+      "id": "sources-converted",
+      "criterion": "INDEX.md lists every source converted before any analysis runs."
     },
     {
-      "id": "claims-dated\\tEvery current-information claim carries a Sources entry with a URL and a date.",
-      "criterion": null
+      "id": "claims-dated",
+      "criterion": "Every current-information claim carries a Sources entry with a URL and a date."
     },
     {
-      "id": "assumption-artifact\\tA distinct assumption-checker artifact names the most dangerous assumption plus three questions.",
-      "criterion": null
+      "id": "assumption-artifact",
+      "criterion": "A distinct assumption-checker artifact names the most dangerous assumption plus three questions."
     }
   ],
   "notes": "Rubric derived from the target's Verification standard."

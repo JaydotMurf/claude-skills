@@ -4,16 +4,16 @@
   "fixture": "tests/evals/cases/fixtures/voice-memo-transcript.md",
   "rubric": [
     {
-      "id": "transcript-exists\\tA transcript is produced from the memo before drafting.",
-      "criterion": null
+      "id": "transcript-exists",
+      "criterion": "A transcript is produced from the memo before drafting."
     },
     {
-      "id": "voice-checked\\tThe draft names its register and is checked against the my-voice anti-pattern list.",
-      "criterion": null
+      "id": "voice-checked",
+      "criterion": "The draft names its register and is checked against the my-voice anti-pattern list."
     },
     {
-      "id": "self-contained-and-live\\tThe artifact passes the self-contained check and a live URL with a 1200x630 OG image is reported.",
-      "criterion": null
+      "id": "self-contained-and-live",
+      "criterion": "The artifact passes the self-contained check and a live URL with a 1200x630 OG image is reported."
     }
   ],
   "notes": "Rubric derived from the target's Verification standard."

@@ -4,16 +4,16 @@
   "fixture": "tests/evals/cases/fixtures/session-log.md",
   "rubric": [
     {
-      "id": "extractor-safe\\tThe extractor returns a reasoned skip or a held draft, never a silent write into the live library.",
-      "criterion": null
+      "id": "extractor-safe",
+      "criterion": "The extractor returns a reasoned skip or a held draft, never a silent write into the live library."
     },
     {
-      "id": "testing-entry\\tAny testing discovery becomes a six-field entry in the testing runbook, not only in chat.",
-      "criterion": null
+      "id": "testing-entry",
+      "criterion": "Any testing discovery becomes a six-field entry in the testing runbook, not only in chat."
     },
     {
-      "id": "boundary-clean\\tPage-specific detail lives in the repo and process detail lives in the skill, with no duplication.",
-      "criterion": null
+      "id": "boundary-clean",
+      "criterion": "Page-specific detail lives in the repo and process detail lives in the skill, with no duplication."
     }
   ],
   "notes": "Rubric derived from the target's Verification standard."

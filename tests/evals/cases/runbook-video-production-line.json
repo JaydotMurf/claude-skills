@@ -4,16 +4,16 @@
   "fixture": "tests/evals/cases/fixtures/footage-note.md",
   "rubric": [
     {
-      "id": "transcript-first\\twords.json is populated and every later step reads from it.",
-      "criterion": null
+      "id": "transcript-first",
+      "criterion": "words.json is populated and every later step reads from it."
     },
     {
-      "id": "paper-edit-approved\\tThe paper edit is approved before the timeline is built.",
-      "criterion": null
+      "id": "paper-edit-approved",
+      "criterion": "The paper edit is approved before the timeline is built."
     },
     {
-      "id": "safety-copy\\tThe NLE step works on a duplicated timeline with no original modified.",
-      "criterion": null
+      "id": "safety-copy",
+      "criterion": "The NLE step works on a duplicated timeline with no original modified."
     }
   ],
   "notes": "Rubric derived from the target's Verification standard."

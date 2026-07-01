@@ -50,6 +50,10 @@ validate() {
     [[ "$kind" == "skill" || "$kind" == "runbook" ]] || { echo "  FAIL bad kind '$kind': $c"; fails=$((fails+1)); }
     [[ -f "$fixture" ]] || { echo "  FAIL fixture missing: $fixture ($c)"; fails=$((fails+1)); }
     [[ "$ncrit" -ge 1 ]] || { echo "  FAIL no rubric criteria: $c"; fails=$((fails+1)); }
+    # every rubric entry needs a non-empty id and criterion (guards against a
+    # malformed rubric that has the right length but empty content).
+    jq -e '.rubric | all((.id // "") != "" and (.criterion // "") != "")' "$c" >/dev/null 2>&1 \
+      || { echo "  FAIL rubric has an empty id or criterion: $c"; fails=$((fails+1)); }
     printf '  %-28s -> %-8s %2s criteria  (%s)\n' "$(basename "$c" .json)" "$kind" "$ncrit" "$target"
   done
   echo

@@ -4,16 +4,16 @@
   "fixture": "tests/evals/cases/fixtures/delegation-task.md",
   "rubric": [
     {
-      "id": "map-lane\\tThe operating map shows the lane with an owner and current state before delegation starts.",
-      "criterion": null
+      "id": "map-lane",
+      "criterion": "The operating map shows the lane with an owner and current state before delegation starts."
     },
     {
-      "id": "gates-cover-dod\\tThe goal prompt carries verification gates as exact commands covering its definition of done.",
-      "criterion": null
+      "id": "gates-cover-dod",
+      "criterion": "The goal prompt carries verification gates as exact commands covering its definition of done."
     },
     {
-      "id": "session-torn-down\\tThe gates were run and the tmux session is confirmed gone at the end.",
-      "criterion": null
+      "id": "session-torn-down",
+      "criterion": "The gates were run and the tmux session is confirmed gone at the end."
     }
   ],
   "notes": "Rubric derived from the target's Verification standard."

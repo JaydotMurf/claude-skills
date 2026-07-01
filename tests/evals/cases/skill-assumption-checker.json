@@ -4,16 +4,16 @@
   "fixture": "tests/evals/cases/fixtures/sample-plan.md",
   "rubric": [
     {
-      "id": "leads-with-most-dangerous\\tThe output opens with the single most dangerous assumption.",
-      "criterion": null
+      "id": "leads-with-most-dangerous",
+      "criterion": "The output opens with the single most dangerous assumption."
     },
     {
-      "id": "every-assumption-rated\\tEvery listed assumption carries both a load-bearing-weight and an evidence-quality rating.",
-      "criterion": null
+      "id": "every-assumption-rated",
+      "criterion": "Every listed assumption carries both a load-bearing-weight and an evidence-quality rating."
     },
     {
-      "id": "three-or-fewer-questions\\tIt closes with three or fewer highest-leverage questions and no praise.",
-      "criterion": null
+      "id": "three-or-fewer-questions",
+      "criterion": "It closes with three or fewer highest-leverage questions and no praise."
     }
   ],
   "notes": "Rubric derived from the target's Verification standard."
