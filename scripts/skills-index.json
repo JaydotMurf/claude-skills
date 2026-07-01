@@ -234,7 +234,7 @@
       "name": "codebase-design",
       "path": "skills/software-engineering/codebase-design/SKILL.md",
       "category": "software-engineering",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
