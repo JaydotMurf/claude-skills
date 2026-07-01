@@ -14,7 +14,7 @@ set -euo pipefail
 
 ENV_FILE="${AGENT_SKILLS_ENV:-$HOME/.config/agent-skills/.env}"
 MODEL_DEFAULT="${CURRENT_INFO_SEARCH_MODEL:-sonar}"
-ENDPOINT="https://api.perplexity.ai/v1/sonar"   # legacy fallback: https://api.perplexity.ai/chat/completions
+ENDPOINT="https://api.perplexity.ai/chat/completions"   # verified live 2026-07-01; /v1/sonar returns an HTTP/2 framing error
 
 for bin in curl jq; do
   command -v "$bin" >/dev/null 2>&1 || { echo "error: missing dependency: $bin" >&2; exit 1; }
@@ -82,4 +82,4 @@ sources=$(jq -r '
 [[ -n "$sources" ]] && echo "$sources" || echo "- (none returned)"
 
 echo
-jq -r '.usage | "tokens: \(.total_tokens // "n/a")  model: '"$MODEL"'"' <<<"$resp"
+jq -r '.usage | "tokens: \(.total_tokens // "n/a")  cost: $\(.cost.total_cost // "n/a")  model: '"$MODEL"'"' <<<"$resp"

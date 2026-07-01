@@ -4,7 +4,7 @@
 # Usage:
 #   send-update.sh --to dst@example.com --subject "Subject" --html update.html
 #   send-update.sh --to "a@x.com,b@x.com" --subject "S" --text update.txt --cc me@x.com
-#   send-update.sh --to dst@example.com --subject "S" --body-stdin --html-inline <<<'<p>hi</p>'
+#   send-update.sh --to dst@example.com --subject "S" --html u.html --reply-to me@proton.me
 #
 # The API key is read from the env file, never passed on the command line.
 # Resolution order: STAKEHOLDER_UPDATE_EMAIL_API_KEY, then RESEND_API_KEY.
@@ -35,21 +35,22 @@ if [[ -z "$API_KEY" ]]; then
 fi
 
 # --- parse args ---
-TO=""; CC=""; SUBJECT=""; HTML_FILE=""; TEXT_FILE=""; FROM="$FROM_DEFAULT"
+TO=""; CC=""; SUBJECT=""; HTML_FILE=""; TEXT_FILE=""; FROM="$FROM_DEFAULT"; REPLY_TO="${STAKEHOLDER_UPDATE_EMAIL_REPLY_TO:-}"
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --to)      TO="${2:-}";        shift 2;;
-    --cc)      CC="${2:-}";        shift 2;;
-    --subject) SUBJECT="${2:-}";   shift 2;;
-    --html)    HTML_FILE="${2:-}"; shift 2;;
-    --text)    TEXT_FILE="${2:-}"; shift 2;;
-    --from)    FROM="${2:-}";      shift 2;;
+    --to)       TO="${2:-}";        shift 2;;
+    --cc)       CC="${2:-}";        shift 2;;
+    --subject)  SUBJECT="${2:-}";   shift 2;;
+    --html)     HTML_FILE="${2:-}"; shift 2;;
+    --text)     TEXT_FILE="${2:-}"; shift 2;;
+    --from)     FROM="${2:-}";      shift 2;;
+    --reply-to) REPLY_TO="${2:-}";  shift 2;;
     *) echo "unknown argument: $1" >&2; exit 1;;
   esac
 done
 
 if [[ -z "$TO" || -z "$SUBJECT" ]]; then
-  echo "usage: send-update.sh --to <addr[,addr]> --subject <s> (--html <file> | --text <file>) [--cc <addr[,addr]>] [--from <addr>]" >&2
+  echo "usage: send-update.sh --to <addr[,addr]> --subject <s> (--html <file> | --text <file>) [--cc <addr[,addr]>] [--from <addr>] [--reply-to <addr>]" >&2
   exit 1
 fi
 if [[ -z "$HTML_FILE" && -z "$TEXT_FILE" ]]; then
@@ -82,6 +83,9 @@ if [[ -n "$TEXT_FILE" ]]; then
 fi
 if [[ -n "$CC" ]]; then
   body=$(jq --argjson cc "$(to_json_array "$CC")" '. + {cc:$cc}' <<<"$body")
+fi
+if [[ -n "$REPLY_TO" ]]; then
+  body=$(jq --arg r "$REPLY_TO" '. + {reply_to:$r}' <<<"$body")
 fi
 
 # --- call the API ---

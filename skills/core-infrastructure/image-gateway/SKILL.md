@@ -75,7 +75,7 @@ The returned image arrives base64-encoded inside the response. Confirmed by live
 
 ## Cost
 
-Confirmed by live test (2026-06-29): $0.0387 for one 1024x1024 image (1290 image tokens billed as output). The response's `usage.cost` field is authoritative and the script prints it after each run. Underlying token pricing is $0.30 per 1M input tokens and $2.50 per 1M output tokens.
+Confirmed by live test (2026-06-29, re-confirmed 2026-07-01): $0.0387 for one 1024x1024 image (1290 image tokens billed as output) on the default `google/gemini-2.5-flash-image`. The response's `usage.cost` field is authoritative and the script prints it after each run. Underlying token pricing is $0.30 per 1M input tokens and $2.50 per 1M output tokens. Cost varies by model: the same 1024x1024 request on `google/gemini-3-pro-image` cost $0.13616 (2026-07-01).
 
 ## For other skills
 
@@ -93,4 +93,4 @@ A single PNG written under the output directory (default `~/Pictures/agent-image
 
 ## Verification standard
 
-Do not call the task done until: the command exits zero, the output file exists and is a non-empty PNG (`file` reports PNG image data), and the per-image cost was reported. Build-time test passed on 2026-06-29: produced a 1024x1024 PNG at $0.0387.
+Do not call the task done until: the command exits zero, the output file exists and is a non-empty PNG (`file` reports PNG image data), and the per-image cost was reported. Build-time test passed on 2026-06-29: produced a 1024x1024 PNG at $0.0387. Live re-validated 2026-07-01: the default model produced a 1024x1024 PNG at $0.0387657, and exporting `IMAGE_GATEWAY_MODEL=google/gemini-3-pro-image` routed the same call to that model, producing a valid 1024x1024 PNG at $0.13616 — a different model id and a different reported cost, which confirms the override drives model selection end-to-end.
