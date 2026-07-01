@@ -2,7 +2,7 @@
 
 A living development map of the agent-skills project: what it is, what is built, what is underway, and where it is going. This file is the single source of truth for project state and is the basis from which the public README will be written before go-live.
 
-Last updated: 2026-07-01 (main at the merge of PR #13).
+Last updated: 2026-07-01 (main at the merge of PR #17).
 
 ---
 
@@ -91,7 +91,19 @@ agent-skills/
 │
 ├── docs/
 │   ├── open-skills-brief.md        # The framework brief grounding the library
-│   └── vendored-conformance.md     # Six-element gap tracker for vendored skills
+│   ├── vendored-conformance.md     # Six-element gap tracker for vendored skills
+│   └── verification-ledger.md      # Tier 3: dated live-run cost/shape evidence
+│
+├── scripts/
+│   ├── check.sh                    # static + conformance gate (10 checks)
+│   ├── test.sh                     # Tier 1: offline behavioral tests
+│   ├── gen-index.sh                # generates the skills manifest
+│   └── skills-index.json           # machine-readable manifest of all 58 skills
+│
+├── tests/
+│   └── evals/                      # Tier 2: budget-gated LLM-judge eval scaffold
+│       ├── run.sh                  # --validate (free) | --run (gated)
+│       └── cases/                  # 7 runbook + 2 exemplar-skill cases + fixtures
 │
 ├── templates/
 │   ├── SKILL-TEMPLATE.md
@@ -378,19 +390,31 @@ All API-backed skills with a key present were validated against real endpoints f
 
 The remaining deferred paths are hardware and render dependent (radio-edit, broll-pipeline, nle-assistant) and the Remotion typecheck, all tracked below.
 
+### Tiered quality-test system (PR #16)
+
+A three-tier verification system so "verified" is enforced by tooling, not asserted in prose. The design was chosen from three graded options (deterministic-only, LLM-judge-only, tiered pyramid); the pyramid won on cost, CI-safety, and fit with the existing gate.
+
+- ✅ Tier 1, the deterministic CI gate: `scripts/gen-index.sh` emits `scripts/skills-index.json` (a manifest of all 58 skills that also seeds a future dependency graph); `scripts/test.sh` runs 15 offline behavioral tests (Python selftests, clean no-key failure in a scrubbed env, usage/arg validation, HTML offline-safety); `radio-edit.py` gained a `selftest` for its pure edit logic; and `scripts/check.sh` grew three checks (manifest freshness, non-empty contract/verification sections, runbooks composing at least two skills). Both scripts are wired into CI.
+- ✅ Tier 2, behavioral evals: `tests/evals/` scores skills and runbooks against rubrics drawn from their own verification standards, seeded with all 7 runbooks and 2 exemplar skills. `run.sh --validate` is free and offline; the judged run is gated behind a key and budget flag and kept off the pull-request gate.
+- ✅ Tier 3, the verification ledger: `docs/verification-ledger.md` records dated live-run cost and shape evidence, populated from the paid-path validation pass above.
+- ✅ A cross-platform manifest bug was found and fixed during the build: the freshness check must compare content, not byte formatting, because jq output differs by version and locale between macOS and the Ubuntu CI runner. The manifest is now byte-identical across locales.
+
+### Public README rewrite (PR #17)
+
+- ✅ `README.md` rewritten into a clean, professional landing page: correct scope (58 skills across eight categories, 7 runbooks), a CI status badge, and a "Built to be trusted" section surfacing the per-skill proof standards, the runtime secrets contract, and the three-tier verification. The full go-live README can still expand from this file, but the public front door is now accurate and presentable.
+
 ---
 
 ## 5. Work In Progress
 
-Ordered for a safe, methodical workflow: validate paid and hardware paths, then build the quality-test system, then take on the larger phase-2 build, and finish with the public README. The correctness, hygiene, and CI items are done (see Work Completed).
+Paid-path validation, the tiered quality-test system, and the README rewrite are all done (see Work Completed). What remains is hardware-dependent validation, the phase-2 build, and ongoing native adoption of vendored skills.
 
-1. Paid-path validation is done for every key-present skill (see the Work Completed subsection above): search, transcription, image-gateway plus the model override, both image composers, and a Resend sandbox send are all live-validated with dated cost recorded. The only remaining piece here is a Resend custom-domain verification, which would let stakeholder-update-email send beyond the account's own inbox; it is optional and blocked on owning and verifying a domain.
-2. Build the tiered quality-test system (Tier 1 deterministic CI gate over every skill, Tier 2 budget-gated LLM-judge evals for the highest-value skills and all 7 runbooks, Tier 3 the live-path verification ledger fed by item 1). See the Work Completed subsection once it lands.
-3. Live-validate the hardware and render paths: a radio-edit EDL imported into an NLE, a broll-pipeline end-to-end render, and an nle-assistant round-trip against DaVinci Resolve Studio. Blocked on local media hardware and toolchains.
-4. Add a Remotion typecheck for `broll-pipeline/index.ts` and the `.tsx` set, which are not type-checked in this repo today (no Remotion toolchain present); wire it into CI once the toolchain is available.
-5. Begin native adoption of vendored skills where it pays off: pick the highest-traffic vendored skills, bring each to the six-element standard, drop its `standard: upstream-vendored` marker, and remove its row from `docs/vendored-conformance.md`.
-6. Build the phase-2 per-harness adapter and generation layer: flatten canonical `SKILL.md` into each harness's expected location and generate per-tool rule files (Claude Code, Codex, Cursor, Gemini) from the single canonical source.
-7. Draft the final public README from this file once the above stabilize, framing the library for first-time veteran and GovTech users.
+1. Live-validate the hardware and render paths: a radio-edit EDL imported into an NLE, a broll-pipeline end-to-end render, and an nle-assistant round-trip against DaVinci Resolve Studio. Blocked on local media hardware and toolchains.
+2. Add a Remotion typecheck for `broll-pipeline/index.ts` and the `.tsx` set, which are not type-checked in this repo today (no Remotion toolchain present); wire it into CI once the toolchain is available.
+3. Grow the Tier 2 eval suite past its seed set (7 runbooks + 2 exemplar skills) and, when a model budget is approved, wire the judged run so it produces a scored report.
+4. Begin native adoption of vendored skills where it pays off: pick the highest-traffic vendored skills, bring each to the six-element standard, drop its `standard: upstream-vendored` marker, and remove its row from `docs/vendored-conformance.md`.
+5. Build the phase-2 per-harness adapter and generation layer: flatten canonical `SKILL.md` into each harness's expected location and generate per-tool rule files (Claude Code, Codex, Cursor, Gemini) from the single canonical source.
+6. Optional: verify a Resend custom domain so stakeholder-update-email can send beyond the account's own inbox; blocked on owning and verifying a domain.
 
 ---
 
