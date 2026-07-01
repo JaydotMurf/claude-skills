@@ -9,7 +9,6 @@ metadata:
 tags: [review, visualization, html]
 audience: Software engineers and developers using Claude Code
 source: agent-native
-standard: upstream-vendored
 ---
 
 ## Installed Mode
@@ -33,7 +32,7 @@ connector only if the user explicitly asks to publish or share.
 
 # Visual Recap
 
-`/visual-recap` creates a visual plan built **from** a diff, not toward one. It
+`/visual-recap` creates a visual plan built from a diff, not toward one. It
 is the reverse of forward planning: instead of describing the change you are
 about to make, you describe the change that was just made, at a higher altitude
 than line-by-line review. The same plan data model serves both directions —
@@ -89,7 +88,7 @@ In local-files mode:
   prints diagnostics, and exits. If the browser hangs on "Loading plan", fetch
   the `bridgeUrl` from the verify/serve JSON to read the concrete validation
   error.
-- Do **not** call `create-visual-recap`, `create-visual-plan`,
+- Do not call `create-visual-recap`, `create-visual-plan`,
   `import-visual-plan-source`, `update-visual-plan`,
   `patch-visual-plan-source`, `get-plan-feedback`, `export-visual-plan`,
   `set-resource-visibility`, or any hosted Plan tool for that recap except the
@@ -220,13 +219,13 @@ Budgets that keep the recap reviewable:
   tab; summarize or link the rest of a long file instead of dumping it.
 - Title at most ~70 characters; brief 1-3 sentences.
 
-**GOOD.** A 25-file auth change: Before/After wireframes of the login surface,
+GOOD. A 25-file auth change: Before/After wireframes of the login surface,
 a two-paragraph narrative, a diff-aware `data-model` of the sessions table, an
 `api-endpoint` for the new refresh route, a `file-tree` with change flags, and
 `## Key changes` with five focused tabs, each with a one-line `summary` and a
 few annotations on the load-bearing hunks.
 
-**BAD.** One giant unsegmented diff dump with no summaries or annotations; or a
+BAD. One giant unsegmented diff dump with no summaries or annotations; or a
 sparse three-block recap of a 40-file change (one wireframe, one sentence, one
 file list) that forces the reviewer back into the raw diff anyway.
 
@@ -316,7 +315,7 @@ Plan app itself is running locally with the same `PLAN_LOCAL_DIR`, the
 and do not publish just to get an absolute Plan link.
 
 After creating the recap, link the reviewer to the rendered plan with an
-**absolute URL on the origin whose database actually holds the plan**. That
+absolute URL on the origin whose database actually holds the plan. That
 origin is the Plan MCP server you just created the recap through — NOT whatever
 dev server you happen to know is running. The create tool returns the correct
 link; report THAT. Never make the primary link a local `plan.mdx` file, a local
@@ -369,14 +368,14 @@ the actual diff. The names below are the CONCEPTUAL block types, not the JSX
 tags — resolve every conceptual name to its exact tag + prop schema with the
 `get-plan-blocks` tool (see "Block reference" below) before authoring.
 
-- **Schema / migration change** → `data-model` for the resulting entities,
+- Schema / migration change → `data-model` for the resulting entities,
   fields, and relations. Flag what moved per field/entity with
   `change: "added" | "modified" | "removed" | "renamed"`, and for a changed type
   set `was` to the prior value (e.g. the old column type) — grounded in the real
   migration diff. That diff-aware `data-model` is the headline; reach for a split
   `diff` of the literal SQL only when the exact statement still matters, not by
   default.
-- **API / action / route change** → `api-endpoint` with the method, path,
+- API / action / route change → `api-endpoint` with the method, path,
   params, request, and responses as they are after the change. Flag each changed
   param/response with `change` (and `was` on a param whose type/shape changed),
   and set `change` on the endpoint root for a wholly added or removed route. Mark
@@ -391,11 +390,11 @@ tags — resolve every conceptual name to its exact tag + prop schema with the
   When an endpoint has several distinct message shapes (for example separate
   websocket frame types, or a success body versus an error body), give each its
   OWN example with its own label rather than cramming them into one body.
-- **Compatibility-sensitive change** → short `rich-text` notes beside the
+- Compatibility-sensitive change → short `rich-text` notes beside the
   relevant `data-model` / `api-endpoint` block. Name the changed field,
   endpoint, or behavior and mark whether it is breaking, risky, or non-breaking;
   pair that note with a split `diff` for the literal lines.
-- **Any meaningful code hunk** → `diff` with `mode: "split"`, carrying the real
+- Any meaningful code hunk → `diff` with `mode: "split"`, carrying the real
   `before` / `after` text and the `filename` / `language`. Split mode is the
   default for recap code review because before/after legibility is the point;
   use `mode: "unified"` only for a genuinely narrow standalone hunk where
@@ -417,17 +416,17 @@ tags — resolve every conceptual name to its exact tag + prop schema with the
   If the recap ends with more than one supporting diff, that trailing diff
   appendix should be one horizontal `tabs` block under its own `## Key changes`
   heading, not a stack of separate `diff` blocks.
-- **Brand-new file or a substantial added block with no meaningful "before"** →
+- Brand-new file or a substantial added block with no meaningful "before" →
   `annotated-code` rather than a one-sided split `diff`. Carry the real new code
   with its `filename` / `language` and anchor a few high-signal notes to the lines
   that matter so the reviewer reads what the new code does, not code for code's
   sake. Keep split `diff` for true before/after hunks where the removed lines
   still carry meaning, and group several annotated walkthroughs in a horizontal
   `tabs` block the same way diffs are grouped.
-- **Files added / removed / renamed** → `file-tree` with each entry's `change`
+- Files added / removed / renamed → `file-tree` with each entry's `change`
   flag (`added`, `removed`, `modified`, `renamed`) and a short `note`; attach a
   `snippet` only when one tells the reviewer something the path does not.
-- **Rendered UI / interaction change** → one or more wireframes showing the
+- Rendered UI / interaction change → one or more wireframes showing the
   visible UI delta before the reviewer reads code. Use `Before` / `After`
   wireframes when the comparison clarifies the change; otherwise use after-only
   or a short state/flow sequence. Use realistic UI surfaces: for a popover
@@ -438,7 +437,7 @@ tags — resolve every conceptual name to its exact tag + prop schema with the
   changed, show what managers can do and what viewers/non-managers see instead.
   Keep the body lean: the wireframe carries the UI story, while the file tree
   and `diff` blocks carry implementation evidence.
-- **Architecture or data-flow shift** → `diagram` with `data.html` / `data.css`
+- Architecture or data-flow shift → `diagram` with `data.html` / `data.css`
   as a two-panel before/after, layered, or swimlane layout, or `mermaid` for a
   quick graph. Use two-dimensional layouts; do not reduce a structural change to
   a left-to-right chain. Do not use `diagram` as a stand-in for rendered UI
@@ -447,7 +446,7 @@ tags — resolve every conceptual name to its exact tag + prop schema with the
   (`.diagram-panel`, `.diagram-node`, `.diagram-pill`, `[data-rough]`, …) and
   the same `--wf-*` theme tokens `references/wireframe.md` defines — never
   `font-family`, hex, rgb/hsl literals, or one-off dark/light palettes.
-- **Outcome-first narrative** → `rich-text` for the "what changed and why" prose:
+- Outcome-first narrative → `rich-text` for the "what changed and why" prose:
   the objective the diff served, the key decisions visible in it, and the risks a
   reviewer should weigh. This is the only place the model writes freely.
 
@@ -460,7 +459,7 @@ memorized tags — they drift and silently produce a wrong tag (`ApiEndpoint`
 instead of `Endpoint`, `JsonExplorer` instead of `Json`, `Tabs` instead of
 `TabsBlock`) that errors on import.
 
-**Before writing any structured plan content, fetch/read the block catalog.** In
+Before writing any structured plan content, fetch/read the block catalog. In
 hosted or self-hosted mode, call `get-plan-blocks` on the Plan MCP connector
 (`plan` or legacy `agent-native-plans`). In local-files mode, or when the skill
 was installed as plain text and no MCP tools are registered, run
@@ -499,9 +498,9 @@ A few recap-specific authoring rules the registry table cannot encode:
   explicitly closed around children (`<RichText ...>...</RichText>`). Never
   leave a bare opening tag like `<RichText ...>` in a paragraph; MDX treats it
   as unclosed JSX and import fails before the recap can render.
-- `Endpoint`: prose `description` is the MDX **children** (body between the
+- `Endpoint`: prose `description` is the MDX children (body between the
   tags), not an attribute; for a WebSocket upgrade use `method="GET"`. Each
-  request/response `example` is a JSON **string** (the renderer parses it into
+  request/response `example` is a JSON string (the renderer parses it into
   the JSON explorer), so keep it a single parseable JSON value.
 - `TabsBlock`: the whole `tabs` array (including nested child blocks) is ONE
   JSON `tabs={[…]}` prop — there is NO nested `<Tab>` element.
@@ -518,13 +517,13 @@ A few recap-specific authoring rules the registry table cannot encode:
 The recap's center of gravity is the before/after comparison. For document-body
 comparisons there are two primitives, and they cover the whole need together:
 
-- **`columns`** — the side-by-side container, for **structured** comparisons.
+- `columns` — the side-by-side container, for structured comparisons.
   Use two columns labeled `Before` and `After`, each holding a block (commonly a
   `data-model`, `api-endpoint`, or `rich-text`), so the reviewer reads the old
   shape against the new shape in one glance. This is the right primitive for
   "the schema went from X to Y" or "the endpoint contract changed like this."
   Do not use `columns` simply to compact or group a list of API endpoints.
-- **`diff`** — for **code**. It renders the literal removed and added lines. Use
+- `diff` — for code. It renders the literal removed and added lines. Use
   it for the actual hunks. Use split mode by default for recap code review;
   reserve `mode: "unified"` for genuinely narrow standalone hunks where
   side-by-side would hide the code. Key-file diff groups should use horizontal
@@ -548,7 +547,7 @@ and call it a comparison when `columns` exists to put them side by side.
 
 ## Grounding Rule
 
-Structured blocks are **true by construction** only if they are derived from the
+Structured blocks are true by construction only if they are derived from the
 actual changed lines. The `diff`, `data-model`, `api-endpoint`, and `file-tree`
 blocks MUST be built mechanically from the real diff — real paths, real fields,
 real method/path, real before/after text — never inferred, rounded, or invented.
@@ -560,13 +559,13 @@ inferred (not extracted) as inferred in prose.
 
 ## Security
 
-- **Gate visibility.** Recaps of a private repo are org/login-gated — set the
+- Gate visibility. Recaps of a private repo are org/login-gated — set the
   plan's visibility to the owning org or login, never auto-public. A recap can
   expose unreleased schema, internal endpoints, and architecture; treat it like
   the source it summarizes. Any PR comment or handoff that links to the recap
   must say that private-repo recaps require signing in with access to the owning
   org if the link does not load.
-- **Never transcribe secrets.** A diff can contain API keys, tokens, webhook
+- Never transcribe secrets. A diff can contain API keys, tokens, webhook
   URLs, signing secrets, `.env` values, or credential-looking literals. Do not
   copy any of these into a `diff`, `file-tree` snippet, `api-endpoint`, or prose
   block — redact them (`sk-•••`, `<redacted>`). This mirrors the repo's
@@ -589,13 +588,44 @@ auto-re-run is the remaining fast-follow.
 
 ## Related Skills
 
-- **visual-plan** — the canonical command and the source of the shared Wireframe
+- visual-plan — the canonical command and the source of the shared Wireframe
   & Canvas and Document Quality cores; a recap follows the same block discipline
   in reverse.
-- **comment anchors** — recap comments use the same anchor rules as forward
+- comment anchors — recap comments use the same anchor rules as forward
   plans; see "Interpreting comment anchors" in the visual-plan skill for
   coordinate frames, wireframe node ids, text-quote resolution, detached
   threads, routing via `resolutionTarget`, and two-axis consumed/resolved state.
-- **security** — data scoping, secret handling, and the hardcoded-secret rule the
+- security — data scoping, secret handling, and the hardcoded-secret rule the
   recap's redaction and visibility gating mirror.
-- **sharing** — org/login-gated visibility for the plan that holds the recap.
+- sharing — org/login-gated visibility for the plan that holds the recap.
+
+## Output contract
+
+The deliverable is one published Agent-Native Plan recap, never an inline summary.
+Built with `create-visual-recap` on the Plan MCP connector, or a local MDX folder in
+local-files privacy mode, it covers the whole work unit and carries:
+
+- A UI-impact headline of before/after wireframes whenever the diff changed rendered
+  UI.
+- A short outcome narrative plus diff-aware `data-model` and `api-endpoint` blocks for
+  schema and contract changes, derived mechanically from the real diff.
+- A `file-tree` of the changed files with per-file `change` flags, and a `## Key
+  changes` horizontal `tabs` block of split `diff` / `annotated-code` for the
+  load-bearing files, each with a one-line summary and a few annotations.
+- A reported absolute URL on the origin whose database holds the plan — the Plan MCP
+  that created it, or the local bridge URL in local-files mode.
+
+## Verification
+
+Before linking the reviewer, confirm:
+
+- Every `diff`, `data-model`, `api-endpoint`, and `file-tree` block was built from the
+  actual changed lines — real paths, fields, and before/after text — with anything
+  inferred marked as inferred.
+- The recap has 3-8 key-change tabs, each diff labeled with a summary, and no
+  transcribed secrets — keys, tokens, and `.env` values are redacted.
+- Private-repo recaps are visibility-gated to the owning org or login, never
+  auto-public.
+- The reported link is the absolute URL the create tool returned, or the local bridge
+  URL, not a guessed localhost origin or a relative `plan.mdx` path; when a browser is
+  available the rendered recap was visually inspected for overlap.

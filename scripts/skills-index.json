@@ -449,7 +449,7 @@
       "name": "visual-plan",
       "path": "skills/web-publishing-and-frontend/visual-plan/SKILL.md",
       "category": "web-publishing-and-frontend",
-      "vendored": true,
+      "vendored": false,
       "source": "agent-native",
       "scripts": []
     },
@@ -457,7 +457,7 @@
       "name": "visual-recap",
       "path": "skills/web-publishing-and-frontend/visual-recap/SKILL.md",
       "category": "web-publishing-and-frontend",
-      "vendored": true,
+      "vendored": false,
       "source": "agent-native",
       "scripts": []
     },
