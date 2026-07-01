@@ -3,11 +3,13 @@
 [![CI](https://github.com/JaydotMurf/agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/JaydotMurf/agent-skills/actions/workflows/ci.yml)
 [![View on GitHub](https://img.shields.io/badge/GitHub-JaydotMurf%2Fagent--skills-blue?logo=github)](https://github.com/JaydotMurf/agent-skills)
 
-Version-controlled, model-agnostic procedures for AI agents. Each skill is a single markdown file that any harness reading the `SKILL.md` convention can load and run — Claude Code, Codex, Gemini Antigravity, and others. Built for veterans, DoD contractors, and GovTech professionals who need AI procedures they can hand off, inspect, and trust.
+A personal, open library of reusable agent skills and runbooks. Each skill is a single markdown file that any harness reading the `SKILL.md` convention can load and run — Claude Code, Codex, Gemini Antigravity, and others.
 
 ## Why this exists
 
-Most agent setups keep their knowledge in one sprawling system prompt that gets re-explained every session and rewritten for every tool. This library packages recurring agent work as small, verifiable procedures instead. A prompt is something you say once; a skill is something your agent knows how to do from now on.
+This is my working arsenal of agentic procedures: the tasks I repeat as a senior engineer and want an agent to perform the same way every time, across projects and tools. It builds on the Open Skills framework and its conventions for how a skill file and a runbook should be structured, so each procedure is explicit, inspectable, and portable rather than trapped in one machine's system prompt.
+
+Most agent setups keep their knowledge in one sprawling system prompt that gets re-explained every session and rewritten for every tool. This library captures that knowledge as small, verifiable procedures instead. A prompt is something you say once; a skill is something your agent knows how to do from now on. The repo is public because the procedures are general, and sharing them costs nothing.
 
 ## What's inside
 
@@ -47,14 +49,14 @@ See [INSTALLATION.md](INSTALLATION.md) for three install methods: global, projec
 
 ## Who this is for
 
-- Veterans new to AI-assisted workflows who want a structured starting point, not a blank prompt box.
-- DoD contractors who need documented, repeatable AI operating procedures they can hand off or audit.
-- Solo operators running several projects across more than one agent tool who can't afford to re-explain their setup every session.
+- Anyone who wants a version-controlled way to give their agents repeatable procedures instead of re-explaining a setup every session.
+- Engineers working across several AI tools and data-heavy workflows — transfer, extraction, and transformation pipelines — who want their agent procedures captured, inspectable, and portable.
+- Anyone who finds a skill here useful: everything is open and copies into any harness.
 
 ## Contributing
 
-Skills submitted here must work for a DoD contractor or veteran without modification: no classified content, no org-specific tooling. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full process and the required skill structure.
+Contributions are welcome. A skill should be self-contained and general — no classified content, no org-specific tooling — so it works for anyone who installs it. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full process and the required skill structure.
 
 ---
 
-Built by [JaydotMurf](https://github.com/JaydotMurf) · [Tactical Asset](https://tacticalasset.co) — helping veterans land six-figure GovTech roles.
+Built by [JaydotMurf](https://github.com/JaydotMurf).
