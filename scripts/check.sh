@@ -11,6 +11,9 @@
 #   5. provenance      — every vendored skill declares source:
 #   6. runbook refs    — every category/skill named in a RUNBOOK resolves on disk
 #   7. writing rules   — non-vendored SKILL.md / RUNBOOK.md avoid inline bold and AI-isms
+#   8. manifest fresh  — scripts/skills-index.json matches a fresh generation
+#   9. section content — native Output contract / Verification sections are non-empty
+#  10. runbook shape   — every runbook composes at least two distinct skills
 #
 # Vendored skills (standard: upstream-vendored) are exempt from the authoring
 # and writing-rule gates; they are still syntax-checked and provenance-checked.
@@ -44,7 +47,7 @@ n=0
 while IFS= read -r f; do
   bash -n "$f" 2>/dev/null || { note "SYNTAX: $f"; fails=$((fails+1)); }
   n=$((n+1))
-done < <(find skills scripts -name '*.sh')
+done < <(find skills scripts tests -name '*.sh')
 note "checked $n shell scripts"
 
 # --- 2. python syntax ---
@@ -116,6 +119,53 @@ while IFS= read -r f; do
   fi
 done < <(find skills runbooks -name 'SKILL.md' -o -name 'RUNBOOK.md')
 note "checked $n procedure files"
+
+# --- 8. manifest freshness (scripts/skills-index.json is current) ---
+section 8 "skills-index.json is up to date"
+if [ -f scripts/skills-index.json ]; then
+  # compare content, not byte formatting, so jq version differences across
+  # machines (macOS vs CI) never produce a false "stale".
+  if [ "$(bash scripts/gen-index.sh | jq -S .)" = "$(jq -S . scripts/skills-index.json)" ]; then
+    note "manifest matches a fresh generation"
+  else
+    note "STALE: scripts/skills-index.json — run scripts/gen-index.sh --write"
+    fails=$((fails+1))
+  fi
+else
+  note "MISSING: scripts/skills-index.json — run scripts/gen-index.sh --write"
+  fails=$((fails+1))
+fi
+
+# --- 9. section content (native Output contract / Verification are non-empty) ---
+# extract the body under a "## <heading>" up to the next "## " and report whether
+# it holds any non-blank line (i.e. the section is more than just its header).
+section_has_body() { # section_has_body FILE HEADING
+  awk -v h="$2" '
+    $0 ~ "^## " h { grab=1; next }
+    grab && /^## / { exit }
+    grab && NF { found=1 }
+    END { exit(found?0:1) }
+  ' "$1"
+}
+section 9 "native section content (non-empty contract + verification)"
+n=0
+while IFS= read -r f; do
+  is_vendored "$f" && continue
+  n=$((n+1))
+  section_has_body "$f" "Output contract" || { note "EMPTY Output contract: $f"; fails=$((fails+1)); }
+  section_has_body "$f" "Verification"     || { note "EMPTY Verification: $f"; fails=$((fails+1)); }
+done < <(find skills -name SKILL.md)
+note "checked $n native SKILL.md"
+
+# --- 10. runbook composition (each runbook chains >= 2 distinct skills) ---
+section 10 "runbook composition (>= 2 distinct skills)"
+n=0
+while IFS= read -r rb; do
+  n=$((n+1))
+  refs=$(grep -hoE '`[a-z-]+/[a-z-]+`' "$rb" | tr -d '`' | sort -u | grep -c . )
+  [ "$refs" -ge 2 ] || { note "THIN runbook ($refs skill refs): $rb"; fails=$((fails+1)); }
+done < <(find runbooks -name RUNBOOK.md)
+note "checked $n runbooks"
 
 # --- result ---
 printf '\n'

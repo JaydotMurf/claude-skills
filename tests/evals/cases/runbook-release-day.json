@@ -1,0 +1,20 @@
+{
+  "target": "runbooks/release-day/RUNBOOK.md",
+  "kind": "runbook",
+  "fixture": "tests/evals/cases/fixtures/release-facts.md",
+  "rubric": [
+    {
+      "id": "facts-sourced\\tEvery briefing fact traces to a Sources entry with a URL and a publication date.",
+      "criterion": null
+    },
+    {
+      "id": "thumbnail-cost\\tThe thumbnail PNG exists at its reported path and its cost is recorded.",
+      "criterion": null
+    },
+    {
+      "id": "email-gated\\tThe update email is sent only after explicit confirmation and returns a message id, or is held as a draft.",
+      "criterion": null
+    }
+  ],
+  "notes": "Rubric derived from the target's Verification standard."
+}

@@ -333,7 +333,45 @@ def write_fcpxml(out, keep, fps, clip_name, src_file):
         fh.write("\n".join(body) + "\n")
 
 
+def cmd_selftest():
+    """Offline checks of the pure edit logic — no media, no transcript needed."""
+    # timecode: ms -> HH:MM:SS:FF at the given fps
+    assert tc(0, 30) == "00:00:00:00", tc(0, 30)
+    assert tc(1000, 30) == "00:00:01:00", tc(1000, 30)
+    assert tc(3661000, 30) == "01:01:01:00", tc(3661000, 30)
+
+    # token normalization strips punctuation and lowercases, keeps apostrophes
+    assert norm("Um,") == "um", norm("Um,")
+    assert norm("I'll") == "i'll", norm("I'll")
+
+    # filler + stutter removal, then segment building
+    words = [
+        {"text": "So",   "start": 0,   "end": 200},
+        {"text": "um",   "start": 250, "end": 400},   # filler -> cut
+        {"text": "the",  "start": 450, "end": 600},   # first of a stutter -> cut
+        {"text": "the",  "start": 620, "end": 750},
+        {"text": "plan", "start": 800, "end": 1000},
+    ]
+    preset = dict(PRESETS["balanced"])
+    reason = mark_removals(words, preset, [])
+    assert reason[1] == "filler", reason
+    assert reason[2] and reason[2].startswith("stutter"), reason
+    keep, cuts = build_segments(words, reason, preset["gap_ms"])
+    assert len(keep) == 2, keep
+    assert len(cuts) == 2, cuts
+    assert keep[1]["text"] == "the plan", keep[1]
+
+    # handles extend a segment but clamp to the media bounds
+    handled = apply_handles([{"start": 100, "end": 200, "text": "x"}], 1000, 5000)
+    assert handled[0]["start"] == 0 and handled[0]["end"] == 1200, handled
+
+    print("selftest OK: timecode, normalization, removal, segments, and handles are correct.")
+
+
 def main():
+    if len(sys.argv) == 2 and sys.argv[1] == "selftest":
+        cmd_selftest()
+        return
     ap = argparse.ArgumentParser(description="Transcript-driven rough cut.")
     ap.add_argument("source")
     ap.add_argument("--fps", type=float, default=30.0)

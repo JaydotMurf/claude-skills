@@ -1,0 +1,20 @@
+{
+  "target": "skills/agent-operations/goal-prompt-generator/SKILL.md",
+  "kind": "skill",
+  "fixture": "tests/evals/cases/fixtures/sample-task.md",
+  "rubric": [
+    {
+      "id": "five-sections\\tContains Objective, Definition of done, Repo constraints, Verification gates, and Stop conditions.",
+      "criterion": null
+    },
+    {
+      "id": "gates-are-commands\\tEvery verification gate is a copy-pasteable command with a stated pass criterion.",
+      "criterion": null
+    },
+    {
+      "id": "self-contained\\tThe prompt stands alone with no dependency on the originating conversation.",
+      "criterion": null
+    }
+  ],
+  "notes": "Rubric derived from the target's Verification standard."
+}

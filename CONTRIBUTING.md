@@ -44,10 +44,46 @@ Skills that are too vague, too narrow, or require internal access will be closed
 
 ## Continuous integration
 
-Every pull request runs `scripts/check.sh` through the CI workflow. Run it locally before opening a PR:
+Quality is enforced in three tiers. The first tier is the merge gate and runs on
+every push and pull request; the other two run on demand.
+
+### Tier 1 — deterministic gate (runs in CI)
+
+Two scripts, both free and offline. Run them locally before opening a PR:
 
 ```bash
-bash scripts/check.sh
+bash scripts/check.sh   # static conformance
+bash scripts/test.sh    # offline behavioral tests
 ```
 
-It checks shell, Python, and JSON syntax across the repo; confirms native skills carry all six authoring elements; confirms vendored skills declare a `source:`; confirms every runbook reference resolves to a real skill; and lints native procedures for inline bold and AI-isms. Vendored skills (those marked `standard: upstream-vendored`) are exempt from the authoring and writing-rule gates but still syntax-checked.
+`check.sh` checks shell, Python, and JSON syntax across the repo; confirms native
+skills carry all six authoring elements and that their Output contract and
+Verification sections are non-empty; confirms vendored skills declare a `source:`;
+confirms every runbook reference resolves and that each runbook composes at least
+two skills; confirms `scripts/skills-index.json` is current; and lints native
+procedures for inline bold and AI-isms. Vendored skills (those marked
+`standard: upstream-vendored`) are exempt from the authoring and writing-rule
+gates but still syntax-checked.
+
+`test.sh` runs the Python selftests and drives each script-bearing skill through
+its no-key failure and argument-validation paths in a scrubbed environment, plus
+the HTML offline-safety check. No keys, no network, no spend.
+
+If you add or move a skill, regenerate the manifest so the freshness check stays
+green:
+
+```bash
+bash scripts/gen-index.sh --write
+```
+
+### Tier 2 — behavioral evals (on demand)
+
+`tests/evals/` scores skills and runbooks against rubrics drawn from their own
+Verification standards. `tests/evals/run.sh --validate` is free and offline; the
+judged run spends tokens and is intentionally kept off the merge gate. See
+`tests/evals/README.md`.
+
+### Tier 3 — verification ledger
+
+`docs/verification-ledger.md` records dated evidence from real paid or
+hardware-dependent runs. Update a skill's row when you validate it live.

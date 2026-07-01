@@ -1,0 +1,20 @@
+{
+  "target": "runbooks/video-production-line/RUNBOOK.md",
+  "kind": "runbook",
+  "fixture": "tests/evals/cases/fixtures/footage-note.md",
+  "rubric": [
+    {
+      "id": "transcript-first\\twords.json is populated and every later step reads from it.",
+      "criterion": null
+    },
+    {
+      "id": "paper-edit-approved\\tThe paper edit is approved before the timeline is built.",
+      "criterion": null
+    },
+    {
+      "id": "safety-copy\\tThe NLE step works on a duplicated timeline with no original modified.",
+      "criterion": null
+    }
+  ],
+  "notes": "Rubric derived from the target's Verification standard."
+}

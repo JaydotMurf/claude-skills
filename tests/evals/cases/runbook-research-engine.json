@@ -1,0 +1,20 @@
+{
+  "target": "runbooks/research-engine/RUNBOOK.md",
+  "kind": "runbook",
+  "fixture": "tests/evals/cases/fixtures/research-question.md",
+  "rubric": [
+    {
+      "id": "sources-converted\\tINDEX.md lists every source converted before any analysis runs.",
+      "criterion": null
+    },
+    {
+      "id": "claims-dated\\tEvery current-information claim carries a Sources entry with a URL and a date.",
+      "criterion": null
+    },
+    {
+      "id": "assumption-artifact\\tA distinct assumption-checker artifact names the most dangerous assumption plus three questions.",
+      "criterion": null
+    }
+  ],
+  "notes": "Rubric derived from the target's Verification standard."
+}

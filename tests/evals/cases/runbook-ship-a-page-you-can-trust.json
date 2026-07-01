@@ -1,0 +1,20 @@
+{
+  "target": "runbooks/ship-a-page-you-can-trust/RUNBOOK.md",
+  "kind": "runbook",
+  "fixture": "tests/evals/cases/fixtures/page-brief.md",
+  "rubric": [
+    {
+      "id": "taste-screenshot\\tThe taste step produces at least one inspected screenshot and names the sub-skill it used.",
+      "criterion": null
+    },
+    {
+      "id": "qa-evidence\\tThe browser-QA report carries evidence on every line with reproduction steps on each failure.",
+      "criterion": null
+    },
+    {
+      "id": "runbook-entry\\tdocs/testing-runbook.md gains a new entry with all six fields populated from live observation.",
+      "criterion": null
+    }
+  ],
+  "notes": "Rubric derived from the target's Verification standard."
+}

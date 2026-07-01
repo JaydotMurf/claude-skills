@@ -1,0 +1,497 @@
+{
+  "generated_by": "scripts/gen-index.sh",
+  "count": 58,
+  "skills": [
+    {
+      "name": "agentic-harness-designer",
+      "path": "skills/agent-operations/agentic-harness-designer/SKILL.md",
+      "category": "agent-operations",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "ask-workflow",
+      "path": "skills/agent-operations/ask-workflow/SKILL.md",
+      "category": "agent-operations",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "context-to-open-brain",
+      "path": "skills/agent-operations/context-to-open-brain/SKILL.md",
+      "category": "agent-operations",
+      "vendored": false,
+      "source": null,
+      "scripts": []
+    },
+    {
+      "name": "goal-prompt-generator",
+      "path": "skills/agent-operations/goal-prompt-generator/SKILL.md",
+      "category": "agent-operations",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "handoff",
+      "path": "skills/agent-operations/handoff/SKILL.md",
+      "category": "agent-operations",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "prompt-builder",
+      "path": "skills/agent-operations/prompt-builder/SKILL.md",
+      "category": "agent-operations",
+      "vendored": false,
+      "source": null,
+      "scripts": []
+    },
+    {
+      "name": "self-pr-merge",
+      "path": "skills/agent-operations/self-pr-merge/SKILL.md",
+      "category": "agent-operations",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "session-operating-map",
+      "path": "skills/agent-operations/session-operating-map/SKILL.md",
+      "category": "agent-operations",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "session-to-skill-extractor",
+      "path": "skills/agent-operations/session-to-skill-extractor/SKILL.md",
+      "category": "agent-operations",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "stakeholder-update-email",
+      "path": "skills/agent-operations/stakeholder-update-email/SKILL.md",
+      "category": "agent-operations",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/agent-operations/stakeholder-update-email/send-update.sh"
+      ]
+    },
+    {
+      "name": "starting-project-session",
+      "path": "skills/agent-operations/starting-project-session/SKILL.md",
+      "category": "agent-operations",
+      "vendored": false,
+      "source": null,
+      "scripts": []
+    },
+    {
+      "name": "visible-delegation",
+      "path": "skills/agent-operations/visible-delegation/SKILL.md",
+      "category": "agent-operations",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "writing-great-skills",
+      "path": "skills/agent-operations/writing-great-skills/SKILL.md",
+      "category": "agent-operations",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "current-info-search",
+      "path": "skills/core-infrastructure/current-info-search/SKILL.md",
+      "category": "core-infrastructure",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/core-infrastructure/current-info-search/search.sh"
+      ]
+    },
+    {
+      "name": "heavy-file-ingestion",
+      "path": "skills/core-infrastructure/heavy-file-ingestion/SKILL.md",
+      "category": "core-infrastructure",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/core-infrastructure/heavy-file-ingestion/ingest.sh"
+      ]
+    },
+    {
+      "name": "html-artifacts",
+      "path": "skills/core-infrastructure/html-artifacts/SKILL.md",
+      "category": "core-infrastructure",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/core-infrastructure/html-artifacts/check.sh"
+      ]
+    },
+    {
+      "name": "image-gateway",
+      "path": "skills/core-infrastructure/image-gateway/SKILL.md",
+      "category": "core-infrastructure",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/core-infrastructure/image-gateway/generate.sh"
+      ]
+    },
+    {
+      "name": "media-transcription",
+      "path": "skills/core-infrastructure/media-transcription/SKILL.md",
+      "category": "core-infrastructure",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/core-infrastructure/media-transcription/transcribe.sh"
+      ]
+    },
+    {
+      "name": "assumption-checker",
+      "path": "skills/research-and-thinking/assumption-checker/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "brain-dump-processor",
+      "path": "skills/research-and-thinking/brain-dump-processor/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "grill-me",
+      "path": "skills/research-and-thinking/grill-me/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "grill-with-docs",
+      "path": "skills/research-and-thinking/grill-with-docs/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "grilling",
+      "path": "skills/research-and-thinking/grilling/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "meeting-synthesis",
+      "path": "skills/research-and-thinking/meeting-synthesis/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "reading-pack-builder",
+      "path": "skills/research-and-thinking/reading-pack-builder/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "teach",
+      "path": "skills/research-and-thinking/teach/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "weekly-signal-diff",
+      "path": "skills/research-and-thinking/weekly-signal-diff/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "codebase-design",
+      "path": "skills/software-engineering/codebase-design/SKILL.md",
+      "category": "software-engineering",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "domain-modeling",
+      "path": "skills/software-engineering/domain-modeling/SKILL.md",
+      "category": "software-engineering",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "path": "skills/software-engineering/improve-codebase-architecture/SKILL.md",
+      "category": "software-engineering",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "prototype",
+      "path": "skills/software-engineering/prototype/SKILL.md",
+      "category": "software-engineering",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "setup-skills",
+      "path": "skills/software-engineering/setup-skills/SKILL.md",
+      "category": "software-engineering",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "to-issues",
+      "path": "skills/software-engineering/to-issues/SKILL.md",
+      "category": "software-engineering",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "to-prd",
+      "path": "skills/software-engineering/to-prd/SKILL.md",
+      "category": "software-engineering",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "triage",
+      "path": "skills/software-engineering/triage/SKILL.md",
+      "category": "software-engineering",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "browser-qa",
+      "path": "skills/testing-and-quality/browser-qa/SKILL.md",
+      "category": "testing-and-quality",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "diagnosing-bugs",
+      "path": "skills/testing-and-quality/diagnosing-bugs/SKILL.md",
+      "category": "testing-and-quality",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "page-testing-memory",
+      "path": "skills/testing-and-quality/page-testing-memory/SKILL.md",
+      "category": "testing-and-quality",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "python-script-checker",
+      "path": "skills/testing-and-quality/python-script-checker/SKILL.md",
+      "category": "testing-and-quality",
+      "vendored": false,
+      "source": null,
+      "scripts": []
+    },
+    {
+      "name": "tdd",
+      "path": "skills/testing-and-quality/tdd/SKILL.md",
+      "category": "testing-and-quality",
+      "vendored": true,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "testing-runbook-creator",
+      "path": "skills/testing-and-quality/testing-runbook-creator/SKILL.md",
+      "category": "testing-and-quality",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "broll-pipeline",
+      "path": "skills/video-and-media-production/broll-pipeline/SKILL.md",
+      "category": "video-and-media-production",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/video-and-media-production/broll-pipeline/Root.tsx",
+        "skills/video-and-media-production/broll-pipeline/index.ts",
+        "skills/video-and-media-production/broll-pipeline/orchestrate.sh",
+        "skills/video-and-media-production/broll-pipeline/visual-contract.tsx"
+      ]
+    },
+    {
+      "name": "nle-assistant",
+      "path": "skills/video-and-media-production/nle-assistant/SKILL.md",
+      "category": "video-and-media-production",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/video-and-media-production/nle-assistant/nle.py"
+      ]
+    },
+    {
+      "name": "radio-edit",
+      "path": "skills/video-and-media-production/radio-edit/SKILL.md",
+      "category": "video-and-media-production",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/video-and-media-production/radio-edit/radio-edit.py"
+      ]
+    },
+    {
+      "name": "essay-illustration-gallery",
+      "path": "skills/web-publishing-and-frontend/essay-illustration-gallery/SKILL.md",
+      "category": "web-publishing-and-frontend",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/web-publishing-and-frontend/essay-illustration-gallery/build-gallery.sh"
+      ]
+    },
+    {
+      "name": "frontend-taste",
+      "path": "skills/web-publishing-and-frontend/frontend-taste/SKILL.md",
+      "category": "web-publishing-and-frontend",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "data-dense-dashboard",
+      "path": "skills/web-publishing-and-frontend/frontend-taste/data-dense-dashboard/SKILL.md",
+      "category": "web-publishing-and-frontend",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "minimalist-editorial",
+      "path": "skills/web-publishing-and-frontend/frontend-taste/minimalist-editorial/SKILL.md",
+      "category": "web-publishing-and-frontend",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "premium-marketing",
+      "path": "skills/web-publishing-and-frontend/frontend-taste/premium-marketing/SKILL.md",
+      "category": "web-publishing-and-frontend",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "redesign-existing",
+      "path": "skills/web-publishing-and-frontend/frontend-taste/redesign-existing/SKILL.md",
+      "category": "web-publishing-and-frontend",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "image-model-arena",
+      "path": "skills/web-publishing-and-frontend/image-model-arena/SKILL.md",
+      "category": "web-publishing-and-frontend",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/web-publishing-and-frontend/image-model-arena/arena.sh"
+      ]
+    },
+    {
+      "name": "site-publisher",
+      "path": "skills/web-publishing-and-frontend/site-publisher/SKILL.md",
+      "category": "web-publishing-and-frontend",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": [
+        "skills/web-publishing-and-frontend/site-publisher/make-og-image.sh"
+      ]
+    },
+    {
+      "name": "visual-plan",
+      "path": "skills/web-publishing-and-frontend/visual-plan/SKILL.md",
+      "category": "web-publishing-and-frontend",
+      "vendored": true,
+      "source": "agent-native",
+      "scripts": []
+    },
+    {
+      "name": "visual-recap",
+      "path": "skills/web-publishing-and-frontend/visual-recap/SKILL.md",
+      "category": "web-publishing-and-frontend",
+      "vendored": true,
+      "source": "agent-native",
+      "scripts": []
+    },
+    {
+      "name": "audience-content-system",
+      "path": "skills/writing-voice-and-content/audience-content-system/SKILL.md",
+      "category": "writing-voice-and-content",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "branded-image-prompting",
+      "path": "skills/writing-voice-and-content/branded-image-prompting/SKILL.md",
+      "category": "writing-voice-and-content",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "my-voice",
+      "path": "skills/writing-voice-and-content/my-voice/SKILL.md",
+      "category": "writing-voice-and-content",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "release-briefing",
+      "path": "skills/writing-voice-and-content/release-briefing/SKILL.md",
+      "category": "writing-voice-and-content",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    }
+  ]
+}

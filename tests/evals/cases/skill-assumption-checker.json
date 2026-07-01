@@ -1,0 +1,20 @@
+{
+  "target": "skills/research-and-thinking/assumption-checker/SKILL.md",
+  "kind": "skill",
+  "fixture": "tests/evals/cases/fixtures/sample-plan.md",
+  "rubric": [
+    {
+      "id": "leads-with-most-dangerous\\tThe output opens with the single most dangerous assumption.",
+      "criterion": null
+    },
+    {
+      "id": "every-assumption-rated\\tEvery listed assumption carries both a load-bearing-weight and an evidence-quality rating.",
+      "criterion": null
+    },
+    {
+      "id": "three-or-fewer-questions\\tIt closes with three or fewer highest-leverage questions and no praise.",
+      "criterion": null
+    }
+  ],
+  "notes": "Rubric derived from the target's Verification standard."
+}

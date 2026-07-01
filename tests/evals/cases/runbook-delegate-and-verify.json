@@ -1,0 +1,20 @@
+{
+  "target": "runbooks/delegate-and-verify/RUNBOOK.md",
+  "kind": "runbook",
+  "fixture": "tests/evals/cases/fixtures/delegation-task.md",
+  "rubric": [
+    {
+      "id": "map-lane\\tThe operating map shows the lane with an owner and current state before delegation starts.",
+      "criterion": null
+    },
+    {
+      "id": "gates-cover-dod\\tThe goal prompt carries verification gates as exact commands covering its definition of done.",
+      "criterion": null
+    },
+    {
+      "id": "session-torn-down\\tThe gates were run and the tmux session is confirmed gone at the end.",
+      "criterion": null
+    }
+  ],
+  "notes": "Rubric derived from the target's Verification standard."
+}
