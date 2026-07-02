@@ -57,7 +57,7 @@ Skills never store keys. Each skill reads its API key from an environment variab
 
 ### Provenance and vendoring
 
-Imported skills carry a `source:` field (for example `mattpocock` or `agent-native`) and, when kept close to upstream, a `standard: upstream-vendored` marker. Vendored skills are treated as dependencies rather than forks, so their upstream update paths survive; the conformance gap per vendored skill is tracked in `docs/vendored-conformance.md`.
+Imported skills carry a `source:` field (for example `mattpocock` or `agent-native`) and, when kept close to upstream, a `standard: upstream-vendored` marker. Vendored skills are treated as dependencies rather than forks, so their upstream update paths survive; the conformance gap per vendored skill is tracked in `docs/vendored-conformance.md`. All imported skills have since been adopted natively — none currently carry the vendored marker — but the convention remains available for anything imported later.
 
 ### Three install methods
 
@@ -109,7 +109,7 @@ agent-skills/
 │   ├── SKILL-TEMPLATE.md
 │   └── RUNBOOK-TEMPLATE.md
 │
-├── skills/                         # 8 categories, 58 skill folders (39 native + 19 vendored)
+├── skills/                         # 8 categories, 58 skill folders (all 58 native)
 │   ├── core-infrastructure/        # README + 5 skills
 │   │   ├── current-info-search/    # SKILL.md + search.sh
 │   │   ├── heavy-file-ingestion/   # SKILL.md + ingest.sh
@@ -123,8 +123,8 @@ agent-skills/
 │   │   ├── meeting-synthesis/
 │   │   ├── reading-pack-builder/   # SKILL.md + template.html
 │   │   ├── weekly-signal-diff/     # SKILL.md + state.example.json
-│   │   ├── grilling/   grill-me/   grill-with-docs/   (vendored: mattpocock)
-│   │   └── teach/                  # SKILL.md + references/ (vendored)
+│   │   ├── grilling/   grill-me/   grill-with-docs/   (source: mattpocock)
+│   │   └── teach/                  # SKILL.md + references/ (source: mattpocock)
 │   │
 │   ├── writing-voice-and-content/  # README + 4 skills
 │   │   ├── audience-content-system/
@@ -153,20 +153,20 @@ agent-skills/
 │   │   ├── browser-qa/
 │   │   ├── page-testing-memory/
 │   │   ├── testing-runbook-creator/
-│   │   ├── tdd/                    # SKILL.md + references/ (vendored)
-│   │   ├── diagnosing-bugs/        # (vendored)
+│   │   ├── tdd/                    # SKILL.md + references/ (source: mattpocock)
+│   │   ├── diagnosing-bugs/        # (source: mattpocock)
 │   │   └── python-script-checker/  # (owned, built to standard)
 │   │
 │   ├── agent-operations/           # README + 13 skills
 │   │   ├── goal-prompt-generator/  visible-delegation/  session-operating-map/
 │   │   ├── self-pr-merge/  session-to-skill-extractor/  agentic-harness-designer/
 │   │   ├── stakeholder-update-email/ # SKILL.md + send-update.sh
-│   │   ├── ask-workflow/  handoff/  writing-great-skills/   (vendored)
+│   │   ├── ask-workflow/  handoff/  writing-great-skills/   (source: mattpocock)
 │   │   ├── starting-project-session/ # (owned, built to standard)
 │   │   ├── prompt-builder/         # SKILL.md + references/ (owned)
 │   │   └── context-to-open-brain/  # (owned, built to standard)
 │   │
-│   └── software-engineering/       # README + 8 skills (all vendored: mattpocock)
+│   └── software-engineering/       # README + 8 skills (all source: mattpocock)
 │       ├── codebase-design/  improve-codebase-architecture/  domain-modeling/
 │       ├── prototype/  setup-skills/  to-issues/  to-prd/  triage/
 │
@@ -403,6 +403,21 @@ A three-tier verification system so "verified" is enforced by tooling, not asser
 
 - ✅ `README.md` rewritten into a clean, professional landing page: correct scope (58 skills across eight categories, 7 runbooks), a CI status badge, and a "Built to be trusted" section surfacing the per-skill proof standards, the runtime secrets contract, and the three-tier verification. The full go-live README can still expand from this file, but the public front door is now accurate and presentable.
 
+### Skill installer and fresh-session discovery (PR #25)
+
+- ✅ `scripts/install.sh` flattens the taxonomy (`skills/<category>/<skill>/`) into the flat location Claude Code scans (`~/.claude/skills/`), fixing the problem of library skills not appearing in a fresh session. It symlinks by default so the repo stays the single source of truth, with flags for copy, project-scope, force, dry-run, list, and uninstall; nested sub-skills install inside their parent. Run live: all 54 top-level skills are symlinked and discoverable. Documented as the recommended method in `INSTALLATION.md`.
+
+### Native adoption of all vendored skills (PRs #22–#29)
+
+- ✅ All 19 formerly vendored skills adopted natively across six PRs: `codebase-design` (#22); `visual-plan` + `visual-recap`, with ~55 inline bold markers stripped to clear the writing-rule gate (#23); the four `research-and-thinking` interview/teaching skills — `grilling`, `grill-me`, `grill-with-docs`, `teach` (#26); `tdd` + `diagnosing-bugs` (#27); `ask-workflow`, `handoff`, `writing-great-skills` (#28); and the seven `software-engineering` skills — `improve-codebase-architecture`, `domain-modeling`, `prototype`, `setup-skills`, `to-issues`, `to-prd`, `triage` (#29).
+- ✅ Each gained an explicit Output contract and Verification section and dropped the `standard: upstream-vendored` marker (keeping `source:` provenance). The library is now 58/58 native with zero vendored skills; every skill meets the full six-element and writing-rule standard, enforced by `scripts/check.sh`.
+- ✅ `docs/vendored-conformance.md` rewritten to record the adoption batches and keep the vendoring convention available for future imports.
+- ✅ A latent `check.sh` bug fixed in #29: with zero vendored skills the empty `vendored_dirs` array under `set -u` threw an unbound-variable error on macOS bash 3.2; both expansions are now guarded on array length (Ubuntu CI's newer bash had not caught it). Gate green at 58 native / 0 vendored; `test.sh` 15/15.
+
+### README states 58/58 native (PR #30)
+
+- ✅ `README.md` updated to reflect all 58 skills native with no vendored exemptions, and the install line refreshed to mention `scripts/install.sh`.
+
 ---
 
 ## 5. Work In Progress
@@ -412,9 +427,8 @@ Paid-path validation, the tiered quality-test system, the README rewrite, and na
 1. Live-validate the hardware and render paths: a radio-edit EDL imported into an NLE, a broll-pipeline end-to-end render, and an nle-assistant round-trip against DaVinci Resolve Studio. Blocked on local media hardware and toolchains.
 2. Add a Remotion typecheck for `broll-pipeline/index.ts` and the `.tsx` set, which are not type-checked in this repo today (no Remotion toolchain present); wire it into CI once the toolchain is available.
 3. Grow the Tier 2 eval suite past its seed set (7 runbooks + 2 exemplar skills) and, when a model budget is approved, wire the judged run so it produces a scored report.
-4. Native adoption of vendored skills — DONE. All 19 formerly vendored skills now carry an Output contract and a Verification section and pass the native gate (the two visual skills also had their inline bold stripped to clear the writing-rule gate). No vendored skills remain; every skill in the library is held to the full six-element and writing-rule standard. `docs/vendored-conformance.md` records the adoption batches and keeps the vendoring convention available for future imports.
-5. Build the phase-2 per-harness adapter and generation layer: flatten canonical `SKILL.md` into each harness's expected location and generate per-tool rule files (Claude Code, Codex, Cursor, Gemini) from the single canonical source.
-6. Optional: verify a Resend custom domain so stakeholder-update-email can send beyond the account's own inbox; blocked on owning and verifying a domain.
+4. Build the phase-2 per-harness adapter and generation layer: flatten canonical `SKILL.md` into each harness's expected location and generate per-tool rule files (Claude Code, Codex, Cursor, Gemini) from the single canonical source. Note: `scripts/install.sh` (see Work Completed) already does the Claude Code slice of the flatten step; this item is the general, multi-harness generation layer.
+5. Optional: verify a Resend custom domain so stakeholder-update-email can send beyond the account's own inbox; blocked on owning and verifying a domain.
 
 ---
 
