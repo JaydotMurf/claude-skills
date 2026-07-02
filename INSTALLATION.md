@@ -1,8 +1,33 @@
 # Installation
 
-Three ways to use agent-skills. Choose the method that matches how you work. The examples below use Claude Code paths; other harnesses use their own skill directory, but the copy step is the same.
+The fastest path is the bulk installer. The manual methods below it are for installing a single skill by hand or into another harness.
 
-Newer skills are nested under a category folder, for example `skills/agent-operations/<skill-name>`. Copy the skill's leaf folder, the one that contains `SKILL.md`, regardless of how deep it sits.
+The library stores skills in a taxonomy (`skills/<category>/<skill>/SKILL.md`), but Claude Code only discovers a flat directory: `~/.claude/skills/<skill>/SKILL.md` (global) or `<project>/.claude/skills/<skill>/SKILL.md` (project). The installer flattens the taxonomy into that location; the manual `cp -r` steps do the same thing one skill at a time.
+
+---
+
+## Method 0 — Bulk install (recommended)
+
+Symlink every top-level skill into `~/.claude/skills` so all of them show up in a fresh Claude Code session, with the repo staying the single source of truth (edits are live):
+
+```bash
+scripts/install.sh
+```
+
+Useful flags:
+
+- `--copy` makes standalone copies instead of symlinks (survives moving the repo, but you must re-run to pick up edits).
+- `--project [DIR]` installs into `DIR/.claude/skills` (defaults to the current directory) instead of globally.
+- `--force` replaces an existing hand-copied skill directory, not just an existing symlink.
+- `--dry-run` prints what it would do and changes nothing; `--list` prints the installable skills; `--uninstall` removes the ones this repo installed.
+
+Nested sub-skills (for example `frontend-taste/<sub>/SKILL.md`) install inside their parent and are loaded on demand, not as separate top-level skills.
+
+---
+
+## Manual methods
+
+Use these to install a single skill by hand, or into a harness other than Claude Code (other harnesses use their own skill directory, but the copy step is the same). Newer skills are nested under a category folder; copy the skill's leaf folder, the one that contains `SKILL.md`, regardless of how deep it sits.
 
 ---
 
