@@ -4,7 +4,6 @@ description: Diagnosis loop for hard bugs and performance regressions. Use when 
 tags: [engineering, debugging, testing]
 audience: Software engineers and developers using Claude Code
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Diagnosing Bugs
@@ -97,3 +96,22 @@ Then ask: what would have prevented this bug? If the answer involves architectur
 - Never skip the minimisation step — it is not optional.
 - Never write the regression test after the fix; write it first.
 - Never leave `[DEBUG-...]` logs in the codebase — grep and remove them before closing.
+
+## Output contract
+
+A fixed bug backed by evidence, not a plausible-sounding story. The loop produces a
+named feedback command that is red-capable, deterministic, fast, and agent-runnable; a
+minimised repro; a ranked list of falsifiable hypotheses; instrumentation that maps
+one probe to one prediction; a regression test written before the fix, or a documented
+finding that no correct seam exists; and a short post-mortem naming the cause and what
+would have prevented it.
+
+## Verification
+
+The diagnosis is done when:
+
+- The original repro no longer reproduces, confirmed by re-running the Phase 1 loop.
+- The regression test passes, or the absence of a correct seam is documented as the
+  finding.
+- All `[DEBUG-...]` instrumentation and throwaway prototypes are removed (grep the
+  prefix), and the correct hypothesis is stated in the commit or PR message.

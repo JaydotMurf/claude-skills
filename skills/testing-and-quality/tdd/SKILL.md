@@ -4,7 +4,6 @@ description: Test-driven development. Use when the user wants to build features 
 tags: [engineering, testing, workflow]
 audience: Software engineers and developers using Claude Code
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Test-Driven Development
@@ -71,3 +70,23 @@ Never refactor while red. Get to green first.
 - Never test private methods or internal collaborators — test through public interfaces only.
 - Never refactor while a test is red.
 - Never write the next test before the current one is green.
+
+## Output contract
+
+Working code built test-first, one behavior at a time. The run produces an approved
+behavior-to-test plan stated as what the system does, a tracer bullet that proves the
+path end-to-end, a test per behavior that was red before any implementation, the
+minimal code that turned each test green, and a refactor pass performed only while
+green. Tests verify behavior through public interfaces, so the implementation can
+change entirely without changing them.
+
+## Verification
+
+The work is done when:
+
+- Every planned behavior has a passing test that was written and seen to fail before
+  its implementation existed.
+- All tests exercise public interfaces only — no private methods or internal
+  collaborators — and no production code exists beyond what a test required.
+- The full suite is green after the final refactor, and each refactor step was run
+  against green.

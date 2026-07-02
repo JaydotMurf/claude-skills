@@ -306,7 +306,7 @@
       "name": "diagnosing-bugs",
       "path": "skills/testing-and-quality/diagnosing-bugs/SKILL.md",
       "category": "testing-and-quality",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -330,7 +330,7 @@
       "name": "tdd",
       "path": "skills/testing-and-quality/tdd/SKILL.md",
       "category": "testing-and-quality",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
