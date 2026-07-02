@@ -5,7 +5,6 @@ tags: [productivity, learning, education]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Teach
@@ -76,3 +75,23 @@ After significant lessons or insight moments, write a learning record. These cap
 - Never design a lesson that skips the mission grounding.
 - Never inline code or styling that a second lesson would need to duplicate — write it as a shared asset instead.
 - Never ask for wisdom-level questions — delegate those to a community.
+
+## Output contract
+
+A teaching workspace in the current directory that grows across sessions: `MISSION.md`,
+`RESOURCES.md`, `NOTES.md`, one self-contained HTML lesson per file in `./lessons/`, a
+matching compressed doc in `./reference/`, learning records in `./learning-records/`,
+and shared components in `./assets/`. Each session produces one tightly scoped lesson
+tied to the mission, plus its reference doc and — after a significant lesson — a
+learning record.
+
+## Verification
+
+A session's output is done when:
+
+- The lesson is a single self-contained HTML file in `./lessons/`, scoped to one thing
+  tied to the mission, and it was opened for the user.
+- It is grounded in `RESOURCES.md` sources rather than parametric knowledge, and reuses
+  or adds shared `./assets/` rather than inlining reusable code or styling.
+- A corresponding `./reference/` doc exists, and a learning record was written when the
+  lesson or insight was significant.

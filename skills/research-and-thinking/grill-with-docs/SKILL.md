@@ -5,7 +5,6 @@ tags: [engineering, design, documentation]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Grill With Docs
@@ -22,3 +21,19 @@ Run a `/grilling` session, using the `/domain-modeling` skill.
 
 - Never use this skill without a codebase present; use `/grill-me` instead.
 - Never batch CONTEXT.md updates — write each resolved term immediately as it lands.
+
+## Output contract
+
+A sharpened plan plus its decisions persisted to the codebase. Alongside the
+in-conversation `grilling` session, each resolved term is written to `CONTEXT.md` as
+it lands and significant decisions are captured as ADRs through the `domain-modeling`
+skill.
+
+## Verification
+
+The session is done when:
+
+- The `grilling` interview resolved every branch of the design tree.
+- Each resolved term and decision was written to `CONTEXT.md` / ADRs as it landed,
+  never batched.
+- A codebase was present; `CONTEXT.md` and the ADRs reflect the decisions reached.

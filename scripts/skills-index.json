@@ -178,7 +178,7 @@
       "name": "grill-me",
       "path": "skills/research-and-thinking/grill-me/SKILL.md",
       "category": "research-and-thinking",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -186,7 +186,7 @@
       "name": "grill-with-docs",
       "path": "skills/research-and-thinking/grill-with-docs/SKILL.md",
       "category": "research-and-thinking",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -194,7 +194,7 @@
       "name": "grilling",
       "path": "skills/research-and-thinking/grilling/SKILL.md",
       "category": "research-and-thinking",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -218,7 +218,7 @@
       "name": "teach",
       "path": "skills/research-and-thinking/teach/SKILL.md",
       "category": "research-and-thinking",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },

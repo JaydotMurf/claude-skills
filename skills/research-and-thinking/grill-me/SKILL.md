@@ -5,7 +5,6 @@ tags: [productivity, design, interview]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Grill Me
@@ -24,3 +23,17 @@ Run a `/grilling` session.
 
 - Never save files to the workspace — this skill is stateless.
 - Never use this when a codebase is present; use `/grill-with-docs` instead.
+
+## Output contract
+
+A sharpened plan or design, resolved entirely in the conversation. It runs a
+`grilling` session and returns the resolved decisions inline, saving nothing to the
+workspace and building no `CONTEXT.md`.
+
+## Verification
+
+The session is done when:
+
+- The `grilling` interview resolved every branch of the design tree.
+- No file was written to the workspace — it remains unchanged.
+- No codebase was present; if one is, `grill-with-docs` is used instead.

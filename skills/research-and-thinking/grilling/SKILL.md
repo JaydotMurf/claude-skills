@@ -4,7 +4,6 @@ description: Interview the user relentlessly about a plan or design. Use when th
 tags: [productivity, design, interview]
 audience: Software engineers and developers using Claude Code
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Grilling
@@ -25,3 +24,20 @@ Keep going until every major branch is resolved and the user has no outstanding 
 
 - Never ask multiple questions at once — one at a time, every time.
 - Never skip a branch because it seems obvious; surface it and let the user confirm or redirect.
+
+## Output contract
+
+An interrogated plan whose design tree is fully resolved. The skill produces, in the
+conversation, an ordered sequence of one-at-a-time questions — each carrying the
+agent's recommended answer — walked down every branch until no dependency is left
+open. It writes no files itself; a caller such as `grill-with-docs` persists the
+decisions.
+
+## Verification
+
+The interview is done when:
+
+- Every major branch of the design tree was surfaced and resolved with the user, and
+  the user has no outstanding uncertainty.
+- Questions were asked one at a time, never batched.
+- Anything answerable from the codebase was explored rather than asked.

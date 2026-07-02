@@ -26,7 +26,7 @@ Three properties define the project:
 
 ### Skill primitives
 
-The core feature is the skill itself: a self-contained folder holding a `SKILL.md` that any agent harness can load by name. Each skill follows a six-element authoring standard — frontmatter, a trigger description, numbered steps, a "Never..." guardrail, an output contract, and a verification standard — so behavior is predictable and checkable. The library currently holds 58 skill folders across eight functional categories (42 native and 16 vendored), counting the four nested `frontend-taste` sub-skills.
+The core feature is the skill itself: a self-contained folder holding a `SKILL.md` that any agent harness can load by name. Each skill follows a six-element authoring standard — frontmatter, a trigger description, numbered steps, a "Never..." guardrail, an output contract, and a verification standard — so behavior is predictable and checkable. The library currently holds 58 skill folders across eight functional categories (46 native and 12 vendored), counting the four nested `frontend-taste` sub-skills.
 
 ### Runbook compositions
 
@@ -412,7 +412,7 @@ Paid-path validation, the tiered quality-test system, and the README rewrite are
 1. Live-validate the hardware and render paths: a radio-edit EDL imported into an NLE, a broll-pipeline end-to-end render, and an nle-assistant round-trip against DaVinci Resolve Studio. Blocked on local media hardware and toolchains.
 2. Add a Remotion typecheck for `broll-pipeline/index.ts` and the `.tsx` set, which are not type-checked in this repo today (no Remotion toolchain present); wire it into CI once the toolchain is available.
 3. Grow the Tier 2 eval suite past its seed set (7 runbooks + 2 exemplar skills) and, when a model budget is approved, wire the judged run so it produces a scored report.
-4. Continue native adoption of vendored skills where it pays off: pick the highest-traffic vendored skills, bring each to the six-element standard, drop its `standard: upstream-vendored` marker, and remove its row from `docs/vendored-conformance.md`. Three adopted so far — `software-engineering/codebase-design`, `web-publishing-and-frontend/visual-plan`, and `web-publishing-and-frontend/visual-recap` now carry an Output contract and a Verification section and pass the native gate (the two visual skills also had their inline bold stripped to clear the writing-rule gate); 16 vendored skills remain.
+4. Continue native adoption of vendored skills where it pays off: pick the highest-traffic vendored skills, bring each to the six-element standard, drop its `standard: upstream-vendored` marker, and remove its row from `docs/vendored-conformance.md`. Seven adopted so far — `software-engineering/codebase-design`, `web-publishing-and-frontend/visual-plan`, `web-publishing-and-frontend/visual-recap`, and the four `research-and-thinking` interview/teaching skills (`grilling`, `grill-me`, `grill-with-docs`, `teach`) now carry an Output contract and a Verification section and pass the native gate (the two visual skills also had their inline bold stripped to clear the writing-rule gate); 12 vendored skills remain.
 5. Build the phase-2 per-harness adapter and generation layer: flatten canonical `SKILL.md` into each harness's expected location and generate per-tool rule files (Claude Code, Codex, Cursor, Gemini) from the single canonical source.
 6. Optional: verify a Resend custom domain so stakeholder-update-email can send beyond the account's own inbox; blocked on owning and verifying a domain.
 
