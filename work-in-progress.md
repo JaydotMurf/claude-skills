@@ -2,7 +2,7 @@
 
 A living development map of the agent-skills project: what it is, what is built, what is underway, and where it is going. This file is the single source of truth for project state and is the basis from which the public README will be written before go-live.
 
-Last updated: 2026-07-02 (all 19 vendored skills adopted natively; library is 58/58 native).
+Last updated: 2026-07-02 (all 19 vendored skills adopted natively; library is 58/58 native; handoff and starting-project-session share a handoff discovery convention).
 
 ---
 
@@ -417,6 +417,10 @@ A three-tier verification system so "verified" is enforced by tooling, not asser
 ### README states 58/58 native (PR #30)
 
 - ✅ `README.md` updated to reflect all 58 skills native with no vendored exemptions, and the install line refreshed to mention `scripts/install.sh`.
+
+### Shared handoff discovery convention (PR #32)
+
+- ✅ `handoff` and `starting-project-session` now agree on one project-scoped location for handoff files: `${TMPDIR:-/tmp}/session-handoff-<project-slug>-<timestamp>.md`, where the slug is the basename of the git repo root (fallback: cwd). `handoff` writes to that exact path; `starting-project-session` gained a Step 3 that lists the newest match and reads it read-only, a `Handoff` line in the confirmation block, `allowed-tools` widened to `Read, Bash` for the lookup, and reconciled guardrails (approval is now Step 5). Verified end-to-end that a file written by the handoff convention is found by the startup lookup; `check.sh` and `test.sh` green.
 
 ---
 
