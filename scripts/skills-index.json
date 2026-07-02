@@ -14,7 +14,7 @@
       "name": "ask-workflow",
       "path": "skills/agent-operations/ask-workflow/SKILL.md",
       "category": "agent-operations",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -38,7 +38,7 @@
       "name": "handoff",
       "path": "skills/agent-operations/handoff/SKILL.md",
       "category": "agent-operations",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -104,7 +104,7 @@
       "name": "writing-great-skills",
       "path": "skills/agent-operations/writing-great-skills/SKILL.md",
       "category": "agent-operations",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },

@@ -5,7 +5,6 @@ tags: [productivity, workflow, navigation]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Ask Workflow
@@ -68,3 +67,18 @@ Off the main flow entirely.
 
 - Never direct the user to run `/triage` on issues that `/to-issues` created — those are already `ready-for-agent`.
 - Never suggest both `/grill-me` and `/grill-with-docs` for the same situation — pick the one that matches whether a codebase is present.
+
+## Output contract
+
+A routing decision delivered in the conversation: the single skill or flow that matches
+the user's situation, read off the library map — the idea-to-ship main flow, its
+on-ramps, codebase-health upkeep, the cross-session bridges, the standalone skills, and
+the `setup-skills` precondition. It names the next skill to invoke and writes nothing.
+
+## Verification
+
+The routing is done when:
+
+- The user has been pointed to exactly one matching skill or flow, not a menu.
+- The `grill-me` versus `grill-with-docs` choice matches whether a codebase is present.
+- No issue that `/to-issues` produced was routed to `/triage`.

@@ -5,7 +5,6 @@ tags: [productivity, skills, authoring]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Writing Great Skills
@@ -85,3 +84,23 @@ Hunt for opportunities to refactor skills to use leading words. A triad spelled 
 - Never write the same meaning in more than one place — keep a single source of truth for each concept.
 - Never add a step whose completion criterion is vague — make it checkable.
 - Never use bold formatting inside prose.
+
+## Output contract
+
+A skill authored or edited toward predictability. Applying the reference produces a
+deliberate invocation choice (model-invoked only when the agent or another skill must
+reach it, otherwise user-invoked), a pruned trigger-only description, content placed
+correctly on the information hierarchy with reference disclosed behind pointers, splits
+made only by invocation or sequence when they earn their cost, and leading words used
+where they collapse repetition. The deliverable is guidance applied to a skill, not a
+separate artifact.
+
+## Verification
+
+The skill under authoring or review is done when:
+
+- Each meaning lives in a single source of truth, and no no-op lines survive the
+  no-op test.
+- Every step ends on a checkable completion criterion.
+- The invocation mode matches whether the agent must reach the skill on its own, and no
+  bold formatting appears in prose.

@@ -5,7 +5,6 @@ tags: [productivity, workflow, sessions]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Handoff
@@ -33,3 +32,21 @@ If the user passed an argument, treat it as a description of what the next sessi
 - Never save the handoff document to the workspace — always write to the OS temp directory.
 - Never duplicate content from existing artifacts — reference them by path or URL.
 - Never include credentials, API keys, or PII in the handoff document.
+
+## Output contract
+
+A durable handoff markdown document written to the OS temporary directory, never the
+workspace, that lets a fresh session continue without losing context. It summarizes the
+current conversation, carries a "suggested skills" section naming what the next agent
+should invoke, references existing artifacts (PRDs, plans, ADRs, issues, commits) by
+path or URL instead of duplicating them, redacts secrets, and — when an argument was
+passed — is tailored to that next focus.
+
+## Verification
+
+The handoff is done when:
+
+- The document exists in the OS temp directory, not the workspace.
+- It names the skills the next agent should invoke and references existing artifacts
+  rather than duplicating their content.
+- It contains no credentials, API keys, or PII.
