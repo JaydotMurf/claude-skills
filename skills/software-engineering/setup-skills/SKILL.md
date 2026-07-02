@@ -5,7 +5,6 @@ tags: [engineering, setup, configuration]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Setup Skills
@@ -118,3 +117,22 @@ Confirm setup is complete and which engineering skills will now read from these 
 - Never overwrite an existing `## Agent skills` block — update it in place.
 - Never create `AGENTS.md` when `CLAUDE.md` already exists, or vice versa.
 - Never write the config files without showing the user the draft first.
+
+## Output contract
+
+A per-repo engineering-skills configuration: an `## Agent skills` block added to
+`CLAUDE.md` or `AGENTS.md` (whichever the repo already uses), plus
+`docs/agents/issue-tracker.md`, `docs/agents/triage-labels.md`, and
+`docs/agents/domain.md` recording the chosen issue tracker, the five triage-role label
+vocabulary, and the domain-doc layout. The user sees a full draft before anything is
+written.
+
+## Verification
+
+The setup is done when:
+
+- The three `docs/agents/*.md` files and the `## Agent skills` block exist, and the
+  block was updated in place rather than duplicated.
+- Only one of `CLAUDE.md` / `AGENTS.md` holds the block — neither was created when the
+  other already existed.
+- The user saw and could edit the draft before it was written.

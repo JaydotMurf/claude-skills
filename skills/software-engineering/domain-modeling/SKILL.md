@@ -4,7 +4,6 @@ description: Build and sharpen a project's domain model. Use when the user wants
 tags: [engineering, domain, documentation]
 audience: Software engineers and developers using Claude Code
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Domain Modeling
@@ -66,3 +65,21 @@ If any is missing, skip the ADR. Use the format in [references/ADR-FORMAT.md](re
 - Never add implementation details to CONTEXT.md — it is a glossary and nothing else.
 - Never offer an ADR unless all three conditions hold: hard to reverse, surprising without context, and the result of a real trade-off.
 - Never batch CONTEXT.md updates — capture each resolved term immediately.
+
+## Output contract
+
+A sharpened domain model, persisted as it changes: `CONTEXT.md` kept as a pure glossary
+with each resolved term written inline the moment it lands, and ADRs created only when a
+decision is hard to reverse, surprising without context, and the result of a real
+trade-off. Terms are challenged, stress-tested against concrete scenarios, and
+cross-checked against the code before they land.
+
+## Verification
+
+The modeling is done when:
+
+- Every resolved term is in `CONTEXT.md` immediately, never batched, and `CONTEXT.md`
+  holds glossary entries only — no implementation details, specs, or scratch notes.
+- Any ADR offered meets all three conditions (hard to reverse, surprising without
+  context, a real trade-off), and none was offered otherwise.
+- `CONTEXT.md` and `docs/adr/` reflect the language and decisions reached in the session.

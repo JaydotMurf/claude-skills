@@ -5,7 +5,6 @@ tags: [engineering, planning, workflow]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # To Issues
@@ -81,3 +80,22 @@ Or "None — can start immediately" if no blockers.
 - Never publish issues with horizontal slices — each issue must cut vertically through all integration layers.
 - Never close or modify any parent issue.
 - Never publish issues out of dependency order.
+
+## Output contract
+
+A set of independently-grabbable issues on the configured tracker, each a thin vertical
+(tracer-bullet) slice that cuts through every layer end-to-end, labeled
+`ready-for-agent`, following the issue template (Parent, What to build, Acceptance
+criteria, Blocked by). Any prefactoring is its own first slice, and issues are published
+in dependency order so "Blocked by" references real identifiers.
+
+## Verification
+
+The breakdown is done when:
+
+- Every published issue is a vertical slice — no horizontal, single-layer issues — and
+  each is demoable or verifiable on its own.
+- Issues were published in dependency order with resolved blocker references, and titles
+  and descriptions use the domain glossary and respect ADRs.
+- The user approved the breakdown before publishing, and no parent issue was closed or
+  modified.

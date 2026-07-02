@@ -242,7 +242,7 @@
       "name": "domain-modeling",
       "path": "skills/software-engineering/domain-modeling/SKILL.md",
       "category": "software-engineering",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -250,7 +250,7 @@
       "name": "improve-codebase-architecture",
       "path": "skills/software-engineering/improve-codebase-architecture/SKILL.md",
       "category": "software-engineering",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -258,7 +258,7 @@
       "name": "prototype",
       "path": "skills/software-engineering/prototype/SKILL.md",
       "category": "software-engineering",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -266,7 +266,7 @@
       "name": "setup-skills",
       "path": "skills/software-engineering/setup-skills/SKILL.md",
       "category": "software-engineering",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -274,7 +274,7 @@
       "name": "to-issues",
       "path": "skills/software-engineering/to-issues/SKILL.md",
       "category": "software-engineering",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -282,7 +282,7 @@
       "name": "to-prd",
       "path": "skills/software-engineering/to-prd/SKILL.md",
       "category": "software-engineering",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },
@@ -290,7 +290,7 @@
       "name": "triage",
       "path": "skills/software-engineering/triage/SKILL.md",
       "category": "software-engineering",
-      "vendored": true,
+      "vendored": false,
       "source": "mattpocock",
       "scripts": []
     },

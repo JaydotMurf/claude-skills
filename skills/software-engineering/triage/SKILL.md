@@ -5,7 +5,6 @@ tags: [engineering, workflow, issue-tracking]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Triage
@@ -89,12 +88,12 @@ Needs-info template:
 ```markdown
 ## Triage Notes
 
-**What we've established so far:**
+### What we've established so far
 
 - point 1
 - point 2
 
-**What we still need from you (@reporter):**
+### What we still need from you (@reporter)
 
 - question 1
 - question 2
@@ -109,3 +108,23 @@ If the maintainer says "move #42 to ready-for-agent", trust them and apply the r
 - Every comment or issue posted during triage must start with the AI disclaimer.
 - Never triage issues that `/to-issues` created — those are already `ready-for-agent`.
 - Never re-ask questions that are already answered in prior triage notes.
+
+## Output contract
+
+Each processed issue or PR ends carrying exactly one category role (`bug` or
+`enhancement`) and one state role (`needs-triage`, `needs-info`, `ready-for-agent`,
+`ready-for-human`, or `wontfix`), with the matching outcome applied: an agent brief, a
+human brief, triage notes, or a wontfix disposition — the latter writing an
+`.out-of-scope/` entry for a rejected enhancement but not for an already-implemented
+request. Every comment or issue posted during triage opens with the AI-disclaimer line.
+
+## Verification
+
+The triage is done when:
+
+- The item carries exactly one category role and one state role.
+- The claim was verified before any grilling — a bug reproduced from the reporter's
+  steps, or a PR diff checked out and confirmed — and the redundancy and prior-rejection
+  checks were run.
+- Every posted comment starts with the AI disclaimer, and no issue that `/to-issues`
+  created was triaged.

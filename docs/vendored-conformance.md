@@ -2,22 +2,14 @@
 
 This repo's authoring standard requires six elements in every native skill: frontmatter, a trigger description, numbered steps, a "Never..." guardrail, an output contract, and a verification standard.
 
-7 skills remain vendored — imported from external libraries and kept close to upstream rather than rewritten, so they can still be updated from source. They carry `source:` and `standard: upstream-vendored` in their frontmatter and are not held to the six-element standard while vendored. This file tracks the gap so a later native adoption knows exactly what each skill needs, and so the gap is honest rather than hidden. (12 skills have been adopted natively so far and their rows removed; the remaining 7 are all in `software-engineering`.)
-
-Policy: do not edit vendored content to close these gaps. When a vendored skill is adopted natively, drop its `standard: upstream-vendored` marker, bring it to the six-element standard, and remove its row here.
+19 skills were originally imported from external libraries and vendored — kept close to upstream rather than rewritten, marked `standard: upstream-vendored`, and exempt from the six-element standard while vendored. This file tracked the per-skill gap so a later native adoption knew exactly what each needed.
 
 ## Status
 
-All 7 vendored skills already have the first four elements: frontmatter, a trigger description, numbered steps, and a "Never..." guardrail. The gaps are in the last two elements — an explicit Output contract section and an explicit Verification standard section.
+All 19 have now been adopted natively. Each carries all six elements, the `standard: upstream-vendored` marker has been dropped (the `source:` provenance is kept), and there are no vendored skills remaining. The `check.sh` gate now holds every skill in the library to the full authoring and writing-rule standard.
 
-| Skill | Source | Output contract | Verification standard |
-|---|---|---|---|
-| software-engineering/improve-codebase-architecture | mattpocock | missing | missing |
-| software-engineering/domain-modeling | mattpocock | missing | missing |
-| software-engineering/prototype | mattpocock | missing | missing |
-| software-engineering/setup-skills | mattpocock | missing | missing |
-| software-engineering/to-issues | mattpocock | missing | missing |
-| software-engineering/to-prd | mattpocock | missing | missing |
-| software-engineering/triage | mattpocock | missing | missing |
+The adoption ran in batches: `codebase-design` (PR #22); `visual-plan` and `visual-recap`, which also had their inline bold stripped to clear the writing-rule gate (PR #23); the four `research-and-thinking` interview and teaching skills — `grilling`, `grill-me`, `grill-with-docs`, `teach` (PR #26); `testing-and-quality/tdd` and `diagnosing-bugs` (PR #27); the three `agent-operations` skills — `ask-workflow`, `handoff`, `writing-great-skills` (PR #28); and the seven `software-engineering` skills — `improve-codebase-architecture`, `domain-modeling`, `prototype`, `setup-skills`, `to-issues`, `to-prd`, `triage`.
 
-"Missing" means the skill has no section formally labeled as that element under the six-element standard; several describe their output or success criteria inline in prose. The point of native adoption is to make those explicit and verifiable, not to assume they produce nothing today.
+## Policy for future imports
+
+The vendoring convention stays available for anything imported later. A newly imported skill can carry `source:` and `standard: upstream-vendored` to sit outside the six-element gate until it is adopted natively; when it is, drop the marker, bring it to the standard, and record the adoption here. Do not edit vendored content to close gaps before adopting it natively.

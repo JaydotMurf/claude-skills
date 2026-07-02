@@ -5,14 +5,13 @@ tags: [engineering, architecture, refactoring]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Improve Codebase Architecture
 
 Surface architectural friction and propose deepening opportunities — refactors that turn shallow modules into deep ones. The aim is testability and AI-navigability.
 
-This skill is informed by the project's domain model and built on a shared design vocabulary. Run `/codebase-design` for the architecture vocabulary (module, interface, depth, seam, adapter, leverage, locality) and its principles. The domain language in `CONTEXT.md` gives names to good seams; ADRs in `docs/adr/` record decisions this skill should not re-litigate.
+This skill is informed by the project's domain model and built on a shared design vocabulary. Run `/codebase-design` for the architecture vocabulary (Module, Interface, Depth, Seam, Adapter, Leverage, Locality) and its principles. The domain language in `CONTEXT.md` gives names to good seams; ADRs in `docs/adr/` record decisions this skill should not re-litigate.
 
 ## Steps
 
@@ -38,7 +37,7 @@ The report uses Tailwind via CDN for layout and Mermaid via CDN for diagrams. Ea
 - Files involved.
 - Problem — why the current architecture causes friction.
 - Solution — plain English description of what would change.
-- Benefits — explained in terms of locality and leverage, and how tests would improve.
+- Benefits — explained in terms of Locality and Leverage, and how tests would improve.
 - Before/after diagram — side-by-side, illustrating the shallowness and the deepening.
 - Recommendation strength — `Strong`, `Worth exploring`, or `Speculative`.
 
@@ -67,3 +66,23 @@ Run `/domain-modeling` inline as decisions crystallise:
 - Never propose interfaces during Step 2 — surface candidates only; design happens in Step 3.
 - Never write the HTML report to the workspace — always write to the OS temp directory.
 - Never re-litigate a decision that has an existing ADR unless the friction is significant enough to warrant it.
+
+## Output contract
+
+A self-contained HTML architecture review written to the OS temp directory, never the
+repo, presenting deepening candidates as cards — files involved, the friction, a
+plain-English solution, benefits in Locality and Leverage terms, a before/after
+diagram, and a recommendation strength — ending in a Top Recommendation. After the user
+picks one, a grilling loop walks its design tree with `domain-modeling` run inline as
+decisions crystallise.
+
+## Verification
+
+The review is done when:
+
+- The report exists in the OS temp directory (resolved from `$TMPDIR`, else `/tmp`) and
+  was opened for the user with its absolute path given.
+- Step 2 surfaced candidates only — no interfaces were proposed there — and each used
+  the `CONTEXT.md` domain vocabulary plus the `codebase-design` architecture vocabulary.
+- Any candidate that contradicts an existing ADR is marked and was raised only when the
+  friction warranted reopening the decision.

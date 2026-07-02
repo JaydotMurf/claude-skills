@@ -5,7 +5,6 @@ tags: [engineering, prototyping, design]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # Prototype
@@ -42,3 +41,22 @@ The answer is the only thing worth keeping from a prototype. When the prototype 
 - Never treat prototype code as production code — mark it as throwaway from day one.
 - Never add persistence by default; state lives in memory unless the question is explicitly about persistence.
 - Never leave a prototype in the repo without a captured verdict — either capture the answer and delete it, or absorb the validated decision into the real code.
+
+## Output contract
+
+A throwaway prototype that answers exactly one design question — an interactive terminal
+app for a logic or state question, or several radically different UI variations on one
+route for a visual question — runnable by a single command, with no persistence or
+polish, surfacing the full relevant state after each action or variant switch. Once it
+has answered, the verdict is captured somewhere durable (commit message, ADR, issue, or
+a `NOTES.md` beside the prototype).
+
+## Verification
+
+The prototype is done when:
+
+- The branch matched the question (logic app for state/logic, UI variations for a visual
+  question), stated as an assumption at the top when the question was ambiguous.
+- The prototype answered its question and the verdict was captured durably.
+- No prototype remains in the repo without a captured verdict — it was deleted or its
+  validated decision folded into the real code.

@@ -35,6 +35,7 @@ done < <(find skills -name SKILL.md)
 
 under_vendored() {
   local path="$1" d
+  [ "${#vendored_dirs[@]}" -gt 0 ] || return 1
   for d in "${vendored_dirs[@]}"; do
     [[ "$path" == "$d"/* ]] && return 0
   done
@@ -87,10 +88,12 @@ note "checked $n native SKILL.md"
 # --- 5. provenance integrity (vendored skills declare source:) ---
 section 5 "provenance (vendored skills declare source:)"
 n=0
-for d in "${vendored_dirs[@]}"; do
-  n=$((n+1))
-  grep -q '^source:' "$d/SKILL.md" || { note "MISSING source: $d/SKILL.md"; fails=$((fails+1)); }
-done
+if [ "${#vendored_dirs[@]}" -gt 0 ]; then
+  for d in "${vendored_dirs[@]}"; do
+    n=$((n+1))
+    grep -q '^source:' "$d/SKILL.md" || { note "MISSING source: $d/SKILL.md"; fails=$((fails+1)); }
+  done
+fi
 note "checked $n vendored skills"
 
 # --- 6. runbook references resolve ---

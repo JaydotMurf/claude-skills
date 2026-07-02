@@ -5,7 +5,6 @@ tags: [engineering, planning, documentation]
 audience: Software engineers and developers using Claude Code
 disable-model-invocation: true
 source: mattpocock
-standard: upstream-vendored
 ---
 
 # To PRD
@@ -71,3 +70,21 @@ Any additional context about the feature.
 - Never interview the user — synthesize from the current conversation only.
 - Never include specific file paths or code snippets in the PRD body, except for decision-encoding prototype extracts.
 - Never close or modify any existing parent issue.
+
+## Output contract
+
+A structured PRD synthesized only from the current conversation — no interview —
+published to the configured tracker with the `ready-for-agent` label, following the
+template (Problem Statement, Solution, User Stories, Implementation Decisions, Testing
+Decisions, Out of Scope, Further Notes), written in the project's domain-glossary
+vocabulary, with the test seams confirmed with the user before writing.
+
+## Verification
+
+The PRD is done when:
+
+- It was published to the tracker with the `ready-for-agent` label and synthesized from
+  context without interviewing the user.
+- The test seams were confirmed with the user before the PRD was written.
+- The body contains no file paths or code snippets, except decision-encoding prototype
+  extracts, and no existing parent issue was closed or modified.
