@@ -1,6 +1,6 @@
 ---
 name: starting-project-session
-description: Loads project context at the start of a fresh coding agent session by reading implementation plans and design docs and any recent handoff left by the handoff skill, confirming the current phase, next step, and files to touch — then waiting for explicit go-ahead before taking any action. Use at the top of any session where prior context may have been lost, when the user says "pick up where we left off", "fresh session", "load context", "what's next", "resume the build", "let's get started on the project", or explicitly runs /init. Always trigger before any coding or editing begins.
+description: Loads project context at the start of a fresh coding agent session by reading implementation plans and design docs and any recent handoff left by the handoff skill, confirming the current phase, next step, and files to touch — then waiting for explicit go-ahead before taking any action. Use at the top of any session where prior context may have been lost, when the user says "pick up where we left off", "fresh session", "load context", "what's next", "resume the build", "let's get started on the project", or explicitly runs /init. Do not trigger for ordinary coding sessions where context is already present — only on the explicit resume phrases above or a clearly cold start.
 allowed-tools: Read, Bash
 tags: [productivity, workflow, sessions]
 audience: Software engineers and developers using Claude Code

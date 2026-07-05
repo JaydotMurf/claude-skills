@@ -4,10 +4,10 @@ description: >
   Extracts the durable, reusable knowledge from the current conversation and pushes it to
   Open Brain as discrete, retrievable captures. Use when the user says "push this to my
   brain", "save this context", "capture what we built", "log this to Open Brain", "save our
-  progress", or "I keep asking for the same thing — automate it". Also trigger proactively at
-  the end of any session that established significant decisions, tools, scripts, workflows, or
-  project structure — do not wait to be asked when a session produced durable knowledge. Do not
-  trigger for an exploratory chat that reached no decision or built nothing reusable.
+  progress", or "I keep asking for the same thing — automate it". Explicit invocation only —
+  never trigger proactively at the end of a session; the end-of-session slot belongs to
+  session-to-skill-extractor. Do not trigger for an exploratory chat that reached no decision
+  or built nothing reusable.
 tags: [productivity, knowledge-management, open-brain]
 audience: Software engineers and developers using Claude Code
 allowed-tools: mcp__claude_ai_Open_Brain__capture_thought, mcp__claude_ai_Open_Brain__search_thoughts
@@ -19,7 +19,7 @@ Extract structured, retrievable captures from the current conversation and push 
 
 ## When to use this skill
 
-Use it when the user asks to save context in any of the forms in the description, and use it proactively at the end of a session that produced durable, reusable knowledge: a script or tool, a project structure, a decision with a rationale, a recurring workflow, or an integration detail.
+Use it when the user asks to save context in any of the forms in the description. Do not run it unasked at the end of a session — end-of-session capture belongs to session-to-skill-extractor and local file memory.
 
 Do not use it for exploratory discussion that reached no decision, for content already in Open Brain, or for a session that built nothing worth retrieving later. Restraint is part of the quality bar — not every exchange becomes a capture.
 
