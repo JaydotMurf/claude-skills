@@ -1,6 +1,6 @@
 {
   "generated_by": "scripts/gen-index.sh",
-  "count": 58,
+  "count": 61,
   "skills": [
     {
       "name": "agentic-harness-designer",
@@ -199,6 +199,22 @@
       "scripts": []
     },
     {
+      "name": "intention-clarifier",
+      "path": "skills/research-and-thinking/intention-clarifier/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
+      "name": "meeting-prep",
+      "path": "skills/research-and-thinking/meeting-prep/SKILL.md",
+      "category": "research-and-thinking",
+      "vendored": false,
+      "source": "open-skills",
+      "scripts": []
+    },
+    {
       "name": "meeting-synthesis",
       "path": "skills/research-and-thinking/meeting-synthesis/SKILL.md",
       "category": "research-and-thinking",
@@ -292,6 +308,14 @@
       "category": "software-engineering",
       "vendored": false,
       "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "attack-surface",
+      "path": "skills/testing-and-quality/attack-surface/SKILL.md",
+      "category": "testing-and-quality",
+      "vendored": false,
+      "source": null,
       "scripts": []
     },
     {

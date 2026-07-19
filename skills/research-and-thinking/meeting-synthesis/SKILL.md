@@ -45,6 +45,7 @@ For each topic, produce these sections in this order:
 - Action items: each commitment, with owner and deadline where stated. Where the owner or deadline was not stated, write "owner not stated" or "no deadline stated" — do not assign one.
 - Open questions: what was raised and left unresolved.
 - Durable context: facts, constraints, or background worth keeping beyond this meeting.
+- Relationship notes: per-person soft context worth remembering for a future interaction — a stated preference, a sensitivity, a working-style signal, a commitment they own. Only when the meeting surfaced any; skip the section otherwise. File these to wherever the user keeps notes on people, not into the action items.
 
 ### Step 4 — Separate what was said from what you inferred
 
