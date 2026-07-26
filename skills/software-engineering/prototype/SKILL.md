@@ -26,21 +26,21 @@ The two branches produce very different artifacts — getting this wrong wastes 
 
 Apply these rules regardless of which branch you chose:
 
-1. Throwaway from day one. Locate the prototype close to where it will actually be used (next to the module or page it's prototyping for) so context is obvious — but name it so a casual reader can see it's a prototype.
+1. Throwaway from day one. Locate the prototype close to where it will actually be used (next to the module or page it's prototyping for) so context is obvious — but name it so a casual reader can see it's a prototype. For throwaway UI routes, obey whatever routing convention the project already uses; don't invent a new top-level structure.
 2. One command to run. Whatever the project's existing task runner supports — `pnpm <name>`, `python <path>`, etc.
 3. No persistence by default. State lives in memory. If the question explicitly involves a database, hit a scratch DB or a local file with a clear "PROTOTYPE — wipe me" name.
 4. Skip the polish. No tests, no error handling beyond what makes the prototype runnable, no abstractions.
 5. Surface the state. After every action (logic) or on every variant switch (UI), print or render the full relevant state.
 
-### Step 3 — Capture the answer
+### Step 3 — Capture the answer and the prototype
 
-The answer is the only thing worth keeping from a prototype. When the prototype has answered its question, capture the verdict somewhere durable (commit message, ADR, issue, or a `NOTES.md` next to the prototype), then delete it or fold the validated decision into the real code.
+A finished prototype leaves two things worth keeping: the decision it validated and the prototype itself as a primary source. Fold the validated decision into the real code, then commit the prototype to a throwaway branch, out of main, and leave a context pointer to that branch on the implementation issue. Capture the verdict too — the answer and the question it settled — in the issue or a commit. The main branch keeps only the validated decision.
 
 ## Guardrails
 
 - Never treat prototype code as production code — mark it as throwaway from day one.
 - Never add persistence by default; state lives in memory unless the question is explicitly about persistence.
-- Never leave a prototype in the repo without a captured verdict — either capture the answer and delete it, or absorb the validated decision into the real code.
+- Never leave prototype code in the main branch — main keeps only the validated decision; the prototype itself lives on a throwaway branch with a captured verdict and a pointer from the implementation issue.
 
 ## Output contract
 
@@ -48,8 +48,10 @@ A throwaway prototype that answers exactly one design question — an interactiv
 app for a logic or state question, or several radically different UI variations on one
 route for a visual question — runnable by a single command, with no persistence or
 polish, surfacing the full relevant state after each action or variant switch. Once it
-has answered, the verdict is captured somewhere durable (commit message, ADR, issue, or
-a `NOTES.md` beside the prototype).
+has answered, the validated decision is folded into the real code, the prototype is
+committed to a throwaway branch as a primary source with a context pointer on the
+implementation issue, and the verdict — the answer and the question it settled — is
+captured in the issue or a commit.
 
 ## Verification
 
@@ -57,6 +59,9 @@ The prototype is done when:
 
 - The branch matched the question (logic app for state/logic, UI variations for a visual
   question), stated as an assumption at the top when the question was ambiguous.
-- The prototype answered its question and the verdict was captured durably.
-- No prototype remains in the repo without a captured verdict — it was deleted or its
-  validated decision folded into the real code.
+- The prototype answered its question and the verdict — the answer plus the question it
+  settled — was captured in the implementation issue or a commit.
+- The validated decision was folded into the real code, and the prototype was committed
+  to a throwaway branch, out of main, with a context pointer to that branch on the
+  implementation issue.
+- No prototype code remains in the main branch.
