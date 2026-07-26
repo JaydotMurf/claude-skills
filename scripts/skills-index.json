@@ -1,6 +1,6 @@
 {
   "generated_by": "scripts/gen-index.sh",
-  "count": 61,
+  "count": 62,
   "skills": [
     {
       "name": "agentic-harness-designer",
@@ -305,6 +305,14 @@
     {
       "name": "triage",
       "path": "skills/software-engineering/triage/SKILL.md",
+      "category": "software-engineering",
+      "vendored": false,
+      "source": "mattpocock",
+      "scripts": []
+    },
+    {
+      "name": "wayfinder",
+      "path": "skills/software-engineering/wayfinder/SKILL.md",
       "category": "software-engineering",
       "vendored": false,
       "source": "mattpocock",
