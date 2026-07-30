@@ -2,7 +2,7 @@
 
 Skills for designing, building, and shipping code: module architecture, domain modeling, throwaway prototyping, and the planning-to-issues flow.
 
-These 8 skills were reconciled into the taxonomy from the flat library (Pass 1). All are vendored from [mattpocock/skills](https://github.com/mattpocock/skills) and carry `source: mattpocock` plus `standard: upstream-vendored` in their frontmatter — they are kept close to upstream rather than rewritten to this repo's authoring standard, so they can still be updated from source.
+These 9 skills originate from [mattpocock/skills](https://github.com/mattpocock/skills) and carry `source: mattpocock` in their frontmatter. All are adopted natively — rewritten to this repo's six-element authoring standard — and are periodically diffed against upstream to pull in substantive changes.
 
 ## Skills
 
@@ -14,3 +14,4 @@ These 8 skills were reconciled into the taxonomy from the flat library (Pass 1).
 - [to-issues](to-issues/SKILL.md) — break a plan, spec, or PRD into independently-grabbable issues using tracer-bullet vertical slices. (mattpocock)
 - [to-prd](to-prd/SKILL.md) — turn the current conversation into a PRD and publish it to the project issue tracker. (mattpocock)
 - [triage](triage/SKILL.md) — move issues and external PRs through a state machine of triage roles into agent-ready briefs. (mattpocock)
+- [wayfinder](wayfinder/SKILL.md) — plan work too big for one session as a shared map of decision tickets on the issue tracker, resolved one per session until the way is clear. (mattpocock)

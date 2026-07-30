@@ -13,7 +13,7 @@ Most agent setups keep their knowledge in one sprawling system prompt that gets 
 
 ## What's inside
 
-61 skills across eight categories, chained into 7 runbooks. All 61 are native to this library and meet the same six-element authoring standard.
+62 skills across eight categories, chained into 7 runbooks. All 62 are native to this library and meet the same six-element authoring standard.
 
 - A skill is a primitive: one atomic, repeatable action, with a trigger that says when to use it and when not, numbered steps, a hard guardrail, the output it produces, and the evidence required before it calls itself done.
 - A runbook is a composition: an ordered chain of skills directed at one outcome. A skill answers what an agent can do; a runbook answers what the system can reliably produce.
@@ -39,7 +39,7 @@ Runbooks live under [`runbooks/`](runbooks/). The build prompts that generate ea
 
 Three properties keep the library auditable rather than a black box:
 
-- Every skill states its proof standard up front, so "done" means evidence exists, not that the agent produced confident language — all 61 are held to the full six-element standard, with no vendored exemptions.
+- Every skill states its proof standard up front, so "done" means evidence exists, not that the agent produced confident language — all 62 are held to the full six-element standard, with no vendored exemptions.
 - Skills never store secrets; each reads its API key from `~/.config/agent-skills/.env` at runtime, with only the [`.env.example`](.env.example) contract committed.
 - Quality is enforced in three tiers: a deterministic CI gate over every skill, behavioral evals for the highest-value skills and all runbooks, and a live-run [verification ledger](docs/verification-ledger.md) recording real cost for the API-backed skills. See [CONTRIBUTING.md](CONTRIBUTING.md) for the details.
 
